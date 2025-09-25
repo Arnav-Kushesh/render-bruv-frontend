@@ -1,0 +1,10 @@
+.ptr__pull-down--pull-more {
+  display: none !important;
+}
+
+.ptr__children {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

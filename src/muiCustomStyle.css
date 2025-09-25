@@ -1,0 +1,122 @@
+/* DataGrid */
+.MuiDataGrid-row {
+  background-color: var(--surfaceSolid);
+  font-weight: 600;
+  color: var(--element);
+}
+
+.employee-presence-table
+  .MuiDataGrid-row
+  .MuiDataGrid-cell[data-field="Zone Name"] {
+  border-top: none !important;
+}
+
+.employee-presence-table
+  .hard-border-row
+  .MuiDataGrid-cell[data-field="Zone Name"] {
+  border-top: 1px solid var(--element) !important;
+}
+
+.employee-presence-table .inactive-row {
+  color: #d12000 !important;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.employee-presence-table
+  .repeated-zone-row
+  .MuiDataGrid-cell[data-field="Zone Name"] {
+  /* display: none !important; */
+  /* opacity: 0 !important; */
+  font-size: 0;
+}
+
+.employee-presence-table .active-row {
+  font-weight: 600;
+
+  /* display: none !important; */
+}
+
+.employee-presence-table .hard-border-row {
+  /* opacity: 0.5; */
+  border-top: 1px solid var(--element) !important;
+}
+
+/* Calendar */
+.MuiPickersCalendarHeader-label {
+  text-transform: capitalize;
+}
+
+/* Calendar */
+.MuiButtonBase-root,
+.MuiTypography-root {
+  color: var(--element) !important;
+}
+
+/* For calendar */
+.MuiButtonBase-root.Mui-selected {
+  color: var(--accentAlt) !important;
+}
+
+/* Table */
+.MuiTableCell-root {
+  background-color: var(--surfaceSolid) !important;
+
+  color: var(--element) !important;
+}
+
+.MuiPaper-root {
+  background-color: var(--surfaceSolid) !important;
+  color: var(--element) !important;
+}
+
+.MuiInputBase-root:before {
+  display: none !important;
+}
+
+.MuiInputBase-root {
+  overflow: hidden !important;
+}
+
+.MuiButton-icon {
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .MuiIconButton-edgeEnd {
+  color: #999999 !important ;
+}
+
+.MuiInput-underline:before {
+  border-bottom: 1px solid var(--border) !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: #999 !important;
+}
+.MuiFormLabel-root {
+  color: #999 !important;
+}
+
+
+
+
+
+.MuiInputBase-input {
+  overflow: hidden !important;
+} */
+
+.MuiSlider-root {
+  color: var(--element) !important;
+}
+
+.MuiSlider-thumb:hover {
+  box-shadow: 0px 0px 0px 8px rgba(210, 118, 25, 0.16) !important;
+}
+
+.MuiSlider-thumb.Mui-focusVisible {
+  box-shadow: 0px 0px 0px 8px rgba(210, 118, 25, 0.16) !important;
+}

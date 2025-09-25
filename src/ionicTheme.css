@@ -1,0 +1,14 @@
+:root {
+  --wheel-highlight-background: transparent;
+  --background: transparent;
+
+  /* previous theming variables should be here */
+}
+
+.picker-before {
+  background: linear-gradient(0deg, #00000094, #000000) !important;
+}
+
+.picker-after {
+  background: linear-gradient(180deg, #00000094, #000000) !important;
+}

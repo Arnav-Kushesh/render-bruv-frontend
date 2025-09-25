@@ -1,0 +1,40 @@
+.alice-carousel {
+  margin: 0 !important;
+}
+
+.alice-carousel__dots-item:not(.__custom).__active {
+  background-color: var(--accent) !important;
+}
+
+.alice-carousel__next-btn-item,
+.alice-carousel__prev-btn-item {
+  color: var(--accent) !important;
+}
+
+.alice-carousel__dots {
+  margin-top: 18px !important;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+}
+
+.alice-carousel__dots-item {
+  opacity: 0.4;
+
+  transform: scale(0.7);
+  transition: all 0.3s ease-in-out;
+  margin: 0px !important;
+  margin-top: 5px !important;
+}
+
+.alice-carousel__dots .__active {
+  opacity: 1 !important;
+  transform: scale(1) !important ;
+}
+
+@media (max-width: 900px) {
+  .alice-carousel__dots {
+    margin-top: 7px !important;
+  }
+}

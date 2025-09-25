@@ -1,0 +1,300 @@
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family:
+    "Montserrat",
+    "Roboto",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "Roboto",
+    "Oxygen",
+    "Ubuntu",
+    "Cantarell",
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  font-family: "Montserrat", serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--element);
+  height: 100dvh;
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  height: 100dvh;
+  /* overflow-y: scroll !important; */
+  overflow: hidden !important;
+  position: relative;
+  transform: unset !important;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  background: var(--mainBackground) !important;
+  color: var(--element);
+  /* color: #e9ee95; */
+
+  /* padding-top: var(--safe-area-inset-top) !important; */
+}
+
+/* //For inactive rows in assignment history */
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+code {
+  background-color: var(--surface2);
+  width: 100%;
+  flex: 1;
+  /* padding:25px; */
+}
+
+.is-sticky {
+  border-radius: 0 0 15px 15px !important;
+  /* padding: 20px 30px !important;
+  padding-right: 0px !important; */
+}
+
+@media (max-width: 900px) {
+  .is-sticky {
+    background: var(--glassGradientHeader);
+    border: 1px solid var(--glassBorder);
+    box-shadow: var(--lightShadow);
+    padding: 10px 10px !important;
+  }
+}
+
+:root {
+  --navBarBg: #181917;
+  --highlightBackground: #171716;
+  --highlightBackgroundDark: #181818;
+  --rootBackgroundColor: #0c0c0c;
+  --rootBackgroundColor: rgb(9 9 9);
+  --rootBackgroundColor: rgb(0 0 0);
+  --coreWidth: 1300px;
+  --chapterWidth: 750px;
+  --mainPadding: 255px;
+  --mobilePadding: 17px;
+  --headerWidth: 120px;
+  --headerWidthLoggedOut: 150px;
+  --headerHeight: 110px;
+  --toastify-color-progress-dark: #333333 !important;
+}
+
+* {
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  /* font-size: 21px;
+  line-height: 27px; */
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+@keyframes strikeAnimation {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 89%;
+  }
+}
+
+@keyframes lineContainerFadeAway {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+html {
+  overflow: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  width: 50px;
+}
+
+iframe {
+  border: none !important;
+}
+
+.chrome-picker {
+  width: 100% !important;
+}
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: var(--elementDim);
+  opacity: 0.8; /* Firefox */
+  font-weight: 600;
+}
+
+.react-colorful {
+  width: 100% !important;
+  box-shadow: var(--hardShadow);
+  border-radius: 10px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* /// */
+
+.code-action-menu-container button.menu-item {
+  border: 1px solid transparent;
+  border-radius: 4px;
+  padding: 4px;
+  background: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+}
+
+.code-action-menu-container button.menu-item i.format {
+  height: 16px;
+  width: 16px;
+  opacity: 0.6;
+  display: flex;
+  color: rgba(0, 0, 0, 0.5);
+  background-size: contain;
+}
+
+.code-action-menu-container button.menu-item:hover {
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+}
+
+.code-action-menu-container button.menu-item:active {
+  background-color: rgba(223, 232, 250);
+  border: 1px solid rgba(0, 0, 0, 0.45);
+}
+
+.code-action-menu-container .prettier-wrapper {
+  position: relative;
+}
+
+.code-action-menu-container .prettier-wrapper .code-error-tips {
+  padding: 5px;
+  border-radius: 4px;
+  color: #fff;
+  background: #222;
+  margin-top: 4px;
+  position: absolute;
+  top: 26px;
+  right: 0;
+}
+
+@keyframes shadowLoop {
+  0% {
+    box-shadow: -1px 2px;
+  }
+  25% {
+    box-shadow: -1px 0px;
+  }
+  50% {
+    box-shadow: -1px -2px;
+  }
+  75% {
+    box-shadow: -1px 0px;
+  }
+  100% {
+    box-shadow: -1px 2px;
+  }
+}
+
+input[type="tel"] {
+  /* display: none; */
+  background: transparent;
+  padding: 2px;
+  border: none;
+  font-size: 21px;
+  color: var(--element);
+  padding-right: 20px;
+  /* border: */
+}
+
+.PhoneInput {
+  border: 1px solid var(--accentDim);
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.picker-highlight {
+  background-color: transparent !important;
+}
+
+:root {
+  --highlight-background: transparent;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    /* transform: translateY(20px); */
+  }
+  to {
+    opacity: 1;
+    /* transform: translateY(0); */
+  }
+}
+
+@keyframes centerScaleReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scrollableRow::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}

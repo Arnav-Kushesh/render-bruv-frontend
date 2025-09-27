@@ -10,6 +10,10 @@ const Container = styled.div`
   color: var(--element);
   border: 1px solid var(--border);
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   @media (max-width: 900px) {
     width: 80vw;
   }

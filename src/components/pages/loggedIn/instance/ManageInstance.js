@@ -71,7 +71,9 @@ export default function ManageInstance() {
       } else {
         core = (
           <>
-            <MessageBox>This instance has been terminated</MessageBox>
+            <MessageBox style={{ height: "100px" }}>
+              This instance has been terminated
+            </MessageBox>
           </>
         );
       }

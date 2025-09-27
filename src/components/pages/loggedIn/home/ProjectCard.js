@@ -109,12 +109,14 @@ const Status = styled.div`
 export default function ProjectCard({ item, onClick }) {
   const {} = useContext(Context);
 
-  item = placeholderItem;
+  // item = placeholderItem;
+
+  // let { serverInstance } = item;
 
   return (
     <InfoBox onClick={goTo(`/manage-instance/${item._id}`)}>
       <Column1>
-        <Title>{item.title}</Title>
+        <Title>{item.projectName}</Title>
 
         <Secondary>Usage: ${item.charges / 100}</Secondary>
         <Secondary>Total Time: {item.minuteRan} Mins</Secondary>

@@ -6,6 +6,9 @@ import extractEventValue from "../../../../../controllers/utils/extractEventValu
 import CustomAnimatedInput from "../../../../helperComponents/CustomAnimatedInput";
 import CustomPrimaryButton from "../../../../helperComponents/CustomPrimaryButton";
 import GpuTypeSelector from "./GpuTypeSelector";
+import LoadingSection from "../../../../helperComponents/LoadingSection";
+import { serverLine } from "../../../../../controllers/network/serverLine";
+import goTo from "../../../../../controllers/goTo";
 
 const Container = styled.div`
   display: flex;
@@ -58,8 +61,9 @@ const CustomInput = styled.input`
 export default function CreateProjectSection() {
   const { updateLoggedInUser, loggedInUser, isMobile } = useContext(Context);
 
-  const [title, setTitle] = useState("");
-  const [gpuType, setGpuType] = useState("RTX_4090");
+  const [loading, setLoading] = useState(false);
+  const [projectName, setProjectName] = useState("");
+  const [gpuId, setGpuId] = useState("RTX_4090");
 
   return (
     <Container>
@@ -69,18 +73,37 @@ export default function CreateProjectSection() {
         <CustomAnimatedInput
           style={{ width: isMobile ? "100%" : "400px" }}
           placeholder="Type Project Name Here"
-          value={title}
-          onChange={extractEventValue(setTitle)}
+          value={projectName}
+          onChange={extractEventValue(setProjectName)}
         ></CustomAnimatedInput>
 
-        <GpuTypeSelector value={gpuType} onChange={setGpuType} />
+        <GpuTypeSelector value={gpuId} onChange={setGpuId} />
       </Inputs>
 
       {/* <PrimaryButton style={{ width: "300px" }}>Create Instance</PrimaryButton> */}
 
-      <CustomPrimaryButton style={{ width: "250px" }}>
-        Create Instance
-      </CustomPrimaryButton>
+      {loading ? (
+        <LoadingSection />
+      ) : (
+        <CustomPrimaryButton onClick={createProject} style={{ width: "250px" }}>
+          Create Instance
+        </CustomPrimaryButton>
+      )}
     </Container>
   );
+
+  async function createProject() {
+    setLoading(true);
+
+    let data = await serverLine.post("/create-server-instance", {
+      gpuId,
+      projectName,
+    });
+
+    let { serverInstance } = data;
+
+    goTo(`/manage-instance/${serverInstance._id}`)();
+
+    setLoading(false);
+  }
 }

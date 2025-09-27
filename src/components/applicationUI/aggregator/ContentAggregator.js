@@ -11,7 +11,6 @@ export default function ContentAggregator({
   columns = 1,
   userId,
   purposeOverride,
-
   hideTitleSection,
   nothingFoundMessage,
   disableFilters,

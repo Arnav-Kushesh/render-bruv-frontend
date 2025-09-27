@@ -1,9 +1,6 @@
 import styled from "styled-components";
 import ProfileAggregator from "../../applicationUI/aggregator/ProfileAggregator";
 import LoggedInBoilerplate from "./LoggedInBoilerplate";
-import { useEffect, useState } from "react";
-import getUrlQuery from "../../../controllers/getUrlQuery";
-import LoadingSection from "../../helperComponents/LoadingSection";
 
 const Container = styled.div`
   display: flex;

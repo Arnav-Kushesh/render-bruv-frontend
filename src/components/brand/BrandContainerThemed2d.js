@@ -58,7 +58,8 @@ const LogoImage = styled.img`
   filter: brightness(1.3);
 
   @media (max-width: 900px) {
-    width: 62vw;
+    width: 27vw;
+    height: auto;
   }
 `;
 

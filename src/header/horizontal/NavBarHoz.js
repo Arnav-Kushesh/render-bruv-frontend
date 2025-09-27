@@ -83,6 +83,10 @@ export default function NavBarHoz() {
 
   if (!loggedInUser) return null;
 
+  // return null;
+
+  // options = [];
+
   return (
     <AnimatedNavHoz
       tabs={options}

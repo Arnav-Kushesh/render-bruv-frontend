@@ -16,21 +16,21 @@ function getNavBarOptions2({ loggedInUser, notificationCount }) {
       value: "HOME",
       label: !isMobile && "Dashboard",
       icon: isMobile && <RiHome5Line />,
-      style: isMobile && iconButtonStyle,
+      style: isMobile ? iconButtonStyle : null,
       link: "/",
     },
     {
       value: "BILLING",
       label: !isMobile && "Billing",
       icon: isMobile && <LuCreditCard />,
-      style: isMobile && iconButtonStyle,
+      style: isMobile ? iconButtonStyle : null,
       link: "/manage-billing",
     },
     {
       value: "COMMUNITY",
       label: !isMobile && "Community", //notificationCount
       icon: isMobile && <HiOutlineEmojiHappy />,
-      style: isMobile && iconButtonStyle,
+      style: isMobile ? iconButtonStyle : null,
       link: "/community",
     },
 
@@ -38,7 +38,7 @@ function getNavBarOptions2({ loggedInUser, notificationCount }) {
       value: "SUPPORT",
       label: !isMobile && "Support",
       icon: isMobile && <HiOutlineSupport />,
-      style: isMobile && iconButtonStyle,
+      style: isMobile ? iconButtonStyle : null,
       link: `/manage-post/?defaultPurpose=RAISE_ISSUE`,
     },
     {

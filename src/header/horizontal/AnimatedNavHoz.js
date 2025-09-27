@@ -12,7 +12,7 @@ const TabContainer = styled.div`
   flex-direction: row;
   /* height: 388px; */
   width: 735px;
-  width: 640px;
+  width: 615px;
   height: 51px;
 
   border: 1px solid var(--borderIntense);

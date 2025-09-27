@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import GpuTypeCard from "./GpuTypeCard";
+import supportedGpuTypes from "../../../../../data/supportedGpuTypes";
 
 const List = styled.div`
   display: flex;
@@ -9,32 +10,18 @@ const List = styled.div`
 `;
 
 export default function GpuTypeSelector({ value, onChange }) {
-  let options = [
-    {
-      name: "Basic",
-      price: "1$/Hour",
-      cardName: "GTX 4090",
-      value: "GTX_4090",
-    },
-    {
-      name: "Basic",
-      price: "1$/Hour",
-      cardName: "GTX 4090",
-      value: "GTX_4091",
-    },
-    {
-      name: "Basic",
-      price: "1$/Hour",
-      cardName: "GTX 4090",
-      value: "GTX_4092",
-    },
-  ];
+  let items = [];
 
-  return (
-    <List>
-      {options.map((item) => (
-        <GpuTypeCard value={value} onChange={onChange} item={item} />
-      ))}
-    </List>
-  );
+  for (let gpuId in supportedGpuTypes) {
+    let item = supportedGpuTypes[gpuId];
+    items.push(
+      <GpuTypeCard
+        key={gpuId}
+        value={value}
+        onChange={onChange}
+        item={{ ...item, value: gpuId }}
+      />
+    );
+  }
+  return <List>{items}</List>;
 }

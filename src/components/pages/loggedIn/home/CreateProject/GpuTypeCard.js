@@ -114,10 +114,10 @@ export default function GpuTypeCard({ item, value, onChange }) {
         style={{ filter: colorMode == "DARK" ? "invert(1)" : "unset" }}
       />
       <Column1>
-        <Title>{item.name}</Title>
+        <Title>{item.label}</Title>
 
         <Secondary>
-          {item.price} {"."} {item.cardName}
+          {item.price} {"."} {item.runpodId}
         </Secondary>
       </Column1>
     </InfoBox>

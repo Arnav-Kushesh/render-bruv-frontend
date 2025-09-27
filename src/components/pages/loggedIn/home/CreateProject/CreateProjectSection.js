@@ -59,7 +59,7 @@ export default function CreateProjectSection() {
   const { updateLoggedInUser, loggedInUser, isMobile } = useContext(Context);
 
   const [title, setTitle] = useState("");
-  const [gpuType, setGpuType] = useState("GTX_4090");
+  const [gpuType, setGpuType] = useState("RTX_4090");
 
   return (
     <Container>

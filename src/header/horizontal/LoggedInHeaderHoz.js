@@ -24,6 +24,7 @@ const TopPart = styled.div`
     flex-direction: column;
     gap: 40px;
     margin: 0;
+    /* align-items: flex-start; */
   }
 `;
 

@@ -10,13 +10,23 @@ let supportedGpuTypes = {
     runpodId: "NVIDIA GeForce RTX 5090",
     price: 180,
     label: "Super Fast",
+    secondaryLabel: "RTX 5090",
   },
   RTX_4090: {
     runpodId: "NVIDIA GeForce RTX 4090",
     price: 120,
     label: "Fast",
+    secondaryLabel: "RTX 4090",
   },
   //   RTX_3090: { runpodId: "NVIDIA GeForce RTX 3090", pricing: 120 },
 };
+
+//Add per minute price
+for (let itemId in supportedGpuTypes) {
+  let item = supportedGpuTypes[itemId];
+  item.perMinutePrice = item.price / 60;
+}
+
+console.log("Pricing", supportedGpuTypes);
 
 export default supportedGpuTypes;

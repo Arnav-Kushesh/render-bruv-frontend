@@ -117,7 +117,7 @@ export default function GpuTypeCard({ item, value, onChange }) {
         <Title>{item.label}</Title>
 
         <Secondary>
-          {item.price} {"."} {item.runpodId}
+          ${item.price / 100}/hr {"."} {item.secondaryLabel}
         </Secondary>
       </Column1>
     </InfoBox>

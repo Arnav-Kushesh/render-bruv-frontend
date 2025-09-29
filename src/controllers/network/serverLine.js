@@ -46,15 +46,23 @@ async function executer(route, body, method) {
   if (body) requestObject.body = JSON.stringify(body);
 
   // console.log(process.env);
-  let base = getServerURL();
 
-  route = base + "/api/v1" + route;
+  let isAbsoluteRoute = true;
+
+  if (route.indexOf("https://") == -1) {
+    let base = getServerURL();
+    route = base + "/api/v1" + route;
+    isAbsoluteRoute = false;
+  }
+
   // console.log(route);
   // console.log(route);
 
   let res = await fetch(route, requestObject);
 
   let jsonData = await res.json();
+
+  if (isAbsoluteRoute) return jsonData;
 
   if (jsonData.error) {
     if (jsonData.error === "Invalid user") {

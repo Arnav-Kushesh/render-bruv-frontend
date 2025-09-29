@@ -101,7 +101,8 @@ const Status = styled.div`
       color: #000;
       `;
     } else {
-      return `background-color: tomato;`;
+      return `background-color: var(--surface2); 
+      border:1px solid var(--borderDim);  opacity:0.7;`;
     }
   }}
 `;

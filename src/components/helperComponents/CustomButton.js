@@ -7,9 +7,9 @@ import Context from "../../Context.js";
 
 const ScaleOnHover = styled.div`
   transition: 0.15s ease-in-out;
-
+  transform: scale(1);
   &:hover {
-    transform: scale(1.03);
+    transform: scale(0.95);
   }
 `;
 

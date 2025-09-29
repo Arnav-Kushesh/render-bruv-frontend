@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
 import CustomLabel from "../../../applicationUI/CustomLabel";
@@ -6,6 +6,7 @@ import CustomPrimaryButton from "../../../helperComponents/CustomPrimaryButton";
 import FileCard from "./FileCard";
 import { BiDownload } from "react-icons/bi";
 import Context from "../../../../Context";
+import axios from "axios";
 
 const Container = styled.div`
   display: flex;
@@ -52,28 +53,33 @@ const CustomInput = styled.input`
   font-size: 15px;
 `;
 
-export default function FilesPanel() {
-  const { updateLoggedInUser, loggedInUser, isMobile } = useContext(Context);
+export default function FilesPanel({ podId, baseUrl }) {
+  const [data, setData] = useState(null);
 
-  const [title, setTitle] = useState("");
-  const [gpuType, setGpuType] = useState("GTX_4090");
+  useEffect(() => {
+    if (!window.fileRefreshInterval) window.fileRefreshInterval = {};
+
+    let thisInterval = window.fileRefreshInterval[podId];
+    if (thisInterval) window.clearInterval(thisInterval);
+
+    window.fileRefreshInterval[podId] = window.setInterval(() => {
+      loadItems();
+    }, 5000);
+
+    return () => {
+      let thisInterval = window.fileRefreshInterval[podId];
+      if (thisInterval) window.clearInterval(thisInterval);
+    };
+  }, []);
 
   return (
     <Container>
       <CustomLabel>Files</CustomLabel>
 
       <Items>
-        <FileCard />
-        <FileCard />
-        <FileCard />
-        <FileCard />
-        <FileCard />
-        <FileCard />
-        <FileCard />
-        <FileCard />
-        <FileCard />
-        <FileCard />
-        <FileCard />
+        {data.map((item) => (
+          <FileCard fileName={item} baseUrl={baseUrl} />
+        ))}
       </Items>
 
       <CustomPrimaryButton style={{ width: "330px", height: "60px" }}>
@@ -82,4 +88,16 @@ export default function FilesPanel() {
       </CustomPrimaryButton>
     </Container>
   );
+
+  async function loadItems() {
+    axios
+      .post(`${baseUrl}/render_list`, {}, { withCredentials: true })
+      .then((res) => {
+        if (res.status === 200) {
+          setData(res.data.data);
+
+          // console.log(get().rendered_image_list)
+        }
+      });
+  }
 }

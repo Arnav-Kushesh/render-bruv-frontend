@@ -12,6 +12,9 @@ import { GoArrowRight } from "react-icons/go";
 import { SiBlender } from "react-icons/si";
 import { PiComputerTower } from "react-icons/pi";
 import CustomLabel from "../../../applicationUI/CustomLabel";
+import BlendFileUploadSection from "./BlendFileUploadSection";
+import startRender from "./controllers/startRender";
+import stopRender from "./controllers/stopRender";
 
 const Container = styled.div`
   display: flex;
@@ -23,6 +26,18 @@ const Container = styled.div`
   border-radius: 10px;
   padding: 35px;
   padding-bottom: 60px;
+`;
+
+const Section1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  width: 410px;
+  border-radius: 10px;
+  padding: 25px 35px;
+  /* padding-bottom: 60px; */
 `;
 
 const List = styled.div`
@@ -41,7 +56,7 @@ const Inputs = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 30px;
+  gap: 22px;
   margin-bottom: 20px;
 `;
 
@@ -59,7 +74,7 @@ const CustomInput = styled.input`
 const Section = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 13px;
+  gap: 10px;
 `;
 
 let typeTabs = [
@@ -91,117 +106,148 @@ let tabContainerStyle = {
   background: "transparent",
 };
 
-let pillStyle = null;
+let pillStyle = { borderRadius: "10px" };
 
-export default function StartRenderingPanel() {
-  const { updateLoggedInUser, loggedInUser, isMobile } = useContext(Context);
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
 
-  const [title, setTitle] = useState("");
-  const [gpuType, setGpuType] = useState("GTX_4090");
-  const [type, setType] = useState("IMAGE");
-  const [engineType, setEngineType] = useState("CYCLES");
-  const [methodType, setMethodType] = useState("CUDA");
+const Part = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+`;
 
-  const [imageFrame, setImageFrame] = useState(0);
-  const [rangeStart, setRangeStart] = useState(0);
-  const [rangeEnd, setRangeEnd] = useState(100);
-
+export default function StartRenderingPanel({
+  renderSettings,
+  setRenderSettings,
+  baseUrl,
+  refreshExecutionData,
+  executionData,
+  podId,
+}) {
+  let render_status = executionData?.render_status;
   return (
-    <Container>
-      {/* <CustomLabelLarge>Start Rendering</CustomLabelLarge> */}
-      <CustomLabel>Start Rendering</CustomLabel>
-      <Inputs>
-        <CustomButton
-          style={{
-            border: "1px solid var(--elementDim2)",
-            borderRadius: "15px",
-            background: "transparent",
-            padding: "15px 35px",
-          }}
-          icon={<SiBlender />}
-        >
-          Upload Blender File
-        </CustomButton>
+    <Column>
+      <Section1>
+        <CustomLabelDim>Step 1. Upload File</CustomLabelDim>
+        <BlendFileUploadSection
+          baseUrl={baseUrl}
+          executionData={executionData}
+          refreshExecutionData={refreshExecutionData}
+        />
+      </Section1>
 
-        <Section>
-          <CustomLabelDim>Type</CustomLabelDim>
+      <Container>
+        <CustomLabelDim>Step 2. Configure</CustomLabelDim>
+        <Inputs>
+          <Section>
+            {/* <CustomLabelDim>Type</CustomLabelDim> */}
 
-          <AnimatedPillTabs
-            containerStyle={tabContainerStyle}
-            pillStyle={pillStyle}
-            value={type}
-            onChange={setType}
-            tabs={typeTabs}
-          />
-
-          {type == "RANGE" && (
-            <RangeInput>
-              <MaterialInput
-                style={pillStyle}
-                label="Start Frame"
-                type="number"
-                value={rangeStart}
-                onTextChange={setRangeStart}
-              />
-              <MaterialInput
-                style={pillStyle}
-                label="End Frame"
-                type="number"
-                value={rangeEnd}
-                onTextChange={setRangeEnd}
-              />
-            </RangeInput>
-          )}
-
-          {type == "IMAGE" && (
-            <MaterialInput
-              style={pillStyle}
-              label="Frame"
-              type="number"
-              value={imageFrame}
-              onTextChange={setImageFrame}
+            <AnimatedPillTabs
+              containerStyle={tabContainerStyle}
+              pillStyle={pillStyle}
+              value={renderSettings.renderType}
+              onChange={onChange("renderType")}
+              tabs={typeTabs}
             />
-          )}
-        </Section>
 
-        <Section>
-          <CustomLabelDim>Engine</CustomLabelDim>
+            {renderSettings.renderType == "RANGE" && (
+              <RangeInput>
+                <MaterialInput
+                  style={pillStyle}
+                  label="Start Frame"
+                  type="number"
+                  value={renderSettings.rangeStart}
+                  onTextChange={onChange("rangeStart")}
+                />
+                <MaterialInput
+                  style={pillStyle}
+                  label="End Frame"
+                  type="number"
+                  value={renderSettings.rangeEnd}
+                  onTextChange={onChange("rangeEnd")}
+                />
+              </RangeInput>
+            )}
 
-          <AnimatedPillTabs
-            containerStyle={tabContainerStyle}
-            pillStyle={pillStyle}
-            value={engineType}
-            onChange={setEngineType}
-            tabs={engineTabs}
-          />
-        </Section>
+            {renderSettings.renderType == "IMAGE" && (
+              <MaterialInput
+                style={pillStyle}
+                label="Frame"
+                type="number"
+                value={renderSettings.imageFrame}
+                onTextChange={onChange("imageFrame")}
+              />
+            )}
+          </Section>
 
-        <Section>
-          <CustomLabelDim>Method</CustomLabelDim>
+          <Section>
+            {/* <CustomLabelDim>Engine</CustomLabelDim> */}
 
-          <AnimatedPillTabs
-            containerStyle={tabContainerStyle}
-            pillStyle={pillStyle}
-            value={methodType}
-            onChange={setMethodType}
-            tabs={methodTabs}
-          />
-        </Section>
-      </Inputs>
+            <AnimatedPillTabs
+              containerStyle={tabContainerStyle}
+              pillStyle={pillStyle}
+              value={renderSettings.engineType}
+              onChange={onChange("engineType")}
+              tabs={engineTabs}
+            />
+          </Section>
 
-      <CustomPrimaryButton
-        style={{
-          width: "180px",
-          height: "55px",
-          padding: "0",
-          borderRadius: "25px",
-          gap: "25px",
-        }}
-      >
-        Start
-        {/* <PiComputerTower /> */}
-        <GoArrowRight />
-      </CustomPrimaryButton>
-    </Container>
+          <Section>
+            {/* <CustomLabelDim>Method</CustomLabelDim> */}
+
+            <AnimatedPillTabs
+              containerStyle={tabContainerStyle}
+              pillStyle={pillStyle}
+              value={renderSettings.methodType}
+              onChange={onChange("methodType")}
+              tabs={methodTabs}
+            />
+          </Section>
+        </Inputs>
+
+        <CustomPrimaryButton
+          onClick={go}
+          style={{
+            width: "180px",
+            height: "55px",
+            padding: "0",
+            borderRadius: "25px",
+            gap: "25px",
+          }}
+        >
+          Start
+          {/* <PiComputerTower /> */}
+          <GoArrowRight />
+        </CustomPrimaryButton>
+      </Container>
+    </Column>
   );
+
+  function go() {
+    if (render_status) {
+      stop();
+    } else {
+      start();
+    }
+  }
+
+  function start() {
+    startRender({ podId, baseUrl, renderSettings, executionData });
+  }
+
+  function stop() {
+    stopRender({ podId, baseUrl, refreshExecutionData, executionData });
+  }
+
+  function onChange(field) {
+    return (newVal) => {
+      let newConfig = { ...renderSettings };
+      newConfig[field] = newVal;
+      setRenderSettings(newConfig);
+    };
+  }
 }

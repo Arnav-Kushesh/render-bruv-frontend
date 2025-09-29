@@ -25,7 +25,7 @@ const InfoBox = styled.section`
   /* box-shadow: 0px 4px 0px 0 var(--shadowIntense); */
 
   &:hover {
-    transform: scale(1.02);
+    transform: scale(0.97);
   }
 `;
 
@@ -108,16 +108,17 @@ const Button = styled.div`
   font-size: 12px;
 `;
 
-export default function FileCard({ item, value }) {
+export default function FileCard({ fileName, baseUrl }) {
   const {} = useContext(Context);
 
-  item = { name: "000.png", size: 5 };
+  //   item = { name: "000.png", size: 5 };
+
   return (
     <InfoBox onClick={downloadFile}>
       <Column1>
-        <Title>{item.name}</Title>
+        <Title>{fileName}</Title>
 
-        <Secondary>{item.size} Mb</Secondary>
+        <Secondary>Image</Secondary>
       </Column1>
 
       <Button>
@@ -126,5 +127,8 @@ export default function FileCard({ item, value }) {
     </InfoBox>
   );
 
-  function downloadFile() {}
+  function downloadFile() {
+    let link = `${baseUrl}/images/${fileName}`;
+    window.open(link, "_blank");
+  }
 }

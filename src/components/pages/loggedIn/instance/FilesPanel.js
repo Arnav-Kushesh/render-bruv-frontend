@@ -77,9 +77,8 @@ export default function FilesPanel({ podId, baseUrl }) {
       <CustomLabel>Files</CustomLabel>
 
       <Items>
-        {data.map((item) => (
-          <FileCard fileName={item} baseUrl={baseUrl} />
-        ))}
+        {data &&
+          data.map((item) => <FileCard fileName={item} baseUrl={baseUrl} />)}
       </Items>
 
       <CustomPrimaryButton style={{ width: "330px", height: "60px" }}>

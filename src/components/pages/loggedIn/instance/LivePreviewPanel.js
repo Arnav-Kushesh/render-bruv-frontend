@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Context from "../../../../Context";
 import CustomLabel from "../../../applicationUI/CustomLabel";
@@ -8,6 +8,7 @@ import GpuTypeSelector from "../home/CreateProject/GpuTypeSelector";
 import CustomPrimaryButton from "../../../helperComponents/CustomPrimaryButton";
 import { MdMovie, MdOutlineMovie } from "react-icons/md";
 import CustomLabelDim from "../../../applicationUI/CustomLabelDim";
+import getSocketConnection from "./controllers/getSocketConnection";
 
 const Container = styled.div`
   display: flex;
@@ -67,13 +68,33 @@ const EmptyStateIcon = styled.div`
   opacity: 0.5;
 `;
 
-const EmptyStateText = styled.div``;
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
 
-export default function LivePreviewPanel() {
-  const { updateLoggedInUser, loggedInUser, isMobile } = useContext(Context);
+const LiveImage = styled.img`
+  width: 100%;
+  height: auto;
+`;
 
-  const [title, setTitle] = useState("");
-  const [gpuType, setGpuType] = useState("GTX_4090");
+// const RenderStat = s
+
+export default function LivePreviewPanel({
+  podId,
+  baseUrl,
+  refreshExecutionData,
+}) {
+  const [liveImage, setLiveImage] = useState();
+  const [renderStat, setRenderStat] = useState();
+
+  useEffect(() => {
+    let socket = getSocketConnection({ podId, baseUrl });
+
+    socket.on("live_base64", receivedLiveImage);
+    socket.on("render_stats", receivedRenderStat);
+  }, []);
 
   let core = (
     <EmptyState>
@@ -85,6 +106,16 @@ export default function LivePreviewPanel() {
     </EmptyState>
   );
 
+  if (liveImage || renderStat) {
+    core = (
+      <Section>
+        {liveImage && <LiveImage src={liveImage} />}
+
+        {renderStat && <CustomLabelDim>{renderStat}</CustomLabelDim>}
+      </Section>
+    );
+  }
+
   return (
     <Container>
       <CustomLabel>Live Preview</CustomLabel>
@@ -92,4 +123,17 @@ export default function LivePreviewPanel() {
       {core}
     </Container>
   );
+
+  function receivedLiveImage(res) {
+    setLiveImage(res.image_string);
+  }
+
+  function receivedRenderStat(res) {
+    if (res.render_stats != "") {
+      setRenderStat(res.render_stats);
+    }
+    if (res.render_stats === "Blender quit") {
+      refreshExecutionData();
+    }
+  }
 }

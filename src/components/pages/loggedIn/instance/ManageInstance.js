@@ -15,6 +15,7 @@ import checkServerIsReady from "./controllers/checkServerIsReady";
 import CustomLabel from "../../../applicationUI/CustomLabel";
 import loadExecutionData from "./controllers/loadExecutionData";
 import getSocketConnection from "./controllers/getSocketConnection";
+import InstanceCharts from "./InstanceCharts";
 
 const Container = styled.div`
   display: flex;
@@ -145,7 +146,11 @@ export default function ManageInstance() {
             renderSettings={renderSettings}
             setRenderSettings={setRenderSettings}
           />
-          <LivePreviewPanel />
+          <LivePreviewPanel
+            podId={data?.serverInstance?.podId}
+            baseUrl={baseUrl}
+            refreshExecutionData={refreshExecutionData}
+          />
         </Row1>
 
         <FilesPanel />
@@ -154,6 +159,8 @@ export default function ManageInstance() {
           loadData={loadData}
           itemId={data.serverInstance._id}
         />
+
+        <InstanceCharts podId={data?.serverInstance?.podId} baseUrl={baseUrl} />
       </>
     );
   }

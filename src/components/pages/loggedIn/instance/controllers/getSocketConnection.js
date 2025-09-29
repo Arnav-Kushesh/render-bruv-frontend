@@ -36,4 +36,6 @@ export default function getSocketConnection({ podId, baseUrl }) {
   theSocket.on("disconnect", () => {
     window.removeEventListener("beforeunload", handleBeforeUnload);
   });
+
+  return theSocket;
 }

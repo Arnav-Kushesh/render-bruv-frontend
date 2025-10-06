@@ -20,6 +20,7 @@ const Container = styled.div`
   height: 712.5px;
   border-radius: 10px;
   padding: 40px;
+  overflow: hidden;
 `;
 
 const List = styled.div`
@@ -71,12 +72,22 @@ const EmptyStateIcon = styled.div`
 const Section = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: flex-start;
+  gap: 25px;
+  width: 100%;
+  flex: 1;
 `;
 
 const LiveImage = styled.img`
-  width: 100%;
-  height: auto;
+  /* width: 100%; */
+  display: flex;
+  border-radius: 10px;
+  /* width: 70%; */
+  /* height: auto; */
+
+  height: 500px;
+  width: auto;
+  /* object-fit: contain; */
 `;
 
 // const RenderStat = s
@@ -111,7 +122,11 @@ export default function LivePreviewPanel({
       <Section>
         {liveImage && <LiveImage src={liveImage} />}
 
-        {renderStat && <CustomLabelDim>{renderStat}</CustomLabelDim>}
+        {renderStat && (
+          <CustomLabelDim style={{ fontSize: "13px" }}>
+            {renderStat}
+          </CustomLabelDim>
+        )}
       </Section>
     );
   }

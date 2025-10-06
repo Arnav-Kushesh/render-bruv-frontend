@@ -1,3 +1,4 @@
+import axios from "axios";
 import { serverLine } from "../../../../../controllers/network/serverLine";
 
 export default function checkServerIsReady({
@@ -6,14 +7,20 @@ export default function checkServerIsReady({
   setServerIsReady,
   setExecutionData,
 }) {
+  console.log("server ready check started", serverIsReady);
   if (window.serverReadyCheckInterval)
     window.clearInterval(window.serverReadyCheckInterval);
 
   if (!serverIsReady) {
     window.serverReadyCheckInterval = window.setInterval(async () => {
       try {
-        let newExecutionData = await serverLine.get(baseUrl + "/get_db");
-        setExecutionData(newExecutionData);
+        const res = await axios.post(
+          `${baseUrl}/get_db`,
+          {},
+          { withCredentials: true }
+        );
+
+        setExecutionData(res.data);
         setServerIsReady(true);
       } catch (e) {
         console.log("server is not yet ready");

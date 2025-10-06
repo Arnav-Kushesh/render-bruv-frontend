@@ -49,10 +49,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  width: 950px;
+  width: 100%;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
+  margin-top: 0;
 
   @media (max-width: 900px) {
     width: 100%;
@@ -71,30 +71,26 @@ export default function ReportedItemsList() {
   const [activeTab, setActiveTab] = useState("PROFILE");
 
   return (
-    <LoggedInBoilerplate titleLine1={title1} titleLine2={title2}>
-      <Center>
-        <Container>
-          <AnimatedPillTabs
-            value={activeTab}
-            onChange={setActiveTab}
-            tabs={typeOptions}
-          />
+    <Container>
+      <AnimatedPillTabs
+        value={activeTab}
+        onChange={setActiveTab}
+        tabs={typeOptions}
+      />
 
-          {activeTab == "PROFILE" ? (
-            <ProfileAggregator
-              columns={2}
-              showReportedItems={true}
-              hideTitleSection={true}
-            />
-          ) : (
-            <ContentAggregator
-              columns={2}
-              showReportedItems={true}
-              hideTitleSection={true}
-            />
-          )}
-        </Container>
-      </Center>
-    </LoggedInBoilerplate>
+      {activeTab == "PROFILE" ? (
+        <ProfileAggregator
+          columns={2}
+          showReportedItems={true}
+          hideTitleSection={true}
+        />
+      ) : (
+        <ContentAggregator
+          columns={2}
+          showReportedItems={true}
+          hideTitleSection={true}
+        />
+      )}
+    </Container>
   );
 }

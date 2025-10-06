@@ -11,7 +11,7 @@ import goTo from "../../../../controllers/goTo";
 import { BiCertification, BiLogOut, BiUser } from "react-icons/bi";
 import { MdOutlineAddModerator, MdPassword } from "react-icons/md";
 import getNavBarOptions from "../../../../data/getNavBarOptions";
-import { RiProfileLine } from "react-icons/ri";
+import { RiAdminLine, RiProfileLine } from "react-icons/ri";
 import adminAccess from "../../../../data/adminAccess";
 import { GrDocument } from "react-icons/gr";
 import { GoReport } from "react-icons/go";
@@ -57,17 +57,9 @@ export default function OptionsPage() {
       moderatorList.includes(loggedInUser.username)
     ) {
       navBarOptions.push({
-        label: "Reported Items List",
-        link: "/reported-items",
-        icon: <GoReport />,
-      });
-    }
-
-    if (adminAccess.includes(loggedInUser.username)) {
-      navBarOptions.push({
-        label: "Manage Moderators",
-        link: "/manage-moderators",
-        icon: <MdOutlineAddModerator />,
+        label: "Admin Page",
+        link: "/admin-page",
+        icon: <RiAdminLine />,
       });
     }
   }

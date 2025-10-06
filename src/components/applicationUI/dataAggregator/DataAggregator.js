@@ -125,6 +125,8 @@ export default function DataAggregator({
   buttons,
   hideTitleSection,
   showReportedItems,
+  overrideCardStyle,
+  disableSearch,
 }) {
   const { isMobile } = useContext(Context);
   const [currentPage, setCurrentPage] = useState(0);
@@ -162,6 +164,7 @@ export default function DataAggregator({
         gap="10px"
         list={items.map((item) => (
           <CardComponent
+            overrideCardStyle={overrideCardStyle}
             forReportPurposes={showReportedItems ? true : false}
             onCardClick={onCardClick}
             callback={callback}
@@ -212,18 +215,20 @@ export default function DataAggregator({
           </CustomButton>
         ) : null} */}
 
-      <SearchContainer>
-        <MaterialInput
-          label={"Search"}
-          value={tmpSearch}
-          onEnter={(e) => {
-            setSearchQuery(e.target.value);
-          }}
-          onChange={(e) => {
-            setTmpSearch(e.target.value);
-          }}
-        />
-      </SearchContainer>
+      {!disableSearch && (
+        <SearchContainer>
+          <MaterialInput
+            label={"Search"}
+            value={tmpSearch}
+            onEnter={(e) => {
+              setSearchQuery(e.target.value);
+            }}
+            onChange={(e) => {
+              setTmpSearch(e.target.value);
+            }}
+          />
+        </SearchContainer>
+      )}
     </Filters>
   );
 

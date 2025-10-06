@@ -1,15 +1,18 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import getSocketConnection from "./controllers/getSocketConnection";
 import cpuChart from "./chartsControllers/cpuChart";
 import ramChart from "./chartsControllers/ramChart";
-import gpuUtilChart from "./chartsControllers/GpuUtilChart";
-import gpuMemChart from "./chartsControllers/GpuMemChart";
-import networkChart from "./chartsControllers/NetworkChart";
+import gpuUtilChart from "./chartsControllers/gpuUtilChart";
+import gpuMemChart from "./chartsControllers/gpuMemChart";
+import networkChart from "./chartsControllers/networkChart";
+import Context from "../../../../Context";
 
 const GpuTerminalContainer = styled.div`
   width: 100%;
-  background-color: #0f0f0f;
+  background-color: var(--element);
+  /* border: 1px solid var(--surface3); */
+  border-radius: 10px;
 
   canvas {
     border-radius: 1rem;
@@ -152,6 +155,7 @@ const NetworkChartDiv = styled.div`
 `;
 
 export default function InstanceCharts({ podId, baseUrl }) {
+  const { colorMode } = useContext(Context);
   useEffect(() => {
     const socket = getSocketConnection({ baseUrl, podId });
     cpuChart(socket);
@@ -162,7 +166,14 @@ export default function InstanceCharts({ podId, baseUrl }) {
   }, [baseUrl, podId]);
 
   return (
-    <GpuTerminalContainer>
+    <GpuTerminalContainer
+      style={{
+        filter:
+          colorMode == "DARK"
+            ? "invert(0) contrast(1)"
+            : "invert(1) contrast(1.2)",
+      }}
+    >
       <TerminalTopSection>
         <CpuSection>
           <CpuChartDiv id="cpu-chart" />

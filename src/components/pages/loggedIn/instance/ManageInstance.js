@@ -47,7 +47,7 @@ const Row1 = styled.div`
 `;
 
 export default function ManageInstance() {
-  const [serverIsReady, setServerIsReady] = useState();
+  const [serverIsReady, setServerIsReady] = useState(false);
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -87,12 +87,14 @@ export default function ManageInstance() {
 
   useEffect(() => {
     if (data && baseUrl) {
-      checkServerIsReady({
-        baseUrl,
-        serverIsReady,
-        setServerIsReady,
-        setExecutionData,
-      });
+      if (data.serverInstance.status == "RUNNING") {
+        checkServerIsReady({
+          baseUrl,
+          serverIsReady,
+          setServerIsReady,
+          setExecutionData,
+        });
+      }
     }
   }, [data, serverIsReady, baseUrl]);
 
@@ -135,11 +137,12 @@ export default function ManageInstance() {
   );
 
   function getServerIsReadyUi() {
+    let podId = data?.serverInstance?.podId;
     return (
       <>
         <Row1>
           <StartRenderingPanel
-            podId={data?.serverInstance?.podId}
+            podId={podId}
             executionData={executionData}
             baseUrl={baseUrl}
             refreshExecutionData={refreshExecutionData}
@@ -147,20 +150,20 @@ export default function ManageInstance() {
             setRenderSettings={setRenderSettings}
           />
           <LivePreviewPanel
-            podId={data?.serverInstance?.podId}
+            podId={podId}
             baseUrl={baseUrl}
             refreshExecutionData={refreshExecutionData}
           />
         </Row1>
 
-        <FilesPanel />
+        <FilesPanel podId={podId} baseUrl={baseUrl} />
 
         <InstanceLastSection
           loadData={loadData}
           itemId={data.serverInstance._id}
         />
 
-        <InstanceCharts podId={data?.serverInstance?.podId} baseUrl={baseUrl} />
+        <InstanceCharts podId={podId} baseUrl={baseUrl} />
       </>
     );
   }
@@ -168,7 +171,7 @@ export default function ManageInstance() {
   function getServerIsInitializingUi() {
     return (
       <>
-        <MessageBox style={{ height: "100px" }}>
+        <MessageBox style={{ height: "300px" }}>
           <LoadingSection />
           <CustomLabel>Please! wait server is being initialized</CustomLabel>
         </MessageBox>
@@ -177,7 +180,7 @@ export default function ManageInstance() {
   }
 
   function getInstanceHasBeenTerminatedUi() {
-    return getServerIsReadyUi();
+    // return getServerIsReadyUi();
     return (
       <>
         <MessageBox style={{ height: "100px" }}>

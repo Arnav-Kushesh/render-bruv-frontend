@@ -15,7 +15,7 @@ export default function startRender({
 
   let socket = getSocketConnection({ podId, baseUrl });
 
-  if (executionData.render_status === false && blend_file) {
+  if (!executionData?.render_status?.is_rendering && blend_file) {
     socket.emit("blend_engine", {
       data_sync: renderInstruction,
     });

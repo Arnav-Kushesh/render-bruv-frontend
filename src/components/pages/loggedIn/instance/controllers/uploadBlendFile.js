@@ -36,6 +36,7 @@ export default async function uploadBlendFile({
 
     // If only one chunk, we're done
     if (totalChunks === 1) {
+      setLoading(false);
       refreshExecutionData();
       return;
     }
@@ -76,8 +77,12 @@ export default async function uploadBlendFile({
       }
     );
 
+    console.log("Called all promises");
     await Promise.all(remainingPromises);
-    refreshExecutionData();
+    console.log("All promises done");
+    await refreshExecutionData();
+    console.log("Upload Complete-----");
+    setLoading(false);
   } catch (error) {
     setLoading(false);
     console.error("❌ Upload failed:", error);

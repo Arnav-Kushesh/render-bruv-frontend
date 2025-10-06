@@ -1,10 +1,8 @@
 import { useMemo, useState } from "react";
 
 import DataAggregator from "../dataAggregator/DataAggregator";
-import ngoTypes from "../../../data/ngoTypes";
 import contentPurposes from "../../../data/contentPurposeTypes";
 import ContentCard from "../../pages/loggedIn/content/ContentCard";
-import DropDownLocationInput from "../../helperComponents/DropDownLocationInput";
 import DropDownInput from "../../helperComponents/DropDownInput";
 
 export default function ContentAggregator({
@@ -19,20 +17,15 @@ export default function ContentAggregator({
   tableViewSettings,
   showReportedItems,
 }) {
-  const [type, setType] = useState("");
   const [purpose, setPurpose] = useState("");
-  const [state, setState] = useState("");
-  const [city, setCity] = useState("");
 
   const queryParams = useMemo(
     () => ({
       userId,
-      city,
-      state,
+
       purpose: purposeOverride ? purposeOverride : purpose,
-      type,
     }),
-    [userId, type, purpose, state, city, purposeOverride]
+    [userId, purpose, purposeOverride]
   );
 
   return (
@@ -46,10 +39,7 @@ export default function ContentAggregator({
       nothingFoundMessage={nothingFoundMessage}
       columns={columns}
       doReset={() => {
-        setType(null);
         setPurpose(null);
-        setState(null);
-        setCity(null);
       }}
       queryParams={queryParams}
       filters={

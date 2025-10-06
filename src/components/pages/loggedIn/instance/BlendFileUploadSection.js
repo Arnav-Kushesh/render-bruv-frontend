@@ -95,7 +95,7 @@ export default function BlendFileUploadSection({
   let blendFile = executionData?.blend_file;
 
   const onDrop = useCallback(async (files) => {
-    uploadBlendFile({
+    await uploadBlendFile({
       files,
       setUploadPercentage,
       baseUrl,

@@ -58,6 +58,7 @@ async function executer(route, body, method) {
   // console.log(route);
   // console.log(route);
 
+  console.log("fetching", route, requestObject);
   let res = await fetch(route, requestObject);
 
   let jsonData = await res.json();

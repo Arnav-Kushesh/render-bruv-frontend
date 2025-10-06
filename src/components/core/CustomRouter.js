@@ -27,7 +27,7 @@ import SelectContentType from "../pages/loggedIn/SelectContentType.js";
 import AccountsPage from "../pages/loggedIn/AccountsPage.js";
 import ReportItem from "../pages/loggedIn/report/ReportItem.js";
 import ReportedItemsList from "../pages/loggedIn/report/ReportedItemsList.js";
-import ManageModeratorList from "../pages/loggedIn/admin/ManageModeratorList.js";
+
 import AddOrEditContent from "../pages/loggedIn/content/AddOrEditContent.js";
 import ContentPage from "../pages/loggedIn/content/ContentPage.js";
 import ProfilePage from "../pages/loggedIn/profiles/ProfilePage.js";
@@ -37,6 +37,8 @@ import CommunityPage from "../pages/loggedIn/communityPage/CommunityPage.js";
 import ProfileEditOptions from "../pages/loggedIn/ProfileEditOptions.js";
 import AskBio from "../pages/loggedIn/onboarding/AskBio.js";
 import AskGender from "../pages/loggedIn/onboarding/AskGender.js";
+import ManageModeratorList from "../pages/loggedIn/admin/utils/ManageModeratorList.js";
+import AdminHomePage from "../pages/loggedIn/admin/AdminHomePage.js";
 
 const Container = styled.div`
   /* min-height: 100%; */ //don't enable this, it prevents the scroll from the working that is assigned in the boilerplate
@@ -56,6 +58,7 @@ const Container = styled.div`
 
 let pathVsComp = {
   "/": <EntryPage />,
+  "/admin-page": <AdminHomePage />,
   //Auth"
 
   "/edit-profile-options": <ProfileEditOptions />,

@@ -1,15 +1,15 @@
 import { useContext, useEffect, useState } from "react";
 
-import MaterialInput from "../../../helperComponents/MaterialInput";
+import MaterialInput from "../../../../helperComponents/MaterialInput";
 import styled from "styled-components";
-import { serverLine } from "../../../../controllers/network/serverLine";
-import Context from "../../../../Context";
-import CustomButton from "../../../helperComponents/CustomButton";
+import { serverLine } from "../../../../../controllers/network/serverLine";
+import Context from "../../../../../Context";
+import CustomButton from "../../../../helperComponents/CustomButton";
 import { BiPlus } from "react-icons/bi";
 import { MdDeleteOutline, MdDone } from "react-icons/md";
-import LoadingSection from "../../../helperComponents/LoadingSection";
-import LoggedInBoilerplate from "../LoggedInBoilerplate";
-import PrimaryButton from "../../../helperComponents/PrimaryButton";
+import LoadingSection from "../../../../helperComponents/LoadingSection";
+import LoggedInBoilerplate from "../../LoggedInBoilerplate";
+import PrimaryButton from "../../../../helperComponents/PrimaryButton";
 
 const Container = styled.div`
   display: flex;

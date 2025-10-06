@@ -58,7 +58,7 @@ export default function RecentProjectList() {
     setLoading(true);
 
     let items = await serverLine.get("/server-instances");
-    setList(items);
+    setList(items.list);
     setLoading(false);
   }
 }

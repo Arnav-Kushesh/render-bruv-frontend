@@ -128,7 +128,7 @@ export default function StartRenderingPanel({
   executionData,
   podId,
 }) {
-  let render_status = executionData?.render_status;
+  let isRendering = executionData?.render_status?.is_rendering;
   return (
     <Column>
       <Section1>
@@ -219,7 +219,7 @@ export default function StartRenderingPanel({
             gap: "25px",
           }}
         >
-          Start
+          {isRendering ? "Stop" : "Start"}
           {/* <PiComputerTower /> */}
           <GoArrowRight />
         </CustomPrimaryButton>
@@ -228,7 +228,7 @@ export default function StartRenderingPanel({
   );
 
   function go() {
-    if (render_status) {
+    if (isRendering) {
       stop();
     } else {
       start();
@@ -236,10 +236,12 @@ export default function StartRenderingPanel({
   }
 
   function start() {
+    console.log("Starting render");
     startRender({ podId, baseUrl, renderSettings, executionData });
   }
 
   function stop() {
+    console.log("Stopping render");
     stopRender({ podId, baseUrl, refreshExecutionData, executionData });
   }
 

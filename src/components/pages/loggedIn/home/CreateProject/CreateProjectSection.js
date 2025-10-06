@@ -9,6 +9,8 @@ import GpuTypeSelector from "./GpuTypeSelector";
 import LoadingSection from "../../../../helperComponents/LoadingSection";
 import { serverLine } from "../../../../../controllers/network/serverLine";
 import goTo from "../../../../../controllers/goTo";
+import CustomButton from "../../../../helperComponents/CustomButton";
+import { MdMoney } from "react-icons/md";
 
 const Container = styled.div`
   display: flex;
@@ -16,7 +18,7 @@ const Container = styled.div`
   gap: 40px;
   background-color: var(--surface);
   border: 1px solid var(--border);
-  width: 500px;
+  width: 100%;
   border-radius: 10px;
   padding: 40px;
 
@@ -25,6 +27,24 @@ const Container = styled.div`
     padding: 25px;
     padding-bottom: 50px;
   }
+`;
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 500px;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+`;
+
+const TopRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
 `;
 
 const List = styled.div`
@@ -58,38 +78,76 @@ const CustomInput = styled.input`
   font-size: 15px;
 `;
 
+const BalanceMiniCard = styled.div`
+  background-color: var(--surface);
+  padding: 15px 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  gap: 5px;
+`;
+
+const BalanceLabel = styled.div``;
+
+const BalanceValue = styled.div`
+  font-weight: 700;
+`;
+
 export default function CreateProjectSection() {
-  const { updateLoggedInUser, loggedInUser, isMobile } = useContext(Context);
+  const { loggedInUser, isMobile } = useContext(Context);
 
   const [loading, setLoading] = useState(false);
   const [projectName, setProjectName] = useState("");
   const [gpuId, setGpuId] = useState("RTX_4090");
 
+  let currentBalance = 0;
+
+  if (loggedInUser.currentBalanceInCents) {
+    currentBalance = loggedInUser.currentBalanceInCents / 100;
+  }
+
   return (
-    <Container>
-      <CustomLabel>Create Project</CustomLabel>
+    <MainContainer>
+      <TopRow>
+        <BalanceMiniCard>
+          <BalanceLabel>Balance:</BalanceLabel>
 
-      <Inputs>
-        <CustomAnimatedInput
-          style={{ width: isMobile ? "100%" : "400px" }}
-          placeholder="Type Project Name Here"
-          value={projectName}
-          onChange={extractEventValue(setProjectName)}
-        ></CustomAnimatedInput>
+          <BalanceValue>${currentBalance}</BalanceValue>
+        </BalanceMiniCard>
 
-        <GpuTypeSelector value={gpuId} onChange={setGpuId} />
-      </Inputs>
+        <CustomButton onClick={goTo("/manage-billing")} icon={<MdMoney />}>
+          Recharge
+        </CustomButton>
+      </TopRow>
+      <Container>
+        <CustomLabel>Create Project</CustomLabel>
 
-      {/* <PrimaryButton style={{ width: "300px" }}>Create Instance</PrimaryButton> */}
+        <Inputs>
+          <CustomAnimatedInput
+            style={{ width: isMobile ? "100%" : "400px" }}
+            placeholder="Type Project Name Here"
+            value={projectName}
+            onChange={extractEventValue(setProjectName)}
+          ></CustomAnimatedInput>
 
-      {loading ? (
-        <LoadingSection />
-      ) : (
-        <CustomPrimaryButton onClick={createProject} style={{ width: "250px" }}>
-          Create Instance
-        </CustomPrimaryButton>
-      )}
-    </Container>
+          <GpuTypeSelector value={gpuId} onChange={setGpuId} />
+        </Inputs>
+
+        {/* <PrimaryButton style={{ width: "300px" }}>Create Instance</PrimaryButton> */}
+
+        {loading ? (
+          <LoadingSection />
+        ) : (
+          <CustomPrimaryButton
+            onClick={createProject}
+            style={{ width: "250px" }}
+          >
+            Create Instance
+          </CustomPrimaryButton>
+        )}
+      </Container>
+    </MainContainer>
   );
 
   async function createProject() {

@@ -5,7 +5,7 @@ export default function stopRender({
   executionData,
   refreshExecutionData,
 }) {
-  if (executionData.render_status) {
+  if (executionData?.render_status?.is_rendering) {
     axios
       .post(`${baseUrl}/stop_render`, {}, { withCredentials: true })
       .then((res) => {

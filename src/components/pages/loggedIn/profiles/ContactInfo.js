@@ -1,10 +1,5 @@
-import { useContext } from "react";
-import PrimaryButton from "../../../helperComponents/PrimaryButton";
-import Context from "../../../../Context";
-import { FaDonate } from "react-icons/fa";
 import styled from "styled-components";
-import { IoCall, IoCallOutline } from "react-icons/io5";
-import CustomLabel from "../../../applicationUI/CustomLabel";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 
 const List = styled.div`
   display: flex;

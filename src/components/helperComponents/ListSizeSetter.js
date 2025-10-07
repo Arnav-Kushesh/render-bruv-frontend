@@ -1,71 +1,73 @@
 import styled from "styled-components";
-import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
 const Container = styled.div`
-  /* background-color: var(--surface); */
   display: flex;
-  flex-direction: row;
-  border-radius: 20px;
-  gap: 1px;
-  overflow: hidden;
-  height: 40px;
-  /* width: 102px; */
-  color: var(--element);
-  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
 `;
 
-const Button = styled.div`
-  height: 40px;
-  width: 40px;
+const MainContainer = styled.div`
   display: flex;
-  border-radius: 5px;
+  flex-direction: row;
+  gap: 10px;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
+`;
+
+const Label = styled.button`
+  padding: 12px 15px;
+  border: none;
+  border-radius: 15px;
+  font-size: 15px;
+  opacity: 0.7;
+  text-transform: capitalize;
+  background-color: ${({ active }) =>
+    active ? "var(--element)" : "var(--surface)"};
+  color: ${({ active }) => (active ? "var(--surfaceSolid)" : "var(--element)")};
   cursor: pointer;
-  background-color: var(--surface);
+  transition: background-color 0.2s ease;
 
   &:hover {
     background-color: var(--surface2);
   }
 `;
 
-const PageName = styled.div`
-  height: 40px;
-  padding: 0 10px;
-  /* width: 20px; */
-  background-color: var(--surface2);
-  display: flex;
-  text-transform: capitalize;
-  justify-content: center;
-  align-items: center;
+const SizeButton = styled.button`
+  padding: 12px 15px;
+  border: none;
+  font-size: 15px;
+  border-radius: 15px;
+  background-color: ${({ active }) =>
+    active ? "var(--element)" : "var(--surface)"};
+  color: ${({ active }) => (active ? "var(--surfaceSolid)" : "var(--element)")};
 
-  @media (max-width: 900px) {
-    flex: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border: 1px solid var(--border);
+
+  &:hover {
+    background-color: var(--surface2);
   }
 `;
 
 export default function ListSizeSetter({ value = 10, onChange }) {
+  const sizes = [10, 50, 100, 200, 500, 5000];
+
   return (
-    <Container>
-      <Button onClick={decrement}>
-        <RiArrowLeftSLine />
-      </Button>
-      <PageName>Elements per page : {value}</PageName>
-      <Button onClick={increment}>
-        <RiArrowRightSLine />
-      </Button>
-    </Container>
+    <MainContainer>
+      <Label>Elements Per Page</Label>
+
+      {sizes.map((size) => (
+        <SizeButton
+          key={size}
+          active={value === size}
+          onClick={() => onChange(size)}
+        >
+          {size}
+        </SizeButton>
+      ))}
+    </MainContainer>
   );
-
-  function increment() {
-    let newVal = value + 10;
-    onChange(newVal);
-  }
-
-  function decrement() {
-    let newValue = value - 10;
-
-    if (newValue <= 0) return;
-    onChange(newValue);
-  }
 }

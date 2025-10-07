@@ -155,7 +155,7 @@ export default function DataAggregator({
     doQuery(0);
   }, [itemsPerPage, queryParamsMemo, searchQuery, inheritedSearchQuery]);
 
-  if (!nothingFoundMessage) nothingFoundMessage = "List is empty"; //This list is empty
+  if (!nothingFoundMessage) nothingFoundMessage = "Empty"; //This list is empty
 
   if (viewMode !== "TABLE") tableViewSettings = null;
 
@@ -269,6 +269,15 @@ export default function DataAggregator({
 
   if (hideTitleSection) topSection = null;
 
+  let bottomPart = (
+    <BottomPart $columns={columns}>
+      <ListSizeSetter value={itemsPerPage} onChange={setItemsPerPage} />
+      <CustomPagination value={currentPage} max={maxPages} onChange={doQuery} />
+    </BottomPart>
+  );
+
+  if (!items?.length) bottomPart = null;
+
   return (
     <Container>
       {topSection}
@@ -277,16 +286,7 @@ export default function DataAggregator({
 
       <Content>{core}</Content>
 
-      {loading ? null : (
-        <BottomPart $columns={columns}>
-          <ListSizeSetter value={itemsPerPage} onChange={setItemsPerPage} />
-          <CustomPagination
-            value={currentPage}
-            max={maxPages}
-            onChange={doQuery}
-          />
-        </BottomPart>
-      )}
+      {loading ? null : bottomPart}
     </Container>
   );
 

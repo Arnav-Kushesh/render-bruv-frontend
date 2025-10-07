@@ -4,6 +4,13 @@ import BalancePanel from "./BalancePanel";
 import AddBalancePanel from "./AddBalancePanel";
 import RechargeHistory from "./RechargeHistory";
 import UsageHistory from "./UsageHistory";
+import RechargeHistoryAggregator from "../../../applicationUI/aggregator/RechargeHistoryAggregator";
+import { useContext } from "react";
+import Context from "../../../../Context";
+import LoadingSection from "../../../helperComponents/LoadingSection";
+import UserTransactionAggregator from "../../../applicationUI/aggregator/UserTransactionAggregator";
+import ElevatedSection from "../../../helperComponents/general/ElevatedSection";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 
 const Container = styled.div`
   display: flex;
@@ -66,8 +73,21 @@ export default function ManageBillingPage() {
           </Column1>
 
           <RightSection>
-            <RechargeHistory />
-            <UsageHistory />
+            <ElevatedSection style={{ flex: 1 }}>
+              <CustomLabel>Recharge History</CustomLabel>
+              <RechargeHistoryAggregator
+                hideTitleSection={true}
+                showMyData={true}
+              />
+            </ElevatedSection>
+
+            <ElevatedSection style={{ flex: 1 }}>
+              <CustomLabel>Usage Data</CustomLabel>
+              <UserTransactionAggregator
+                showMyData={true}
+                hideTitleSection={true}
+              />
+            </ElevatedSection>
           </RightSection>
         </Row1>
       </Container>

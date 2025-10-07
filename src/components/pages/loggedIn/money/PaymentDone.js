@@ -3,6 +3,8 @@ import getUrlQuery from "../../../../controllers/getUrlQuery";
 import LoggedInBoilerplate from "../LoggedInBoilerplate";
 import styled from "styled-components";
 import { MdDone } from "react-icons/md";
+import ElevatedSection from "../../../helperComponents/general/ElevatedSection";
+import GeneralGapColumn from "../../../helperComponents/general/GeneralGapColumn";
 
 const Center = styled.div`
   display: flex;
@@ -45,7 +47,7 @@ const PlanName = styled.span`
 
 const PriceTag = styled.div`
   color: var(--accentColor);
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   /* font-family: var(--headingFont); */
   color: var(--accent);
@@ -80,16 +82,18 @@ export default function PaymentDone() {
   return (
     <LoggedInBoilerplate>
       <Center>
-        <Card>
-          <Icon>
-            <MdDone />
-          </Icon>
+        <ElevatedSection>
+          <GeneralGapColumn style={{ alignItems: "center" }}>
+            <Icon>
+              <MdDone />
+            </Icon>
 
-          <CardTitle>
-            <PlanName>Payment Successful </PlanName>
-            <PriceTag> Amount : ${amountInCents / 100}</PriceTag>
-          </CardTitle>
-        </Card>
+            <CardTitle>
+              <PlanName>Payment Successful </PlanName>
+              <PriceTag> Amount : ${amountInCents / 100}</PriceTag>
+            </CardTitle>
+          </GeneralGapColumn>
+        </ElevatedSection>
       </Center>
     </LoggedInBoilerplate>
   );

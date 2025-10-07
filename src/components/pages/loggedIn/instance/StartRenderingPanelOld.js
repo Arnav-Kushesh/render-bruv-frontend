@@ -1,18 +1,13 @@
-import { useContext, useState } from "react";
 import styled from "styled-components";
-import Context from "../../../../Context";
 import CustomPrimaryButton from "../../../helperComponents/CustomPrimaryButton";
-import CustomButton from "../../../helperComponents/CustomButton";
-import { BiLogoBlender, BiUpload } from "react-icons/bi";
 import AnimatedPillTabs from "../../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabs";
 import MaterialInput from "../../../helperComponents/MaterialInput";
-import CustomLabelDim from "../../../applicationUI/CustomLabelDim";
-import CustomLabelLarge from "../../../applicationUI/CustomLabelLarge";
+
 import { GoArrowRight } from "react-icons/go";
-import { SiBlender } from "react-icons/si";
-import { PiComputerTower } from "react-icons/pi";
-import CustomLabel from "../../../applicationUI/CustomLabel";
+
 import BlendFileUploadSection from "./BlendFileUploadSection";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
+import CustomLabelDim from "../../../applicationUI/customLabel/CustomLabelDim";
 
 const Container = styled.div`
   display: flex;

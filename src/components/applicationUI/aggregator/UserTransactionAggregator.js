@@ -32,14 +32,16 @@ export default function UserTransactionAggregator({
   onCardClick,
   tableViewSettings,
   showReportedItems,
+  showMyData,
 }) {
   const [type, setType] = useState(null);
 
   const queryParams = useMemo(
     () => ({
       type: typeOverride ? typeOverride : type,
+      showMyData: showMyData,
     }),
-    [type, typeOverride]
+    [type, typeOverride, showMyData]
   );
 
   return (
@@ -59,16 +61,7 @@ export default function UserTransactionAggregator({
         setType(null);
       }}
       queryParams={queryParams}
-      filters={
-        <>
-          <DropDownInput
-            label="Type"
-            value={type}
-            options={companyTransactionTypes}
-            onChange={setType}
-          />
-        </>
-      }
+      filters={null}
       title="User Transactions"
       path="user-transactions"
       CardComponent={UserTransactionCard}

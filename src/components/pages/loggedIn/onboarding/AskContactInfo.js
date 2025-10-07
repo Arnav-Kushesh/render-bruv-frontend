@@ -5,7 +5,7 @@ import MaterialInput from "../../../helperComponents/MaterialInput";
 import styled from "styled-components";
 import { serverLine } from "../../../../controllers/network/serverLine";
 import Context from "../../../../Context";
-import CustomLabel from "../../../applicationUI/CustomLabel";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 
 const options = [
   { value: "MALE", label: "Mr" },

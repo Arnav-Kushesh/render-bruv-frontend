@@ -16,11 +16,11 @@ import getHostName from "../../../controllers/getHostName.js";
 import styled from "styled-components";
 import WithBackground from "./WithBackground.js";
 import { createTheme, ThemeProvider } from "@mui/material";
-import CustomLabel from "../../applicationUI/CustomLabel.js";
 
 import { GoogleOAuthProvider, useGoogleLogin } from "@react-oauth/google";
 import uploadGoogleAuthAccessToken from "../../../controllers/auth/uploadGoogleAuthAccessToken.js";
 import { getOnboardingComponent } from "../../../controllers/getOnboardingComponent.js";
+import CustomLabel from "../../applicationUI/customLabel/CustomLabel.js";
 
 window.nonReactLikeStatus = {};
 

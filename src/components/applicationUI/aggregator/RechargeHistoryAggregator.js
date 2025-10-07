@@ -33,14 +33,16 @@ export default function RechargeHistoryAggregator({
   tableViewSettings,
   showReportedItems,
   viewMode,
+  showMyData,
 }) {
   const [type, setType] = useState(null);
 
   const queryParams = useMemo(
     () => ({
+      showMyData,
       type: typeOverride ? typeOverride : type,
     }),
-    [type, typeOverride]
+    [type, typeOverride, showMyData]
   );
 
   return (

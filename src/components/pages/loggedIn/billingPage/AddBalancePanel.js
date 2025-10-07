@@ -112,15 +112,6 @@ export default function AddBalancePanel() {
             onChange={setAmount}
             tabs={typeTabs}
           />
-
-          {/* {amount == "CUSTOM" && (
-            <MaterialInput
-              label="Custom Amount"
-              type="number"
-              value={customAmount}
-              onTextChange={setCustomAmount}
-            />
-          )} */}
         </Section>
       </Inputs>
 
@@ -147,11 +138,12 @@ export default function AddBalancePanel() {
       let data = await serverLine.get(
         `/static-payment-link/?amountInDollars=${amount}`
       );
+
+      console.log(data);
       window.location = data;
     } catch (e) {
       window.popupAlert(e.message);
+      setLoading(false);
     }
-
-    setLoading(true);
   }
 }

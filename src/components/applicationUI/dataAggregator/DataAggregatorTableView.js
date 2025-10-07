@@ -1,6 +1,5 @@
 import { DataGrid } from "@mui/x-data-grid";
 import Paper from "@mui/material/Paper";
-import { useTranslation } from "react-i18next";
 
 import styled from "styled-components";
 

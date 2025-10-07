@@ -51,7 +51,7 @@ const Title = styled.div`
   justify-content: center;
   text-align: center;
   font-size: 17px;
-  color: var(--accent);
+  color: var(--element);
   text-transform: capitalize;
   margin-top: 20px;
 

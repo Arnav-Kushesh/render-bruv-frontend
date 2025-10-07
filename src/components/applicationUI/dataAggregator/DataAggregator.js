@@ -13,6 +13,7 @@ import LoadingSection from "../../helperComponents/LoadingSection";
 import ListSizeSetter from "../../helperComponents/ListSizeSetter";
 import { GrClose } from "react-icons/gr";
 import DataAggregatorTableView from "./DataAggregatorTableView";
+import DataAggregatorBarGraph from "./DataAggregatorBarGraph";
 
 const Container = styled.div`
   display: flex;
@@ -134,7 +135,9 @@ export default function DataAggregator({
   const { isMobile } = useContext(Context);
   const [currentPage, setCurrentPage] = useState(0);
   const [maxPages, setMaxPages] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [itemsPerPage, setItemsPerPage] = useState(
+    viewMode == "BAR_GRAPH" ? 50 : 100
+  );
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [tmpSearch, setTmpSearch] = useState("");
@@ -194,6 +197,10 @@ export default function DataAggregator({
           items={items}
         />
       );
+    }
+
+    if (viewMode == "BAR_GRAPH") {
+      core = <DataAggregatorBarGraph data={items} />;
     }
   }
 
@@ -275,6 +282,10 @@ export default function DataAggregator({
       <CustomPagination value={currentPage} max={maxPages} onChange={doQuery} />
     </BottomPart>
   );
+
+  if (viewMode == "BAR_GRAPH") {
+    bottomPart = null;
+  }
 
   if (!items?.length) bottomPart = null;
 

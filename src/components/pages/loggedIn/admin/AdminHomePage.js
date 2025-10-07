@@ -3,12 +3,9 @@ import adminAccess from "../../../../data/adminAccess";
 import MessageBox from "../../../helperComponents/MessageBox";
 import LoggedInBoilerplate from "../LoggedInBoilerplate";
 import Context from "../../../../Context";
-import AnimatedPillTabs from "../../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabs";
 import styled from "styled-components";
 import AdminAccounting from "./subpages/AdminAccounting";
-import AdminCompanyStat from "./subpages/AdminCompanyStat";
 import AdminTopUsers from "./subpages/AdminTopUsers";
-import AdminLiveServers from "./subpages/AdminServers";
 import AdminAllCompanyTransactions from "./subpages/AdminAllCompanyTransactions";
 import AdminAllUserTransactions from "./subpages/AdminAllUserTransactions";
 import ManageModeratorList from "./subpages/ManageModeratorList";
@@ -17,6 +14,13 @@ import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import AdminServers from "./subpages/AdminServers";
 import AdminAllUsers from "./subpages/AdminAllUsers";
 import AnimatedPillTabsVertical from "../../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabsVertical";
+import AdminRevenueStat from "./subpages/AdminRevenueStat";
+import AdminInstanceStat from "./subpages/AdminInstanceStat";
+import AdminSignupStat from "./subpages/AdminSignupStat";
+import AdminExpenseStat from "./subpages/AdminExpenseStat";
+import AdminProfitStat from "./subpages/AdminProfitStat";
+import ContentAggregator from "../../../applicationUI/aggregator/ContentAggregator";
+import IssuePostList from "./subpages/IssuePostList";
 
 const Container = styled.div`
   display: flex;
@@ -27,10 +31,31 @@ const Container = styled.div`
 const tabs = [
   { value: "ACCOUNTING", label: "Accounting", component: <AdminAccounting /> },
   {
-    value: "COMPANY_STATS",
-    label: "Company Stats",
-    component: <AdminCompanyStat />,
+    value: "REVENUE_STAT",
+    label: "Revenue Stats",
+    component: <AdminRevenueStat />,
   },
+  {
+    value: "PROFIT_STAT",
+    label: "Profit Stats",
+    component: <AdminProfitStat />,
+  },
+  {
+    value: "EXPENSE_STAT",
+    label: "Expense Stats",
+    component: <AdminExpenseStat />,
+  },
+  {
+    value: "SIGNUP_STAT",
+    label: "Signup Stats",
+    component: <AdminSignupStat />,
+  },
+  {
+    value: "INSTANCE_STAT",
+    label: "Instance Stats",
+    component: <AdminInstanceStat />,
+  },
+
   { value: "TOP_USERS", label: "Top Users", component: <AdminTopUsers /> },
   { value: "All_USERS", label: "Users", component: <AdminAllUsers /> },
   {
@@ -56,7 +81,7 @@ const tabs = [
   {
     value: "REPORTED_ISSUES",
     label: "Issues",
-    component: <AdminAccounting />,
+    component: <IssuePostList />,
   },
   {
     value: "REPORTED_POSTS",

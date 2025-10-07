@@ -25,6 +25,7 @@ let columnNames = [
 export default function CompanyStatAggregator({
   columns = 1,
   typeOverride,
+  durationTypeOverride,
   hideTitleSection,
   nothingFoundMessage,
   disableFilters,
@@ -39,13 +40,14 @@ export default function CompanyStatAggregator({
   const queryParams = useMemo(
     () => ({
       type: typeOverride ? typeOverride : type,
+      durationType: durationTypeOverride ? durationTypeOverride : durationType,
     }),
-    [type, typeOverride]
+    [type, durationType, durationTypeOverride, typeOverride]
   );
 
   return (
     <DataAggregator
-      viewMode
+      viewMode={viewMode}
       showReportedItems={showReportedItems}
       hideTitleSection={hideTitleSection}
       tableViewSettings={

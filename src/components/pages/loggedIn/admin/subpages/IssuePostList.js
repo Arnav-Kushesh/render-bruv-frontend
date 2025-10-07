@@ -1,5 +1,4 @@
 import ContentAggregator from "../../../../applicationUI/aggregator/ContentAggregator";
-import LoggedInBoilerplate from "../LoggedInBoilerplate";
 import styled from "styled-components";
 
 const Center = styled.div`
@@ -25,16 +24,10 @@ const Container = styled.div`
 
 export default function IssuePostList() {
   return (
-    <LoggedInBoilerplate>
-      <Center>
-        <Container>
-          <ContentAggregator
-            columns={2}
-            purposeOverride={"RAISE_ISSUE"}
-            hideTitleSection={true}
-          />
-        </Container>
-      </Center>
-    </LoggedInBoilerplate>
+    <ContentAggregator
+      columns={2}
+      purposeOverride={"RAISE_ISSUE"}
+      hideTitleSection={true}
+    />
   );
 }

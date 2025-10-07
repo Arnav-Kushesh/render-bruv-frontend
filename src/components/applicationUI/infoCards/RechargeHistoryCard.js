@@ -12,7 +12,7 @@ export default function RechargeHistoryCard({ item }) {
       <MiniGapColumn>
         <CustomLabelLarge>${item.amountInCents / 100} </CustomLabelLarge>
         <MiniGapRow>
-          <CustomLabel>{item?.user?.name} </CustomLabel>
+          {/* <CustomLabel>{item?.user?.name} </CustomLabel> */}
           <CustomLabel>{parseDate(item.createdAt)} </CustomLabel>
         </MiniGapRow>
       </MiniGapColumn>

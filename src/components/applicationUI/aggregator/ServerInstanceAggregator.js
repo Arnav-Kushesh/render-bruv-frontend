@@ -18,7 +18,7 @@ export default function ServerInstanceAggregator({
   hideTitleSection,
 
   ItemCard,
-
+  viewMode,
   showReportedItems,
 }) {
   const [status, setStatus] = useState("RUNNING");
@@ -27,6 +27,7 @@ export default function ServerInstanceAggregator({
 
   return (
     <DataAggregator
+      viewMode={viewMode}
       showReportedItems={showReportedItems}
       // hideTitleSection={true}
       onCardClick={onCardClick}

@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import Context from "../../../../Context";
-import CustomLabel from "../../../applicationUI/CustomLabel";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import CustomAnimatedInput from "../../../helperComponents/CustomAnimatedInput";
 import extractEventValue from "../../../../controllers/utils/extractEventValue";
 import GpuTypeSelector from "../home/CreateProject/GpuTypeSelector";
 import CustomPrimaryButton from "../../../helperComponents/CustomPrimaryButton";
 import { MdMovie, MdOutlineMovie } from "react-icons/md";
-import CustomLabelDim from "../../../applicationUI/CustomLabelDim";
+import CustomLabelDim from "../../../applicationUI/customLabel/CustomLabelDim";
 import getSocketConnection from "./controllers/getSocketConnection";
 
 const Container = styled.div`

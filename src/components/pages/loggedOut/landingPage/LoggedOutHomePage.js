@@ -6,7 +6,7 @@ import loginWithGoogle from "../../../../controllers/auth/loginWithGoogle";
 import { useState } from "react";
 import LoadingSection from "../../../helperComponents/LoadingSection";
 import BrandContainerThemed from "../../../brand/BrandContainerThemed";
-import CustomLabel from "../../../applicationUI/CustomLabel";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import Footer from "./Footer";
 
 const PageWrapper = styled.div`

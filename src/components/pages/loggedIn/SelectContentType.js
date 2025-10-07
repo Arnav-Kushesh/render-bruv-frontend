@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CustomLabel from "../../applicationUI/CustomLabel";
+import CustomLabel from "../../applicationUI/customLabel/CustomLabel";
 import LoggedInBoilerplate from "./LoggedInBoilerplate";
 
 import goTo from "../../../controllers/goTo";

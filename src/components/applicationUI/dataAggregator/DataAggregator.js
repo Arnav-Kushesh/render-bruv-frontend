@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import { useContext, useEffect, useMemo, useState } from "react";
 import { BiFilter, BiReset } from "react-icons/bi";
-import CustomLabelDim from "../CustomLabelDim";
+import CustomLabelDim from "../customLabel/CustomLabelDim";
 import MaterialInput from "../../helperComponents/MaterialInput";
-import CustomLabel from "../CustomLabel";
+import CustomLabel from "../customLabel/CustomLabel";
 import Context from "../../../Context";
 import CustomButton from "../../helperComponents/CustomButton";
 import { serverLine } from "../../../controllers/network/serverLine";
@@ -12,6 +12,7 @@ import CustomMasonry from "../../helperComponents/CustomMasonry";
 import LoadingSection from "../../helperComponents/LoadingSection";
 import ListSizeSetter from "../../helperComponents/ListSizeSetter";
 import { GrClose } from "react-icons/gr";
+import DataAggregatorTableView from "./DataAggregatorTableView";
 
 const Container = styled.div`
   display: flex;
@@ -127,6 +128,8 @@ export default function DataAggregator({
   showReportedItems,
   overrideCardStyle,
   disableSearch,
+  tableViewSettings,
+  viewMode,
 }) {
   const { isMobile } = useContext(Context);
   const [currentPage, setCurrentPage] = useState(0);
@@ -153,6 +156,8 @@ export default function DataAggregator({
   }, [itemsPerPage, queryParamsMemo, searchQuery, inheritedSearchQuery]);
 
   if (!nothingFoundMessage) nothingFoundMessage = "List is empty"; //This list is empty
+
+  if (viewMode !== "TABLE") tableViewSettings = null;
 
   let core = null;
 
@@ -181,6 +186,15 @@ export default function DataAggregator({
     if (!items.length) {
       core = <CustomLabelDim>{nothingFoundMessage}</CustomLabelDim>;
     }
+
+    if (tableViewSettings) {
+      core = (
+        <DataAggregatorTableView
+          fields={tableViewSettings.columns}
+          items={items}
+        />
+      );
+    }
   }
 
   let activateFilterToggle = false;
@@ -200,20 +214,6 @@ export default function DataAggregator({
   let filterComp = (
     <Filters style={filterCompStyle}>
       {filters}
-
-      {/* {doReset ? (
-          <CustomButton
-            onClick={() => {
-              setSearchQuery(null);
-              doReset();
-              setTmpSearch(null);
-            }}
-            style={{ borderRadius: "10px" }}
-            icon={<GrClose />}
-          >
-            Rest
-          </CustomButton>
-        ) : null} */}
 
       {!disableSearch && (
         <SearchContainer>
@@ -272,11 +272,6 @@ export default function DataAggregator({
   return (
     <Container>
       {topSection}
-      {/* {title ? (
-        <CustomLabel>
-          {title} {totalDocuments ? `(${totalDocuments})` : null}
-        </CustomLabel>
-      ) : null} */}
 
       {filterComp}
 

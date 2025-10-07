@@ -5,17 +5,17 @@ import LoggedInBoilerplate from "../LoggedInBoilerplate";
 import Context from "../../../../Context";
 import AnimatedPillTabs from "../../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabs";
 import styled from "styled-components";
-import AdminAccounting from "./utils/AdminAccounting";
-import AdminCompanyStat from "./utils/AdminCompanyStat";
-import AdminTopUsers from "./utils/AdminTopUsers";
-import AdminLiveServers from "./utils/AdminServers";
-import AdminAllCompanyTransactions from "./utils/AdminAllCompanyTransactions";
-import AdminAllUserTransactions from "./utils/AdminAllUserTransactions";
-import ManageModeratorList from "./utils/ManageModeratorList";
+import AdminAccounting from "./subpages/AdminAccounting";
+import AdminCompanyStat from "./subpages/AdminCompanyStat";
+import AdminTopUsers from "./subpages/AdminTopUsers";
+import AdminLiveServers from "./subpages/AdminServers";
+import AdminAllCompanyTransactions from "./subpages/AdminAllCompanyTransactions";
+import AdminAllUserTransactions from "./subpages/AdminAllUserTransactions";
+import ManageModeratorList from "./subpages/ManageModeratorList";
 import ReportedItemsList from "../report/ReportedItemsList";
-import CustomLabel from "../../../applicationUI/CustomLabel";
-import AdminServers from "./utils/AdminServers";
-import AdminAllUsers from "./utils/AdminAllUsers";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
+import AdminServers from "./subpages/AdminServers";
+import AdminAllUsers from "./subpages/AdminAllUsers";
 import AnimatedPillTabsVertical from "../../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabsVertical";
 
 const Container = styled.div`

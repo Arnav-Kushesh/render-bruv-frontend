@@ -51,7 +51,7 @@ const Container = styled.div`
   gap: 30px;
   width: 100%;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 0;
 
   @media (max-width: 900px) {

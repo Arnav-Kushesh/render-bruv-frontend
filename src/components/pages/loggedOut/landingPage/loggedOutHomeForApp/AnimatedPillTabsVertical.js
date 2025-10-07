@@ -7,7 +7,7 @@ const TabContainer = styled.div`
   position: relative;
   background-color: var(--surface2);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 4px;
   height: fit-content;
   width: fit-content;
@@ -44,7 +44,7 @@ const Pill = styled.div`
   height: ${({ height }) => `${height}px`};
   width: calc(100% - 8px);
   background-color: var(--element);
-  border-radius: 12px;
+  border-radius: 15px;
   transition: all 0.3s ease;
   z-index: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);

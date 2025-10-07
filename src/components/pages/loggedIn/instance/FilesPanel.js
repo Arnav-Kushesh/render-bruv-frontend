@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 
-import CustomLabel from "../../../applicationUI/CustomLabel";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import CustomPrimaryButton from "../../../helperComponents/CustomPrimaryButton";
 import FileCard from "./FileCard";
 import { BiDownload } from "react-icons/bi";

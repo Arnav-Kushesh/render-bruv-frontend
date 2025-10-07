@@ -10,12 +10,14 @@ import { MdDeleteOutline, MdDone } from "react-icons/md";
 import LoadingSection from "../../../../helperComponents/LoadingSection";
 import LoggedInBoilerplate from "../../LoggedInBoilerplate";
 import PrimaryButton from "../../../../helperComponents/PrimaryButton";
+import CustomPrimaryButton from "../../../../helperComponents/CustomPrimaryButton";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 50px;
   align-items: center;
+  justify-content: center;
   width: 100%;
 `;
 
@@ -23,6 +25,8 @@ const Center = styled.div`
   width: 38vw;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
   margin-top: 50px;
 
@@ -34,9 +38,19 @@ const Center = styled.div`
 
 const SectionRow1 = styled.div`
   display: flex;
-  flex-direction: row;
+  /* flex-direction: column; */
   width: 100%;
   gap: 10px;
+  justify-content: center;
+`;
+
+const SectionRow2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+  justify-content: center;
 `;
 
 export default function ManageModeratorList() {
@@ -70,7 +84,7 @@ export default function ManageModeratorList() {
           return (
             <SectionRow1>
               <MaterialInput
-                label={"Moderator Email"}
+                label={"Moderator Username"}
                 value={item}
                 onChange={updateField(index)}
               />
@@ -82,24 +96,24 @@ export default function ManageModeratorList() {
           );
         })}
 
-        <SectionRow1>
+        <SectionRow2>
           <CustomButton onClick={addItem} icon={<BiPlus />}>
             Add Item
           </CustomButton>
 
-          <PrimaryButton onClick={onSubmit} icon={<MdDone />}>
+          <CustomPrimaryButton
+            style={{ width: "150px" }}
+            onClick={onSubmit}
+            icon={<MdDone />}
+          >
             Save
-          </PrimaryButton>
-        </SectionRow1>
+          </CustomPrimaryButton>
+        </SectionRow2>
       </Center>
     );
   }
 
-  return (
-    <LoggedInBoilerplate titleLine1={"Manage"} titleLine2={"Moderator List"}>
-      <Container>{comp}</Container>
-    </LoggedInBoilerplate>
-  );
+  return <Container>{comp}</Container>;
 
   function updateField(index) {
     return (e) => {

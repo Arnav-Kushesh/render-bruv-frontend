@@ -4,7 +4,7 @@ import goTo from "../../../controllers/goTo";
 import { useContext } from "react";
 import Context from "../../../Context";
 import CustomButton from "../../helperComponents/CustomButton";
-import CustomLabel from "../../applicationUI/CustomLabel";
+import CustomLabel from "../../applicationUI/customLabel/CustomLabel";
 
 const Container = styled.div`
   display: flex;

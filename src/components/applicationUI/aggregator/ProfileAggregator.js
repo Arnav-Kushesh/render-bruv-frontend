@@ -16,8 +16,9 @@ export default function ProfileAggregator({
   hideTitleSection,
   topUsersListForAdmin,
   ItemCard,
-
+  viewMode,
   showReportedItems,
+  tableViewSettings,
 }) {
   //Will add parameters in the future
   const queryParams = useMemo(
@@ -27,6 +28,8 @@ export default function ProfileAggregator({
 
   return (
     <DataAggregator
+      viewMode={viewMode}
+      tableViewSettings={tableViewSettings}
       showReportedItems={showReportedItems}
       hideTitleSection={hideTitleSection}
       onCardClick={onCardClick}

@@ -120,6 +120,7 @@ export default function CustomAnimatedInput({
   fullWidth = false,
   helper,
   style,
+  onTextChange,
   ...rest
 }) {
   return (
@@ -128,7 +129,10 @@ export default function CustomAnimatedInput({
         aria-label={label || placeholder}
         placeholder={placeholder}
         value={value}
-        onChange={onChange}
+        onChange={(e) => {
+          if (onChange) onChange(e);
+          if (onTextChange) onTextChange(e.target.value);
+        }}
         size={size}
         {...rest}
       />

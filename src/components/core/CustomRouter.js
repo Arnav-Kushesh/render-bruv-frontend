@@ -37,8 +37,10 @@ import CommunityPage from "../pages/loggedIn/communityPage/CommunityPage.js";
 import ProfileEditOptions from "../pages/loggedIn/ProfileEditOptions.js";
 import AskBio from "../pages/loggedIn/onboarding/AskBio.js";
 import AskGender from "../pages/loggedIn/onboarding/AskGender.js";
-import ManageModeratorList from "../pages/loggedIn/admin/utils/ManageModeratorList.js";
+import ManageModeratorList from "../pages/loggedIn/admin/subpages/ManageModeratorList.js";
 import AdminHomePage from "../pages/loggedIn/admin/AdminHomePage.js";
+import VerifyPayment from "../pages/loggedIn/money/VerifyPayment.js";
+import PaymentDone from "../pages/loggedIn/money/PaymentDone.js";
 
 const Container = styled.div`
   /* min-height: 100%; */ //don't enable this, it prevents the scroll from the working that is assigned in the boilerplate
@@ -86,8 +88,6 @@ let pathVsComp = {
   "/manage-post": <AddOrEditContent />,
 
   "/p": <ContentPage />, //Post page
-
-  //Employee
   "/u": <ProfilePage />,
 
   //Footer Pages
@@ -101,6 +101,10 @@ let pathVsComp = {
   "/edit-bio": <AskBio asEditPage={true} />,
   "/edit-name": <AskName asEditPage={true} />,
   "/edit-username": <AskUsername asEditPage={true} />,
+
+  //Money
+  "/verify-payment": <VerifyPayment />,
+  "/payment-done": <PaymentDone />,
 };
 
 let loginNotRequiredPages = [

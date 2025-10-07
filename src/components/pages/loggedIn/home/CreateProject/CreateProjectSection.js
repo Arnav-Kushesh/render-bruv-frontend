@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useContext, useState } from "react";
 import Context from "../../../../../Context";
-import CustomLabel from "../../../../applicationUI/CustomLabel";
+import CustomLabel from "../../../../applicationUI/customLabel/CustomLabel";
 import extractEventValue from "../../../../../controllers/utils/extractEventValue";
 import CustomAnimatedInput from "../../../../helperComponents/CustomAnimatedInput";
 import CustomPrimaryButton from "../../../../helperComponents/CustomPrimaryButton";

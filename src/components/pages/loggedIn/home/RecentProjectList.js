@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { useContext, useEffect, useState } from "react";
 import Context from "../../../../Context";
 import ProjectCard from "./ProjectCard";
-import CustomLabelLarge from "../../../applicationUI/CustomLabelLarge";
+import CustomLabelLarge from "../../../applicationUI/customLabel/CustomLabelLarge";
 import LoadingSection from "../../../helperComponents/LoadingSection";
 import { serverLine } from "../../../../controllers/network/serverLine";
 

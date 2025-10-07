@@ -6,12 +6,12 @@ import CustomButton from "../../../helperComponents/CustomButton";
 import { BiLogoBlender, BiUpload } from "react-icons/bi";
 import AnimatedPillTabs from "../../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabs";
 import MaterialInput from "../../../helperComponents/MaterialInput";
-import CustomLabelDim from "../../../applicationUI/CustomLabelDim";
-import CustomLabelLarge from "../../../applicationUI/CustomLabelLarge";
+import CustomLabelDim from "../../../applicationUI/customLabel/CustomLabelDim";
+import CustomLabelLarge from "../../../applicationUI/customLabel/CustomLabelLarge";
 import { GoArrowRight } from "react-icons/go";
 import { SiBlender } from "react-icons/si";
 import { PiComputerTower } from "react-icons/pi";
-import CustomLabel from "../../../applicationUI/CustomLabel";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 
 const Container = styled.div`
   display: flex;

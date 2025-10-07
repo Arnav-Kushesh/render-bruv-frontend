@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LoadingSection from "../helperComponents/LoadingSection";
-import CustomLabel from "./CustomLabel";
+import CustomLabel from "./customLabel/CustomLabel";
 import styled from "styled-components";
 import { serverLine } from "../../controllers/network/serverLine";
 import goTo from "../../controllers/goTo";

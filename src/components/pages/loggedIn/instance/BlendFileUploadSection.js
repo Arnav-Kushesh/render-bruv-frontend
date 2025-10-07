@@ -8,8 +8,8 @@ import uploadBlendFile from "./controllers/uploadBlendFile";
 import UploadFileButton from "./UploadFileButton";
 import MessageBox from "../../../helperComponents/MessageBox";
 import { createPortal } from "react-dom";
-import CustomLabel from "../../../applicationUI/CustomLabel";
-import CustomLabelDim from "../../../applicationUI/CustomLabelDim";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
+import CustomLabelDim from "../../../applicationUI/customLabel/CustomLabelDim";
 import OverlayStateUpdater from "./OverlayStateUpdater";
 import deleteBlendFile from "./controllers/deleteBlendFile";
 

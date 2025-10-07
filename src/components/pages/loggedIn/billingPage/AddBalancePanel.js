@@ -5,11 +5,13 @@ import CustomPrimaryButton from "../../../helperComponents/CustomPrimaryButton";
 import CustomButton from "../../../helperComponents/CustomButton";
 import AnimatedPillTabs from "../../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabs";
 import MaterialInput from "../../../helperComponents/MaterialInput";
-import CustomLabelDim from "../../../applicationUI/CustomLabelDim";
+import CustomLabelDim from "../../../applicationUI/customLabel/CustomLabelDim";
 import { GoArrowRight } from "react-icons/go";
 import { SiBlender } from "react-icons/si";
-import CustomLabel from "../../../applicationUI/CustomLabel";
+import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import { MdPayment } from "react-icons/md";
+import LoadingSection from "../../../helperComponents/LoadingSection";
+import { serverLine } from "../../../../controllers/network/serverLine";
 
 const Container = styled.div`
   display: flex;
@@ -60,13 +62,6 @@ const Section = styled.div`
   gap: 13px;
 `;
 
-let typeTabs = [
-  { value: 5, label: "$5" },
-  { value: 10, label: "$10" },
-  { value: 100, label: "$100" },
-  { value: "CUSTOM", label: "Custom" },
-];
-
 const RangeInput = styled.div`
   display: flex;
   flex-direction: row;
@@ -81,9 +76,27 @@ let tabContainerStyle = {
 
 let pillStyle = null;
 
+let typeTabs = [
+  { value: 5, label: "$5" },
+  { value: 10, label: "$10" },
+  { value: 50, label: "$50" },
+  { value: 100, label: "$100" },
+  { value: 300, label: "$300" },
+  // { value: 1000, label: "$1000" },
+  // { value: "CUSTOM", label: "Custom" },
+];
+
 export default function AddBalancePanel() {
-  const [amount, setAmount] = useState(100);
+  const [amount, setAmount] = useState(50);
   const [customAmount, setCustomAmount] = useState(0);
+  const [loading, setLoading] = useState(false);
+
+  if (loading)
+    return (
+      <Container>
+        <LoadingSection />
+      </Container>
+    );
 
   return (
     <Container>
@@ -100,18 +113,19 @@ export default function AddBalancePanel() {
             tabs={typeTabs}
           />
 
-          {amount == "CUSTOM" && (
+          {/* {amount == "CUSTOM" && (
             <MaterialInput
               label="Custom Amount"
               type="number"
               value={customAmount}
               onTextChange={setCustomAmount}
             />
-          )}
+          )} */}
         </Section>
       </Inputs>
 
       <CustomPrimaryButton
+        onClick={makePayment}
         style={{
           width: "180px",
           height: "50px",
@@ -125,4 +139,19 @@ export default function AddBalancePanel() {
       </CustomPrimaryButton>
     </Container>
   );
+
+  async function makePayment() {
+    setLoading(true);
+
+    try {
+      let data = await serverLine.get(
+        `/static-payment-link/?amountInDollars=${amount}`
+      );
+      window.location = data;
+    } catch (e) {
+      window.popupAlert(e.message);
+    }
+
+    setLoading(true);
+  }
 }

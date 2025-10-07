@@ -16,6 +16,7 @@ export default function ContentAggregator({
   onCardClick,
   tableViewSettings,
   showReportedItems,
+  viewMode,
 }) {
   const [purpose, setPurpose] = useState("");
 
@@ -30,6 +31,7 @@ export default function ContentAggregator({
 
   return (
     <DataAggregator
+      viewMode
       showReportedItems={showReportedItems}
       hideTitleSection={hideTitleSection}
       tableViewSettings={tableViewSettings}

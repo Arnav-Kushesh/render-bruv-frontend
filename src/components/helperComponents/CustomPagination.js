@@ -11,7 +11,10 @@ const Container = styled.div`
   height: 40px;
   color: var(--element);
   justify-content: center;
+  /* background-color: var(--surface); */
+  /* border: 1px solid var(--border); */
   align-items: center;
+  width: auto;
 `;
 
 const Button = styled.div`
@@ -25,11 +28,11 @@ const Button = styled.div`
   user-select: none;
 
   &:hover {
-    background-color: var(--surface2);
+    background-color: var(--surface);
   }
 
   &.active {
-    background-color: var(--surface2);
+    background-color: var(--surface);
     font-weight: bold;
   }
 `;

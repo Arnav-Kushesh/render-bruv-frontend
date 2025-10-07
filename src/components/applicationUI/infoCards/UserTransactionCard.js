@@ -6,14 +6,17 @@ import CustomLabel from "../customLabel/CustomLabel";
 import CustomLabelLarge from "../customLabel/CustomLabelLarge";
 
 export default function UserTransactionCard({ item }) {
+  if (!item) return <ElevatedSection>Invalid Item</ElevatedSection>;
   return (
     <ElevatedSection>
       <MiniGapColumn>
-        <CustomLabelLarge>${item.amountInCents / 100} </CustomLabelLarge>
+        <CustomLabelLarge>
+          {" "}
+          {item.type == "AMOUNT_ADDED" ? "+" : "-"} ${item.amountInCents / 100}{" "}
+        </CustomLabelLarge>
         <MiniGapRow>
-          <CustomLabel>
-            {item.type == "AMOUNT_ADDED" ? "+" : "-"} {item?.user?.name}{" "}
-          </CustomLabel>
+          <CustomLabel>{item?.user?.name} </CustomLabel>
+          <CustomLabel></CustomLabel>
           <CustomLabel>{parseDate(item.createdAt)} </CustomLabel>
         </MiniGapRow>
       </MiniGapColumn>

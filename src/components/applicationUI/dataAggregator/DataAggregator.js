@@ -175,7 +175,7 @@ export default function DataAggregator({
             callback={callback}
             entireResponse={entireResponse}
             key={item._id}
-            data={item}
+            item={item}
           />
         ))}
         maxCol={columns}

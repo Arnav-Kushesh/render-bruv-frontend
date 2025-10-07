@@ -11,11 +11,13 @@ import CompanyTransactionAggregator from "../../../../applicationUI/aggregator/C
 import CustomAnimatedInput from "../../../../helperComponents/CustomAnimatedInput";
 import LoadingSection from "../../../../helperComponents/LoadingSection";
 import CustomLabelSmall from "../../../../applicationUI/customLabel/CustomLabelSmall";
+import CustomLabelExtraSmall from "../../../../applicationUI/customLabel/CustomLabelExtraSmall";
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 100%;
 `;
 
 export default function ManageWithdrawableAmount({
@@ -27,8 +29,9 @@ export default function ManageWithdrawableAmount({
 
   let withdrawableAmount = 0;
 
-  if (latestTransaction.withdrawableAmount)
-    withdrawableAmount = latestTransaction.withdrawableAmount;
+  if (latestTransaction)
+    if (latestTransaction.withdrawableAmount)
+      withdrawableAmount = latestTransaction.withdrawableAmount;
 
   if (loading)
     return (
@@ -41,7 +44,7 @@ export default function ManageWithdrawableAmount({
     <Column>
       <ElevatedSection>
         <MiniGapColumn>
-          <CustomLabelHeading> ${withdrawableAmount} </CustomLabelHeading>
+          <CustomLabelHeading> ${withdrawableAmount / 100} </CustomLabelHeading>
           <CustomLabel>Withdrawable Balance</CustomLabel>
         </MiniGapColumn>
       </ElevatedSection>
@@ -56,18 +59,21 @@ export default function ManageWithdrawableAmount({
             onTextChange={setAmount}
           />
 
-          <CustomLabelSmall>
+          <CustomLabelExtraSmall>
             Note : The withdrawable amount might have changed since this page
             was last loaded.
-          </CustomLabelSmall>
+          </CustomLabelExtraSmall>
 
-          <CustomLabelSmall>
+          <CustomLabelExtraSmall>
             Note : Right after pressing submit, you must withdraw the amount
             from the actual bank account, otherwise it might create accounting
             issues
-          </CustomLabelSmall>
+          </CustomLabelExtraSmall>
 
-          <CustomPrimaryButton onClick={doIt}>Submit</CustomPrimaryButton>
+          <CustomPrimaryButton style={{ width: "150px" }} onClick={doIt}>
+            Submit
+          </CustomPrimaryButton>
+          <br />
         </GeneralGapColumn>
       </ElevatedSection>
 

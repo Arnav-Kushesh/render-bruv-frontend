@@ -35,10 +35,10 @@ const Label = styled.button`
 `;
 
 const SizeButton = styled.button`
-  padding: 12px 15px;
+  padding: 7px 15px;
   border: none;
-  font-size: 15px;
-  border-radius: 15px;
+  font-size: 13px;
+  border-radius: 25px;
   background-color: ${({ active }) =>
     active ? "var(--element)" : "var(--surface)"};
   color: ${({ active }) => (active ? "var(--surfaceSolid)" : "var(--element)")};
@@ -53,11 +53,11 @@ const SizeButton = styled.button`
 `;
 
 export default function ListSizeSetter({ value = 10, onChange }) {
-  const sizes = [10, 50, 100, 200, 500, 5000];
+  const sizes = [10, 100, 300];
 
   return (
     <MainContainer>
-      <Label>Elements Per Page</Label>
+      {/* <Label>Elements Per Page</Label> */}
 
       {sizes.map((size) => (
         <SizeButton

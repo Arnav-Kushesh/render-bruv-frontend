@@ -7,14 +7,14 @@ import CustomLabel from "../customLabel/CustomLabel";
 import CustomLabelLarge from "../customLabel/CustomLabelLarge";
 
 export default function CompanyStatCard({ item }) {
+  if (!item) return <ElevatedSection>Invalid Item</ElevatedSection>;
   return (
     <ElevatedSection>
       <MiniGapColumn>
         <CustomLabelLarge>{parseAmount()} </CustomLabelLarge>
+        <CustomLabel>{item.type} </CustomLabel>
         <MiniGapRow>
-          <CustomLabel>
-            {item.type == "AMOUNT_ADDED" ? "+" : "-"} {item?.user?.name}{" "}
-          </CustomLabel>
+          <CustomLabel>{item.durationType} - </CustomLabel>{" "}
           <CustomLabel>{parseDateOfItem(item.createdAt)} </CustomLabel>
         </MiniGapRow>
       </MiniGapColumn>

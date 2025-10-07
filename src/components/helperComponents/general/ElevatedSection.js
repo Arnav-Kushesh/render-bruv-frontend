@@ -8,8 +8,8 @@ const ElevatedSection = styled.div`
   border: 1px solid var(--border);
   /* width: 410px; */
   border-radius: 10px;
-  padding: 35px;
-  padding-bottom: 60px;
+  padding: 30px;
+  /* padding-bottom: 60px; */
 `;
 
 export default ElevatedSection;

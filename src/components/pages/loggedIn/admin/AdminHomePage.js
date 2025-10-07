@@ -71,16 +71,17 @@ const MainContent = styled.div`
   width: 100%;
   display: flex;
   flex: 1;
-  padding: 15px;
-  background-color: var(--surface2);
-  border: 1px solid var(--border);
+  /* padding: 15px; */
+  /* background-color: var(--surface2); */
+  /* border: 1px solid var(--border); */
   border-radius: 15px;
+  padding: 0;
 `;
 
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 25px;
 `;
 
 export default function AdminHomePage() {

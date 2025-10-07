@@ -11,21 +11,24 @@ import CompanyTransactionAggregator from "../../../../applicationUI/aggregator/C
 import CustomAnimatedInput from "../../../../helperComponents/CustomAnimatedInput";
 import LoadingSection from "../../../../helperComponents/LoadingSection";
 import CustomLabelSmall from "../../../../applicationUI/customLabel/CustomLabelSmall";
+import CustomLabelExtraSmall from "../../../../applicationUI/customLabel/CustomLabelExtraSmall";
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 100%;
 `;
 
 export default function ManagePendingExpenses({ latestTransaction, refresh }) {
   const [amount, setAmount] = useState(0);
   const [loading, setLoading] = useState();
 
-  let withdrawableAmount = 0;
+  let pendingExpenses = 0;
 
-  if (latestTransaction.withdrawableAmount)
-    withdrawableAmount = latestTransaction.withdrawableAmount;
+  if (latestTransaction)
+    if (latestTransaction.pendingExpenses)
+      pendingExpenses = latestTransaction.pendingExpenses;
 
   if (loading)
     return (
@@ -38,7 +41,7 @@ export default function ManagePendingExpenses({ latestTransaction, refresh }) {
     <Column>
       <ElevatedSection>
         <MiniGapColumn>
-          <CustomLabelHeading> ${withdrawableAmount} </CustomLabelHeading>
+          <CustomLabelHeading> ${pendingExpenses / 100} </CustomLabelHeading>
           <CustomLabel>Pending Expense</CustomLabel>
         </MiniGapColumn>
       </ElevatedSection>
@@ -53,18 +56,21 @@ export default function ManagePendingExpenses({ latestTransaction, refresh }) {
             onTextChange={setAmount}
           />
 
-          <CustomLabelSmall>
+          <CustomLabelExtraSmall>
             Note : The pending expenses amount might have changed since this
             page was last loaded.
-          </CustomLabelSmall>
+          </CustomLabelExtraSmall>
 
-          <CustomLabelSmall>
+          <CustomLabelExtraSmall>
             Note : Right after pressing submit, you must transfer the amount to
             runpod from the main bank account, otherwise it might create
             accounting issues
-          </CustomLabelSmall>
+          </CustomLabelExtraSmall>
 
-          <CustomPrimaryButton onClick={doIt}>Submit</CustomPrimaryButton>
+          <CustomPrimaryButton style={{ width: "150px" }} onClick={doIt}>
+            Submit
+          </CustomPrimaryButton>
+          <br />
         </GeneralGapColumn>
       </ElevatedSection>
 

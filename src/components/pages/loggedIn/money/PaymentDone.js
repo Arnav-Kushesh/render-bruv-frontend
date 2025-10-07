@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import getUrlQuery from "../../../../controllers/getUrlQuery";
 import LoggedInBoilerplate from "../LoggedInBoilerplate";
 import styled from "styled-components";
 import { MdDone } from "react-icons/md";
 import ElevatedSection from "../../../helperComponents/general/ElevatedSection";
 import GeneralGapColumn from "../../../helperComponents/general/GeneralGapColumn";
+import Context from "../../../../Context";
 
 const Center = styled.div`
   display: flex;
@@ -73,9 +74,11 @@ const Icon = styled.div`
 `;
 
 export default function PaymentDone() {
+  const { updateLoggedInUser } = useContext(Context);
   const [amountInCents, setAmountInCents] = useState(0);
 
   useEffect(() => {
+    updateLoggedInUser();
     setAmountInCents(parseInt(getUrlQuery("amountInCents")));
   }, []);
 

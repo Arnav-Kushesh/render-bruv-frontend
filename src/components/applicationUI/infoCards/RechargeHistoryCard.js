@@ -6,6 +6,7 @@ import CustomLabel from "../customLabel/CustomLabel";
 import CustomLabelLarge from "../customLabel/CustomLabelLarge";
 
 export default function RechargeHistoryCard({ item }) {
+  if (!item) return <ElevatedSection>Invalid Item</ElevatedSection>;
   return (
     <ElevatedSection>
       <MiniGapColumn>

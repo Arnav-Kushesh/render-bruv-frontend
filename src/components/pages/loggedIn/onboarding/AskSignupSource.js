@@ -27,7 +27,7 @@ export default function AskSignupSource({ asEditPage }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setSignupSource(loggedInUser.signupSource);
+    if (loggedInUser.signupSource) setSignupSource(loggedInUser.signupSource);
   }, [loggedInUser]);
 
   let title = "From where did you hear about Render Bruv?";
@@ -39,6 +39,7 @@ export default function AskSignupSource({ asEditPage }) {
       title={title}
       onSubmit={onSubmit}
       loading={loading}
+      disableSkip={true}
     >
       <Container>
         <MaterialInput

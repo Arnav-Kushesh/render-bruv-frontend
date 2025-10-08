@@ -1,3 +1,4 @@
+import AskExperience from "../components/pages/loggedIn/onboarding/AskExperience";
 import AskName from "../components/pages/loggedIn/onboarding/AskName";
 import AskSignupSource from "../components/pages/loggedIn/onboarding/AskSignupSource";
 import AskUseCase from "../components/pages/loggedIn/onboarding/AskUseCase";
@@ -30,6 +31,13 @@ export function getOnboardingComponent(loggedInUser) {
     !skipped(loggedInUser, "useCaseOnboardingSkipped")
   ) {
     return <AskUseCase />;
+  }
+
+  if (
+    !loggedInUser.experience &&
+    !skipped(loggedInUser, "experienceOnboardingSkipped")
+  ) {
+    return <AskExperience />;
   }
 
   return null;

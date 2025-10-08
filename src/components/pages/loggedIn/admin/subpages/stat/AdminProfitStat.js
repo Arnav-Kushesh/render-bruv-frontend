@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import CompanyStatAggregator from "../../../../applicationUI/aggregator/CompanyStatAggregator";
-import ElevatedSection from "../../../../helperComponents/general/ElevatedSection";
-import CustomLabel from "../../../../applicationUI/customLabel/CustomLabel";
+import CompanyStatAggregator from "../../../../../applicationUI/aggregator/CompanyStatAggregator";
+import ElevatedSection from "../../../../../helperComponents/general/ElevatedSection";
+import CustomLabel from "../../../../../applicationUI/customLabel/CustomLabel";
 
 const Row = styled.div`
   display: flex;
@@ -16,35 +16,35 @@ const Column = styled.div`
   flex: 1;
 `;
 
-export default function AdminRevenueStat() {
+export default function AdminProfitStat() {
   return (
     <Column>
       <ElevatedSection>
-        <CustomLabel>Date Wise Sign ups</CustomLabel>
+        <CustomLabel>Date Wise Profit</CustomLabel>
         <CompanyStatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
-          typeOverride={"SIGNUP"}
+          typeOverride={"PROFIT"}
           durationTypeOverride={"DATE"}
         />
       </ElevatedSection>
 
       <ElevatedSection>
-        <CustomLabel>Month Wise Sign ups</CustomLabel>
+        <CustomLabel>Month Wise Profit</CustomLabel>
         <CompanyStatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
-          typeOverride={"SIGNUP"}
+          typeOverride={"PROFIT"}
           durationTypeOverride={"MONTH"}
         />
       </ElevatedSection>
 
       <ElevatedSection>
-        <CustomLabel>Year Wise Sign ups</CustomLabel>
+        <CustomLabel>Year Wise Profit</CustomLabel>
         <CompanyStatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
-          typeOverride={"SIGNUP"}
+          typeOverride={"PROFIT"}
           durationTypeOverride={"YEAR"}
         />
       </ElevatedSection>

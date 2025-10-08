@@ -11,7 +11,7 @@ const DesktopContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 50px;
 `;
 const Container = styled.div`
   display: flex;
@@ -47,7 +47,7 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  font-weight: 900;
+  font-weight: 700;
   justify-content: center;
   text-align: center;
   font-size: 17px;
@@ -60,12 +60,12 @@ const Title = styled.div`
 
 const Medium = styled.div`
   /* font-weight: 900; */
-  opacity: 0.4;
+  opacity: 0.6;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 14px;
   text-align: center;
-  color: var(--accent);
+  color: var(--element);
 `;
 
 const Top = styled.div`
@@ -98,7 +98,7 @@ const Buttons = styled.div`
   width: 100%;
   justify-content: center;
   gap: 20px;
-  margin-top: 100px;
+  margin-top: 50px;
 
   @media (max-width: 900px) {
     margin: 0;

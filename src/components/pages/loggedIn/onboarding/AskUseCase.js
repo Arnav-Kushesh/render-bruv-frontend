@@ -27,7 +27,7 @@ export default function AskUseCase({ asEditPage }) {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setUseCase(loggedInUser.useCase);
+    if (loggedInUser.useCase) setUseCase(loggedInUser.useCase);
   }, [loggedInUser]);
 
   let title = "Tell us a bit about your use case";
@@ -36,16 +36,20 @@ export default function AskUseCase({ asEditPage }) {
     <OnboardingBoilerplate
       asEditPage={asEditPage}
       editPageTitle="Signup Source"
+      desc={
+        "Is it related to motion graphics, architecture, product design, character animation or something else?"
+      }
       title={title}
       onSubmit={onSubmit}
       loading={loading}
+      disableSkip={true}
     >
       <Container>
         <MaterialInput
-          label={"Use Case"}
-          placeholder={
-            "Is it related to motion graphics, architecture, product design, character animation or something else?"
-          }
+          label={"Type Here"}
+          // placeholder={
+          //   ""
+          // }
           value={useCase}
           multiline={true}
           rows={3}

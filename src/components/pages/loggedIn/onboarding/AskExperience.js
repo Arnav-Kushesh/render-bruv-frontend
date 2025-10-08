@@ -6,6 +6,7 @@ import MaterialInput from "../../../helperComponents/MaterialInput";
 import styled from "styled-components";
 import { serverLine } from "../../../../controllers/network/serverLine";
 import Context from "../../../../Context";
+import AnimatedPillTabsVertical from "../../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabsVertical";
 
 const options = [
   { value: "MALE", label: "Mr" },
@@ -16,54 +17,60 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  align-items: flex-start;
+  align-items: center;
+
   width: 100%;
 `;
 
-export default function AskName({ asEditPage }) {
+export default function AskExperience({ asEditPage }) {
   const { loggedInUser, setLoggedInUser } = useContext(Context);
 
-  const [name, setName] = useState("");
+  const [experience, setExperience] = useState("NEW");
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setName(loggedInUser.name);
+    if (loggedInUser.experience) setExperience(loggedInUser.experience);
   }, [loggedInUser]);
 
-  let title = "Please! type your full name";
+  let title = "Tell us a bit about your experience with blender and 3D design";
 
   return (
     <OnboardingBoilerplate
       asEditPage={asEditPage}
-      editPageTitle="Name"
+      editPageTitle="Signup Source"
       title={title}
       onSubmit={onSubmit}
       loading={loading}
       disableSkip={true}
     >
       <Container>
-        <MaterialInput
-          label={"Name"}
-          value={name}
-          onChange={extractEventValue(setName)}
+        <AnimatedPillTabsVertical
+          tabs={[
+            { label: "New (No previous experience)", value: "NEW" },
+            { label: "Beginner (< 1 year) ", value: "BEGINNER" },
+            { label: "Intermediate (1 to 3 Years)", value: "INTERMEDIATE" },
+            { label: "Advanced (More than 3 Years)", value: "ADVANCED" },
+          ]}
+          value={experience}
+          onChange={setExperience}
         />
       </Container>
     </OnboardingBoilerplate>
   );
 
   async function onSubmit() {
-    if (!name) return window.popupAlert("Please type the name");
-    if (name.length < 4)
-      return window.popupAlert("Name should be at least 4 letters");
+    if (!experience) return window.popupAlert("Please type at lest 2 words");
+    if (experience.length < 4)
+      return window.popupAlert("Please! type at lest 2 words");
 
     setLoading(true);
 
     try {
       await serverLine.patch("/me", {
-        changes: { name },
+        changes: { experience },
       });
       setLoading(false);
-      let newLoggedInUser = { ...loggedInUser, name };
+      let newLoggedInUser = { ...loggedInUser, experience };
       setLoggedInUser(newLoggedInUser);
       window.popupAlert("Saved");
     } catch (e) {

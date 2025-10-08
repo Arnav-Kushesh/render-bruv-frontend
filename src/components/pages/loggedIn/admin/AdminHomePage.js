@@ -14,11 +14,11 @@ import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import AdminServers from "./subpages/AdminServers";
 import AdminAllUsers from "./subpages/AdminAllUsers";
 import AnimatedPillTabsVertical from "../../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabsVertical";
-import AdminRevenueStat from "./subpages/AdminRevenueStat";
-import AdminInstanceStat from "./subpages/AdminInstanceStat";
-import AdminSignupStat from "./subpages/AdminSignupStat";
-import AdminExpenseStat from "./subpages/AdminExpenseStat";
-import AdminProfitStat from "./subpages/AdminProfitStat";
+import AdminRevenueStat from "./subpages/stat/AdminRevenueStat";
+import AdminInstanceStat from "./subpages/stat/AdminInstanceStat";
+import AdminSignupStat from "./subpages/stat/AdminSignupStat";
+import AdminExpenseStat from "./subpages/stat/AdminExpenseStat";
+import AdminProfitStat from "./subpages/stat/AdminProfitStat";
 import ContentAggregator from "../../../applicationUI/aggregator/ContentAggregator";
 import IssuePostList from "./subpages/IssuePostList";
 
@@ -93,14 +93,24 @@ const tabs = [
 const MainTitle = styled.div``;
 
 const MainContent = styled.div`
-  width: 100%;
+  /* width: 100%; */
   display: flex;
-  flex: 1;
+
   /* padding: 15px; */
   /* background-color: var(--surface2); */
   /* border: 1px solid var(--border); */
   border-radius: 15px;
   padding: 0;
+
+  width: calc(70vw - 250px);
+
+  @media (max-width: 1500px) {
+    width: calc(85vw - 250px);
+  }
+
+  @media (max-width: 900px) {
+    width: calc(100vw - 250px);
+  }
 `;
 
 const Row = styled.div`

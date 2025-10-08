@@ -12,6 +12,8 @@ export default function AdminAllUsers() {
           { label: "Total Minutes Used", value: "totalMinutesUsed" },
           { label: "Signup Source", value: "signupSource" },
           { label: "Use Case", value: "useCase" },
+          { label: "Experience", value: "experience" },
+          { label: "Email", value: "email" },
         ],
       }}
     />

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import CompanyStatAggregator from "../../../../applicationUI/aggregator/CompanyStatAggregator";
-import ElevatedSection from "../../../../helperComponents/general/ElevatedSection";
-import CustomLabel from "../../../../applicationUI/customLabel/CustomLabel";
+import CompanyStatAggregator from "../../../../../applicationUI/aggregator/CompanyStatAggregator";
+import ElevatedSection from "../../../../../helperComponents/general/ElevatedSection";
+import CustomLabel from "../../../../../applicationUI/customLabel/CustomLabel";
 
 const Row = styled.div`
   display: flex;
@@ -16,35 +16,35 @@ const Column = styled.div`
   flex: 1;
 `;
 
-export default function AdminExpenseStat() {
+export default function AdminRevenueStat() {
   return (
     <Column>
       <ElevatedSection>
-        <CustomLabel>Date Wise Expense</CustomLabel>
+        <CustomLabel>Date Wise Revenue</CustomLabel>
         <CompanyStatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
-          typeOverride={"EXPENSE_DEPOSIT"}
+          typeOverride={"REVENUE"}
           durationTypeOverride={"DATE"}
         />
       </ElevatedSection>
 
       <ElevatedSection>
-        <CustomLabel>Month Wise Expense</CustomLabel>
+        <CustomLabel>Month Wise Revenue</CustomLabel>
         <CompanyStatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
-          typeOverride={"EXPENSE_DEPOSIT"}
+          typeOverride={"REVENUE"}
           durationTypeOverride={"MONTH"}
         />
       </ElevatedSection>
 
       <ElevatedSection>
-        <CustomLabel>Year Wise Expense</CustomLabel>
+        <CustomLabel>Year Wise Revenue</CustomLabel>
         <CompanyStatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
-          typeOverride={"EXPENSE_DEPOSIT"}
+          typeOverride={"REVENUE"}
           durationTypeOverride={"YEAR"}
         />
       </ElevatedSection>

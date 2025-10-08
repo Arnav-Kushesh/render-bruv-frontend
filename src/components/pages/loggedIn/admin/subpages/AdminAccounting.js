@@ -6,6 +6,8 @@ import ManageWithdrawableAmount from "../accountingPageUtils/ManageWithdrawableA
 import ManageBillingPage from "../../billingPage/ManageBillingPage";
 import { serverLine } from "../../../../../controllers/network/serverLine";
 import ManagePendingExpenses from "../accountingPageUtils/ManagePendingExpenses";
+import MaxGapColumn from "../../../../helperComponents/general/MaxGapColumn";
+import CustomLabelDim from "../../../../applicationUI/customLabel/CustomLabelDim";
 
 const Row = styled.div`
   display: flex;
@@ -32,16 +34,26 @@ export default function AdminAccounting() {
   if (loading) return <LoadingSection />;
 
   return (
-    <Row>
-      <ManageWithdrawableAmount
-        refresh={doQuery}
-        latestTransaction={latestTransaction}
-      />
-      <ManagePendingExpenses
-        refresh={doQuery}
-        latestTransaction={latestTransaction}
-      />
-    </Row>
+    <MaxGapColumn>
+      <Row>
+        <ManageWithdrawableAmount
+          refresh={doQuery}
+          latestTransaction={latestTransaction}
+        />
+        <ManagePendingExpenses
+          refresh={doQuery}
+          latestTransaction={latestTransaction}
+        />
+      </Row>
+
+      <br />
+      <CustomLabelDim>
+        Responsibility Rotation for recharging RunPod and deducting pending
+        expenses. Arnav (Sun, Mon, Tue), Rishabh (Wed, Thu), Nikhil (Fri, Sat).
+        This will avoid a scenario in which two individuals make the same change
+        at the same time, making accounting go haywire.
+      </CustomLabelDim>
+    </MaxGapColumn>
   );
 
   async function doQuery() {

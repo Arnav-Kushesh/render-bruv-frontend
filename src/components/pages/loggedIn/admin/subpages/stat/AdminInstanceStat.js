@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import CompanyStatAggregator from "../../../../applicationUI/aggregator/CompanyStatAggregator";
-import ElevatedSection from "../../../../helperComponents/general/ElevatedSection";
-import CustomLabel from "../../../../applicationUI/customLabel/CustomLabel";
+import CompanyStatAggregator from "../../../../../applicationUI/aggregator/CompanyStatAggregator";
+import ElevatedSection from "../../../../../helperComponents/general/ElevatedSection";
+import CustomLabel from "../../../../../applicationUI/customLabel/CustomLabel";
 
 const Row = styled.div`
   display: flex;

@@ -62,6 +62,8 @@ const AnimatedPillTabsVertical = ({
 
   let activeIndex = tabs.findIndex((item) => item.value === value);
 
+  console.log("activeIndex", activeIndex, value);
+
   useEffect(() => {
     const currentTab = tabRefs.current[activeIndex];
     if (currentTab) {

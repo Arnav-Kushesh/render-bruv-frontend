@@ -34,6 +34,7 @@ export default function OnboardingBoilerplate({
   loading,
   desktopWidth,
   skipID,
+  disableSkip,
 }) {
   if (loading) {
     children = <LoadingSection />;
@@ -54,6 +55,7 @@ export default function OnboardingBoilerplate({
           desc={desc}
           onSubmit={onSubmit}
           skipID={skipID}
+          disableSkip={disableSkip}
           submitButtonText={submitButtonText ? submitButtonText : "Submit"}
         >
           {children}
@@ -72,6 +74,7 @@ export default function OnboardingBoilerplate({
           desc={desc}
           onSubmit={onSubmit}
           skipID={skipID}
+          disableSkip={disableSkip}
           submitButtonText={submitButtonText ? submitButtonText : "Submit"}
         >
           {children}

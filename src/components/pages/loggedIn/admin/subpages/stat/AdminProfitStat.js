@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CompanyStatAggregator from "../../../../../applicationUI/aggregator/CompanyStatAggregator";
+import StatAggregator from "../../../../../applicationUI/aggregator/StatAggregator";
 import ElevatedSection from "../../../../../helperComponents/general/ElevatedSection";
 import CustomLabel from "../../../../../applicationUI/customLabel/CustomLabel";
 
@@ -21,31 +21,34 @@ export default function AdminProfitStat() {
     <Column>
       <ElevatedSection>
         <CustomLabel>Date Wise Profit</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"PROFIT"}
           durationTypeOverride={"DATE"}
+          processAmount={(data) => data / 100}
         />
       </ElevatedSection>
 
       <ElevatedSection>
         <CustomLabel>Month Wise Profit</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"PROFIT"}
           durationTypeOverride={"MONTH"}
+          processAmount={(data) => data / 100}
         />
       </ElevatedSection>
 
       <ElevatedSection>
         <CustomLabel>Year Wise Profit</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"PROFIT"}
           durationTypeOverride={"YEAR"}
+          processAmount={(data) => data / 100}
         />
       </ElevatedSection>
     </Column>

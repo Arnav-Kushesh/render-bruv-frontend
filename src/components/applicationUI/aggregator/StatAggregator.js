@@ -22,7 +22,7 @@ let columnNames = [
   },
 ];
 
-export default function CompanyStatAggregator({
+export default function StatAggregator({
   columns = 1,
   typeOverride,
   durationTypeOverride,
@@ -33,20 +33,24 @@ export default function CompanyStatAggregator({
   tableViewSettings,
   showReportedItems,
   viewMode,
+  userId,
+  processAmount,
 }) {
   const [type, setType] = useState(null);
   const [durationType, setDurationType] = useState(null);
 
   const queryParams = useMemo(
     () => ({
+      userId: userId,
       type: typeOverride ? typeOverride : type,
       durationType: durationTypeOverride ? durationTypeOverride : durationType,
     }),
-    [type, durationType, durationTypeOverride, typeOverride]
+    [type, durationType, durationTypeOverride, typeOverride, userId]
   );
 
   return (
     <DataAggregator
+      processAmount={processAmount}
       viewMode={viewMode}
       showReportedItems={showReportedItems}
       hideTitleSection={hideTitleSection}
@@ -81,7 +85,7 @@ export default function CompanyStatAggregator({
         </>
       }
       title="Company Stat"
-      path="company-stat"
+      path="stat"
       CardComponent={CompanyStatCard}
     />
   );

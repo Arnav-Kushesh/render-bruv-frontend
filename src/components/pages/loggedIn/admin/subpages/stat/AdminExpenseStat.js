@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CompanyStatAggregator from "../../../../../applicationUI/aggregator/CompanyStatAggregator";
+import StatAggregator from "../../../../../applicationUI/aggregator/StatAggregator";
 import ElevatedSection from "../../../../../helperComponents/general/ElevatedSection";
 import CustomLabel from "../../../../../applicationUI/customLabel/CustomLabel";
 
@@ -21,31 +21,34 @@ export default function AdminExpenseStat() {
     <Column>
       <ElevatedSection>
         <CustomLabel>Date Wise Expense</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"PENDING_EXPENSE"}
           durationTypeOverride={"DATE"}
+          processAmount={(data) => data / 100}
         />
       </ElevatedSection>
 
       <ElevatedSection>
         <CustomLabel>Month Wise Expense</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"PENDING_EXPENSE"}
           durationTypeOverride={"MONTH"}
+          processAmount={(data) => data / 100}
         />
       </ElevatedSection>
 
       <ElevatedSection>
         <CustomLabel>Year Wise Expense</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"PENDING_EXPENSE"}
           durationTypeOverride={"YEAR"}
+          processAmount={(data) => data / 100}
         />
       </ElevatedSection>
     </Column>

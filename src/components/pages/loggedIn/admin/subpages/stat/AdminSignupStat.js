@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CompanyStatAggregator from "../../../../../applicationUI/aggregator/CompanyStatAggregator";
+import StatAggregator from "../../../../../applicationUI/aggregator/StatAggregator";
 import ElevatedSection from "../../../../../helperComponents/general/ElevatedSection";
 import CustomLabel from "../../../../../applicationUI/customLabel/CustomLabel";
 
@@ -21,7 +21,7 @@ export default function AdminSignupStat() {
     <Column>
       <ElevatedSection>
         <CustomLabel>Date Wise Sign ups</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"SIGNUP"}
@@ -31,7 +31,7 @@ export default function AdminSignupStat() {
 
       <ElevatedSection>
         <CustomLabel>Month Wise Sign ups</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"SIGNUP"}
@@ -41,7 +41,7 @@ export default function AdminSignupStat() {
 
       <ElevatedSection>
         <CustomLabel>Year Wise Sign ups</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"SIGNUP"}

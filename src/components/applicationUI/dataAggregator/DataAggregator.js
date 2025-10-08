@@ -131,6 +131,8 @@ export default function DataAggregator({
   disableSearch,
   tableViewSettings,
   viewMode,
+  processAmount,
+  cardProps,
 }) {
   const { isMobile } = useContext(Context);
   const [currentPage, setCurrentPage] = useState(0);
@@ -158,6 +160,8 @@ export default function DataAggregator({
     doQuery(0);
   }, [itemsPerPage, queryParamsMemo, searchQuery, inheritedSearchQuery]);
 
+  if (!cardProps) cardProps = {};
+
   if (!nothingFoundMessage) nothingFoundMessage = "Empty"; //This list is empty
 
   if (viewMode !== "TABLE") tableViewSettings = null;
@@ -179,6 +183,7 @@ export default function DataAggregator({
             entireResponse={entireResponse}
             key={item._id}
             item={item}
+            {...cardProps}
           />
         ))}
         maxCol={columns}
@@ -200,7 +205,9 @@ export default function DataAggregator({
     }
 
     if (viewMode == "BAR_GRAPH") {
-      core = <DataAggregatorBarGraph data={items} />;
+      core = (
+        <DataAggregatorBarGraph processAmount={processAmount} data={items} />
+      );
     }
   }
 

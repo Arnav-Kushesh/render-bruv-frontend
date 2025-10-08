@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CompanyStatAggregator from "../../../../../applicationUI/aggregator/CompanyStatAggregator";
+import StatAggregator from "../../../../../applicationUI/aggregator/StatAggregator";
 import ElevatedSection from "../../../../../helperComponents/general/ElevatedSection";
 import CustomLabel from "../../../../../applicationUI/customLabel/CustomLabel";
 
@@ -21,7 +21,7 @@ export default function AdminInstanceStat() {
     <Column>
       <ElevatedSection>
         <CustomLabel>Date Wise Instance Creation</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"INSTANCE_CREATION"}
@@ -31,7 +31,7 @@ export default function AdminInstanceStat() {
 
       <ElevatedSection>
         <CustomLabel>Month Wise Instance Creation</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"INSTANCE_CREATION"}
@@ -41,7 +41,7 @@ export default function AdminInstanceStat() {
 
       <ElevatedSection>
         <CustomLabel>Year Wise Instance Creation</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"INSTANCE_CREATION"}
@@ -51,7 +51,7 @@ export default function AdminInstanceStat() {
 
       <ElevatedSection>
         <CustomLabel>Date Wise Instance Termination</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"INSTANCE_TERMINATION"}
@@ -61,7 +61,7 @@ export default function AdminInstanceStat() {
 
       <ElevatedSection>
         <CustomLabel>Month Wise Instance Termination</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"INSTANCE_TERMINATION"}
@@ -71,7 +71,7 @@ export default function AdminInstanceStat() {
 
       <ElevatedSection>
         <CustomLabel>Year Wise Instance Termination</CustomLabel>
-        <CompanyStatAggregator
+        <StatAggregator
           viewMode={"BAR_GRAPH"}
           hideTitleSection={true}
           typeOverride={"INSTANCE_TERMINATION"}

@@ -33,6 +33,7 @@ export default function UserTransactionAggregator({
   tableViewSettings,
   showReportedItems,
   showMyData,
+  cardProps,
 }) {
   const [type, setType] = useState(null);
 
@@ -46,6 +47,7 @@ export default function UserTransactionAggregator({
 
   return (
     <DataAggregator
+      cardProps={cardProps}
       showReportedItems={showReportedItems}
       hideTitleSection={hideTitleSection}
       tableViewSettings={

@@ -25,7 +25,7 @@ const formatXAxisLabel = (dateString, durationType) => {
   }
 };
 
-const DataAggregatorBarGraph = ({ data }) => {
+const DataAggregatorBarGraph = ({ data, processAmount }) => {
   // sort by date (optional)
   const sortedData = [...data].sort(
     (a, b) => new Date(a.date) - new Date(b.date)
@@ -48,7 +48,10 @@ const DataAggregatorBarGraph = ({ data }) => {
         <YAxis />
 
         <Tooltip
-          formatter={(value) => [value, "Amount"]}
+          formatter={(value) => [
+            processAmount ? processAmount(value) : value,
+            "Amount",
+          ]}
           labelFormatter={(label) => {
             const item = sortedData.find((d) => d.date === label);
             if (!item) return label;

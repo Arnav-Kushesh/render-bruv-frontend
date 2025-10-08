@@ -11,6 +11,7 @@ import LoadingSection from "../../../helperComponents/LoadingSection";
 import UserTransactionAggregator from "../../../applicationUI/aggregator/UserTransactionAggregator";
 import ElevatedSection from "../../../helperComponents/general/ElevatedSection";
 import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
+import StatAggregator from "../../../applicationUI/aggregator/StatAggregator";
 
 const Container = styled.div`
   display: flex;
@@ -54,7 +55,7 @@ const Row1 = styled.div`
 const RightSection = styled.div`
   display: flex;
   gap: 20px;
-  flex-direction: row;
+  flex-direction: column;
   flex: 1;
 
   @media (max-width: 900px) {
@@ -63,6 +64,8 @@ const RightSection = styled.div`
 `;
 
 export default function ManageBillingPage() {
+  const { loggedInUser } = useContext(Context);
+
   return (
     <LoggedInBoilerplate>
       <Container>
@@ -70,22 +73,50 @@ export default function ManageBillingPage() {
           <Column1>
             <BalancePanel />
             <AddBalancePanel />
-          </Column1>
 
-          <RightSection>
-            <ElevatedSection style={{ flex: 1 }}>
+            <ElevatedSection>
               <CustomLabel>Recharge History</CustomLabel>
               <RechargeHistoryAggregator
                 hideTitleSection={true}
                 showMyData={true}
               />
             </ElevatedSection>
+          </Column1>
 
-            <ElevatedSection style={{ flex: 1 }}>
-              <CustomLabel>Usage Data</CustomLabel>
-              <UserTransactionAggregator
-                showMyData={true}
+          <RightSection>
+            <ElevatedSection>
+              <CustomLabel>Date Wise Usage</CustomLabel>
+              <StatAggregator
+                processAmount={(data) => data / 100}
+                userId={loggedInUser._id}
+                viewMode={"USER_INSTANCE_USAGE_IN_CENTS"}
                 hideTitleSection={true}
+                typeOverride={"REVENUE"}
+                durationTypeOverride={"DATE"}
+              />
+            </ElevatedSection>
+
+            <ElevatedSection>
+              <CustomLabel>Month Wise Usage</CustomLabel>
+              <StatAggregator
+                processAmount={(data) => data / 100}
+                userId={loggedInUser._id}
+                viewMode={"USER_INSTANCE_USAGE_IN_CENTS"}
+                hideTitleSection={true}
+                typeOverride={"REVENUE"}
+                durationTypeOverride={"MONTH"}
+              />
+            </ElevatedSection>
+
+            <ElevatedSection>
+              <CustomLabel>Year Wise Usage</CustomLabel>
+              <StatAggregator
+                processAmount={(data) => data / 100}
+                userId={loggedInUser._id}
+                viewMode={"USER_INSTANCE_USAGE_IN_CENTS"}
+                hideTitleSection={true}
+                typeOverride={"REVENUE"}
+                durationTypeOverride={"YEAR"}
               />
             </ElevatedSection>
           </RightSection>

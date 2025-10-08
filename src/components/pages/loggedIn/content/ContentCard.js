@@ -121,11 +121,11 @@ export default function ContentCard({ data, forReportPurposes }) {
           onClick={goTo(`/u/${data.author.username}`)}
           src={getImageURL(data.author.profileImage, true)}
         />,
-        <LikeButton
-          status={data.isLiked}
-          contentId={data._id}
-          count={data.likeCount}
-        />,
+        // <LikeButton
+        //   status={data.isLiked}
+        //   contentId={data._id}
+        //   count={data.likeCount}
+        // />,
 
         <CustomButton
           style={{ ...contentCardButtonStyle }}
@@ -134,11 +134,11 @@ export default function ContentCard({ data, forReportPurposes }) {
         >
           {data.commentCount}
         </CustomButton>,
-        <CustomButton
-          style={{ ...contentCardButtonStyle }}
-          icon={<PiShareFat />}
-          onClick={doSharing}
-        ></CustomButton>,
+        // <CustomButton
+        //   style={{ ...contentCardButtonStyle }}
+        //   icon={<PiShareFat />}
+        //   onClick={doSharing}
+        // ></CustomButton>,
       ]}
     />
   );

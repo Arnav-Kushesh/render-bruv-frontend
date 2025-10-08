@@ -200,7 +200,7 @@ export default function AddOrEditContent({}) {
           <br />
           <Buttons>
             <CustomPrimaryButton style={{ width: "190px" }} onClick={save}>
-              {actionType == "UPDATE" ? "Modify Post" : "Create Post"}
+              {actionType == "UPDATE" ? "Modify" : "Submit"}
             </CustomPrimaryButton>
           </Buttons>
         </Inputs>

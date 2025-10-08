@@ -6,7 +6,7 @@ import CustomLabel from "../customLabel/CustomLabel";
 import CustomLabelLarge from "../customLabel/CustomLabelLarge";
 import CustomLabelSmall from "../customLabel/CustomLabelSmall";
 
-export default function UserTransactionCard({ item }) {
+export default function UserTransactionCard({ item, showName }) {
   if (!item) return <ElevatedSection>Invalid Item</ElevatedSection>;
   return (
     <ElevatedSection style={{ padding: "15px" }}>
@@ -14,8 +14,8 @@ export default function UserTransactionCard({ item }) {
         <CustomLabelLarge>
           {item.type == "AMOUNT_ADDED" ? "+" : "-"} ${item.amountInCents / 100}{" "}
         </CustomLabelLarge>
-        <MiniGapRow>
-          {/* <CustomLabel>{item?.user?.name} </CustomLabel> */}
+        <MiniGapRow style={{ gap: "25px" }}>
+          {showName && <CustomLabelSmall>{item?.user?.name} </CustomLabelSmall>}
           <CustomLabelSmall>{parseDate(item.createdAt)} </CustomLabelSmall>
         </MiniGapRow>
       </MiniGapColumn>

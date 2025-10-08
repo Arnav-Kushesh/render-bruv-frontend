@@ -1,4 +1,6 @@
 import AskName from "../components/pages/loggedIn/onboarding/AskName";
+import AskSignupSource from "../components/pages/loggedIn/onboarding/AskSignupSource";
+import AskUseCase from "../components/pages/loggedIn/onboarding/AskUseCase";
 import VerifyEmail from "../components/pages/loggedIn/onboarding/VerifyEmail";
 
 // helper
@@ -14,6 +16,20 @@ export function getOnboardingComponent(loggedInUser) {
 
   if (!loggedInUser.name && !skipped(loggedInUser, "nameOnboardingSkipped")) {
     return <AskName />;
+  }
+
+  if (
+    !loggedInUser.signupSource &&
+    !skipped(loggedInUser, "signupSourceOnboardingSkipped")
+  ) {
+    return <AskSignupSource />;
+  }
+
+  if (
+    !loggedInUser.useCase &&
+    !skipped(loggedInUser, "useCaseOnboardingSkipped")
+  ) {
+    return <AskUseCase />;
   }
 
   return null;

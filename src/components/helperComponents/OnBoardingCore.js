@@ -139,6 +139,7 @@ export default function OnBoardingCore({
   submitButtonProps = {},
   skipID,
   asEditPage,
+  disableSkip,
 }) {
   const { loggedInUser, setLoggedInUser } = useContext(Context);
 
@@ -171,14 +172,16 @@ export default function OnBoardingCore({
         submitButton
       ) : (
         <Buttons>
-          <CustomButton
-            style={{ height: "55px", width: "100px" }}
-            onClick={onSkip}
-            disabled={!skipID}
-            variant="minimal-underlined"
-          >
-            Skip
-          </CustomButton>
+          {!disableSkip && (
+            <CustomButton
+              style={{ height: "55px", width: "100px" }}
+              onClick={onSkip}
+              disabled={!skipID}
+              variant="minimal-underlined"
+            >
+              Skip
+            </CustomButton>
+          )}
 
           {submitButton}
         </Buttons>

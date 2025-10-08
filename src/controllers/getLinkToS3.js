@@ -1,4 +1,3 @@
-
 export default function getLinkToS3(fileName) {
   let environment = "production";
 
@@ -10,13 +9,11 @@ export default function getLinkToS3(fileName) {
     environment = "development";
   }
 
-
-
   let useCDN = true;
 
-  let base = "http://ta-naz-storage.s3.ap-south-1.amazonaws.com";
+  let base = "http://render-bruv-storage.s3.ap-south-1.amazonaws.com";
 
-  let cdnBase = `https://d1env3bjppf4ji.cloudfront.net`;
+  let cdnBase = `https://d15o1m7yzzxruq.cloudfront.net`;
 
   if (useCDN) {
     base = cdnBase;

@@ -11,8 +11,8 @@ const TabContainer = styled.div`
   /* width: fit-content; */
   flex-direction: row;
   /* height: 388px; */
-  width: 735px;
-  width: 615px;
+
+  width: 485px;
   height: 51px;
 
   border: 1px solid var(--borderIntense);
@@ -56,7 +56,7 @@ const Tab = styled.div`
 
   animation: all 0.6s ease-in;
   color: var(--headerElementDim);
-  padding: 15px 25px;
+  padding: 15px 27px;
   transform: scale(1);
   transition: 0.15s ease-in-out;
 

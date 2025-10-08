@@ -26,13 +26,13 @@ function getNavBarOptions2({ loggedInUser, notificationCount }) {
       style: isMobile ? iconButtonStyle : null,
       link: "/manage-billing",
     },
-    {
-      value: "COMMUNITY",
-      label: !isMobile && "Community", //notificationCount
-      icon: isMobile && <HiOutlineEmojiHappy />,
-      style: isMobile ? iconButtonStyle : null,
-      link: "/community",
-    },
+    // {
+    //   value: "COMMUNITY",
+    //   label: !isMobile && "Community", //notificationCount
+    //   icon: isMobile && <HiOutlineEmojiHappy />,
+    //   style: isMobile ? iconButtonStyle : null,
+    //   link: "/community",
+    // },
 
     {
       value: "SUPPORT",

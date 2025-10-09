@@ -18,6 +18,7 @@ import getSocketConnection from "./controllers/getSocketConnection";
 import InstanceCharts from "./InstanceCharts";
 import InstanceLoading from "./InstanceLoading";
 import Footer from "../../loggedOut/landingPage/Footer";
+import terminateSocketConnection from "./controllers/terminateSocketConnection";
 
 const Container = styled.div`
   display: flex;
@@ -59,9 +60,9 @@ export default function ManageInstance() {
     renderType: "ANIMATION",
     engineType: "CYCLES",
     methodType: "CUDA",
-    imageFrame: null,
-    rangeStart: null,
-    rangeEnd: null,
+    imageFrame: 1,
+    rangeStart: 1,
+    rangeEnd: 100,
   });
 
   let baseUrl = data
@@ -70,6 +71,8 @@ export default function ManageInstance() {
 
   useEffect(() => {
     loadData();
+
+    return terminateSocketConnection;
   }, []);
 
   useEffect(() => {

@@ -42,7 +42,7 @@ export default async function uploadBlendFile({
     }
 
     // Now send remaining chunks in parallel
-    const limit = pLimit(10);
+    const limit = pLimit(30);
     const remainingPromises = Array.from(
       { length: totalChunks - 1 },
       (_, i) => {

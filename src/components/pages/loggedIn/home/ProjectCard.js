@@ -3,6 +3,7 @@ import { useContext } from "react";
 import styled from "styled-components";
 import Context from "../../../../Context";
 import goTo from "../../../../controllers/goTo";
+import supportedGpuTypes from "../../../../data/supportedGpuTypes";
 
 const InfoBox = styled.section`
   cursor: pointer;
@@ -105,12 +106,15 @@ export default function ProjectCard({ item, onClick }) {
 
   // let { serverInstance } = item;
 
+  let gpuItem = supportedGpuTypes[item.instanceGpuType];
+
   return (
     <InfoBox onClick={goTo(`/manage-instance/${item._id}`)}>
       <Column1>
         <Title>{item.projectName}</Title>
 
         <Secondary>Usage: ${item.charges / 100}</Secondary>
+        {gpuItem && <Secondary>GPU: {gpuItem?.secondaryLabel}</Secondary>}
         <Secondary>Total Time: {item.minuteRan} Mins</Secondary>
       </Column1>
 

@@ -151,6 +151,7 @@ export default function StartRenderingPanel({
 
   let mainUploadButton = (
     <BlendFileUploadSection
+      podId={podId}
       baseUrl={baseUrl}
       executionData={executionData}
       refreshExecutionData={refreshExecutionData}

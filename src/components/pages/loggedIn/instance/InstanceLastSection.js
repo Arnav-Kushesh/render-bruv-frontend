@@ -9,6 +9,7 @@ import Context from "../../../../Context";
 import LoadingSection from "../../../helperComponents/LoadingSection";
 import { serverLine } from "../../../../controllers/network/serverLine";
 import { RiIndeterminateCircleLine } from "react-icons/ri";
+import terminateSocketConnection from "./controllers/terminateSocketConnection";
 
 const Container = styled.div`
   display: flex;
@@ -84,6 +85,8 @@ export default function InstanceLastSection({ itemId, loadData }) {
 
   async function terminateInstance() {
     setLoading(true);
+
+    terminateSocketConnection();
 
     await serverLine.post("/stop-server-instance", { itemId });
 

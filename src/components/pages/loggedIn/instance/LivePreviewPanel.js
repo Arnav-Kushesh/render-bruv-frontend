@@ -85,8 +85,8 @@ const LiveImage = styled.img`
   /* width: 70%; */
   /* height: auto; */
 
-  height: 500px;
-  width: auto;
+  width: 100%;
+  height: auto;
   /* object-fit: contain; */
 `;
 

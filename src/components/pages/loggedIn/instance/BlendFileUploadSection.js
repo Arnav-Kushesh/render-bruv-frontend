@@ -13,6 +13,7 @@ import OverlayStateUpdater from "./OverlayStateUpdater";
 import deleteBlendFile from "./controllers/deleteBlendFile";
 import LoadingSection from "../../../helperComponents/LoadingSection";
 import limitStringLength from "../../../../controllers/utils/limitStringLength";
+import stopRender from "./controllers/stopRender";
 
 let btnStyle = {
   border: "1px solid var(--borderDim)",
@@ -89,6 +90,7 @@ export default function BlendFileUploadSection({
   refreshExecutionData,
   executionData,
   baseUrl,
+  podId,
 }) {
   const [showOverlay, setShowOverlay] = useState(false);
   const [uploadPercentage, setUploadPercentage] = useState(0);
@@ -175,6 +177,8 @@ export default function BlendFileUploadSection({
   );
 
   function deleteOldBlendFile() {
+    stopRender({ podId, baseUrl, refreshExecutionData, executionData });
+
     deleteBlendFile({
       baseUrl,
       setDeleteLoading,

@@ -27,6 +27,6 @@ const LoadingBar = styled.div`
   height: 8px;
   background: var(--accentGradient);
   border-radius: 20px;
-  animation: ${loadingAnimation} 400s;
+  animation: ${loadingAnimation} 150s;
   transform-origin: left;
 `;

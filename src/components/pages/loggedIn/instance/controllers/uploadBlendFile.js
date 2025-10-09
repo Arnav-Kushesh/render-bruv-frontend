@@ -36,8 +36,8 @@ export default async function uploadBlendFile({
 
     // If only one chunk, we're done
     if (totalChunks === 1) {
+      await refreshExecutionData();
       setLoading(false);
-      refreshExecutionData();
       return;
     }
 

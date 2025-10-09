@@ -97,6 +97,9 @@ export default function FilesPanel({ podId, baseUrl }) {
 
           // console.log(get().rendered_image_list)
         }
+      })
+      .catch((e) => {
+        console.log(e);
       });
   }
 }

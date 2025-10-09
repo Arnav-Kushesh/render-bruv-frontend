@@ -11,6 +11,8 @@ import { createPortal } from "react-dom";
 import CustomLabelDim from "../../../applicationUI/customLabel/CustomLabelDim";
 import OverlayStateUpdater from "./OverlayStateUpdater";
 import deleteBlendFile from "./controllers/deleteBlendFile";
+import LoadingSection from "../../../helperComponents/LoadingSection";
+import limitStringLength from "../../../../controllers/utils/limitStringLength";
 
 let btnStyle = {
   border: "1px solid var(--borderDim)",
@@ -130,7 +132,6 @@ export default function BlendFileUploadSection({
   if (deleteLoading)
     return (
       <CustomButton style={btnStyle} icon={<PuffLoader size={"18px"} />}>
-        {" "}
         Deleting
       </CustomButton>
     );
@@ -138,7 +139,6 @@ export default function BlendFileUploadSection({
   if (loading)
     return (
       <CustomButton style={btnStyle} icon={<PuffLoader size={"18px"} />}>
-        {" "}
         Uploading → {uploadPercentage}%
       </CustomButton>
     );
@@ -147,10 +147,10 @@ export default function BlendFileUploadSection({
     return (
       <DeleteCurrentBlendFile onClick={deleteOldBlendFile}>
         <CustomButton
-          style={{ ...btnStyle, pointerEvents: "none" }}
+          style={{ ...btnStyle, pointerEvents: "none", gap: "20px" }}
           icon={<SiBlender />}
         >
-          {blendFile.file_name}
+          {limitStringLength(blendFile.file_name, 20)}
         </CustomButton>
       </DeleteCurrentBlendFile>
     );

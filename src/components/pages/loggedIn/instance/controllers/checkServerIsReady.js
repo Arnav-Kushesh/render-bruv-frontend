@@ -6,6 +6,7 @@ export default function checkServerIsReady({
   serverIsReady,
   setServerIsReady,
   setExecutionData,
+  setExecutionDataIsLoading,
 }) {
   console.log("server ready check started", serverIsReady);
   if (window.serverReadyCheckInterval)
@@ -20,6 +21,7 @@ export default function checkServerIsReady({
           { withCredentials: true }
         );
 
+        setExecutionDataIsLoading(false);
         setExecutionData(res.data);
         setServerIsReady(true);
       } catch (e) {

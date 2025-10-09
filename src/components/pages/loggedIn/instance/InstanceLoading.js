@@ -27,7 +27,8 @@ export default function InstanceLoading() {
       <ProgressBar />
       <Column>
         <CustomLabelSmall>
-          Please! wait server is being initialized. It generally takes 2 minutes
+          Please! wait server is being initialized. It generally takes less than
+          2 minutes
         </CustomLabelSmall>
         <CustomLabelExtraSmall>
           Installing drivers & configurations...

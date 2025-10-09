@@ -9,12 +9,12 @@ export default function deleteBlendFile({
   setDeleteLoading(true);
   axios
     .post(`${baseUrl}/delete_blend_file`, {}, { withCredentials: true })
-    .then((res) => {
+    .then(async (res) => {
       if (res.status === 200) {
+        await refreshExecutionData();
         setDeleteLoading(false);
         // console.log(upload_percentage)
         setUploadPercentage(0);
-        refreshExecutionData();
       }
     })
     .catch((err) => {

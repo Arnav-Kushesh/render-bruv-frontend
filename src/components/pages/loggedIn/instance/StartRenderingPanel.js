@@ -15,6 +15,7 @@ import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import BlendFileUploadSection from "./BlendFileUploadSection";
 import startRender from "./controllers/startRender";
 import stopRender from "./controllers/stopRender";
+import LoadingSection from "../../../helperComponents/LoadingSection";
 
 const Container = styled.div`
   display: flex;
@@ -127,17 +128,44 @@ export default function StartRenderingPanel({
   refreshExecutionData,
   executionData,
   podId,
+  executionDataIsLoading,
 }) {
+  const [tmpLoading, setTmpLoading] = useState();
+  //tmpLoading prevents accidental double clicks
+
   let isRendering = executionData?.render_status?.is_rendering;
+
+  let mainButtonStyle = {
+    width: "180px",
+    height: "55px",
+    padding: "0",
+    borderRadius: "25px",
+    gap: "25px",
+  };
+  let mainButton = (
+    <CustomPrimaryButton onClick={go} style={mainButtonStyle}>
+      {isRendering ? "Stop" : "Start"}
+      <GoArrowRight />
+    </CustomPrimaryButton>
+  );
+
+  let mainUploadButton = (
+    <BlendFileUploadSection
+      baseUrl={baseUrl}
+      executionData={executionData}
+      refreshExecutionData={refreshExecutionData}
+    />
+  );
+
+  if (tmpLoading || executionDataIsLoading) {
+    mainButton = <LoadingSection />;
+  }
+
   return (
     <Column>
       <Section1>
         <CustomLabelDim>Step 1. Upload File</CustomLabelDim>
-        <BlendFileUploadSection
-          baseUrl={baseUrl}
-          executionData={executionData}
-          refreshExecutionData={refreshExecutionData}
-        />
+        {mainUploadButton}
       </Section1>
 
       <Container>
@@ -209,25 +237,23 @@ export default function StartRenderingPanel({
           </Section>
         </Inputs>
 
-        <CustomPrimaryButton
-          onClick={go}
-          style={{
-            width: "180px",
-            height: "55px",
-            padding: "0",
-            borderRadius: "25px",
-            gap: "25px",
-          }}
-        >
-          {isRendering ? "Stop" : "Start"}
-          {/* <PiComputerTower /> */}
-          <GoArrowRight />
-        </CustomPrimaryButton>
+        {mainButton}
       </Container>
     </Column>
   );
 
+  function doTempLoading() {
+    setTmpLoading(true);
+
+    setTimeout(() => {
+      setTmpLoading(false);
+    }, 3000);
+  }
+
   function go() {
+    if (executionDataIsLoading) return false;
+
+    doTempLoading();
     if (isRendering) {
       stop();
     } else {

@@ -53,6 +53,7 @@ export default function ManageInstance() {
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(null);
+  const [executionDataIsLoading, setExecutionDataIsLoading] = useState(true);
   const [executionData, setExecutionData] = useState(null);
   const [renderSettings, setRenderSettings] = useState({
     renderType: "ANIMATION",
@@ -95,6 +96,7 @@ export default function ManageInstance() {
           serverIsReady,
           setServerIsReady,
           setExecutionData,
+          setExecutionDataIsLoading,
         });
       }
     }
@@ -144,6 +146,7 @@ export default function ManageInstance() {
       <>
         <Row1>
           <StartRenderingPanel
+            executionDataIsLoading={executionDataIsLoading}
             podId={podId}
             executionData={executionData}
             baseUrl={baseUrl}
@@ -203,8 +206,12 @@ export default function ManageInstance() {
     );
   }
 
-  function refreshExecutionData() {
-    loadExecutionData({ baseUrl, setExecutionData });
+  async function refreshExecutionData() {
+    await loadExecutionData({
+      baseUrl,
+      setExecutionData,
+      setExecutionDataIsLoading,
+    });
   }
 
   async function loadData() {

@@ -41,7 +41,7 @@ const FieldShell = styled.div`
 
   &:focus-within {
     box-shadow: var(--shadow);
-    background: var(--surface);
+    background: var(--activeSurface);
     /* transform: translateY(-1px); */
   }
 
@@ -62,7 +62,7 @@ const FieldShell = styled.div`
     ry: 20;
     fill: none;
     /* stroke: var(--accent); */
-    stroke: var(--borderIntense);
+    stroke: var(--border);
     stroke-width: 3;
     stroke-dasharray: 0 400;
     stroke-dashoffset: 0;
@@ -115,7 +115,6 @@ export default function CustomAnimatedInput({
   onChange,
   icon,
   size = "md",
-  accent = "#3f6ef1",
   width,
   fullWidth = false,
   helper,

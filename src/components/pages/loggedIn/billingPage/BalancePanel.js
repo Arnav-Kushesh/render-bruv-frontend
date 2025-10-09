@@ -12,12 +12,13 @@ import { GoArrowRight } from "react-icons/go";
 import { SiBlender } from "react-icons/si";
 import { PiComputerTower } from "react-icons/pi";
 import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
+import ElevatedSection from "../../../helperComponents/general/ElevatedSection";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
   /* width: 410px; */
   border-radius: 10px;
@@ -107,10 +108,10 @@ export default function BalancePanel() {
   const { updateLoggedInUser, loggedInUser, isMobile } = useContext(Context);
 
   return (
-    <Container>
+    <ElevatedSection>
       <Amount>
         Balance: <Span>$100</Span>
       </Amount>
-    </Container>
+    </ElevatedSection>
   );
 }

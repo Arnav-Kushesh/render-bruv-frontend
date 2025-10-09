@@ -3,12 +3,15 @@ import { useContext } from "react";
 import Context from "../../../Context.js";
 import AnimatedPillTabsForTheme from "../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabsForTheme.js";
 import { MdDarkMode, MdOutlineLightMode } from "react-icons/md";
+import AnimatedNavVertical from "../../../header/vertical/AnimatedNavVertical.js";
+import AnimatedPillTabsVertical from "../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabsVertical.js";
+import AnimatedPillTabs from "../loggedOut/landingPage/loggedOutHomeForApp/AnimatedPillTabs.js";
 const Container = styled.div`
-  width: 100px;
+  /* width: 100px; */
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  height: 55px;
+  /* height: 55px; */
 `;
 
 const Links = styled.div`
@@ -71,15 +74,32 @@ export default function ColorThemeSelector({
   const { colorMode, updateColorMode } = useContext(Context);
 
   let options = [
-    { label: <MdDarkMode />, value: "DARK" },
-    { label: <MdOutlineLightMode />, value: "LIGHT" },
+    { label: "Glass", value: "LIGHT_GLASS" },
+    { label: "Obsidian", value: "DARK_GLASS" },
+    { label: "Black", value: "DARK_SIMPLE" },
+    { label: "Simple", value: "LIGHT_SIMPLE" },
+
     // { label: "Blue", value: "DARK_BLUE" },
     // { label: "Green", value: "GREEN" },
   ];
 
   return (
     <Container>
-      <AnimatedPillTabsForTheme
+      {/* <AnimatedPillTabsVertical
+        containerStyle={{ width: "200px" }}
+        tabs={options}
+        value={colorMode}
+        onChange={updateColorMode}
+      /> */}
+
+      <AnimatedPillTabs
+        tabStyle={{ fontSize: "14px" }}
+        tabs={options}
+        value={colorMode}
+        onChange={updateColorMode}
+      />
+
+      {/* <AnimatedPillTabsForTheme
         surfaceColor={surfaceColor}
         elementColor={elementColor}
         accentColor={accentColor}
@@ -89,7 +109,7 @@ export default function ColorThemeSelector({
         setActiveIndex={(newIndex) => {
           updateColorMode(options[newIndex].value);
         }}
-      />
+      /> */}
     </Container>
   );
 

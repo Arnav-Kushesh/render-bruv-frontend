@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BubbleTextForCard = styled.div`
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--borderDim);
   padding: 8px 16px;
   color: var(--element);

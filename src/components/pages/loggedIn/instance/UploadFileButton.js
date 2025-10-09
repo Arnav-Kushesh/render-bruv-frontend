@@ -15,14 +15,13 @@ const UploadFileButton = styled.p`
   cursor: pointer;
   transition: 0.2s;
   width: 100%;
-  box-shadow: 0 5px 0 var(--shadowIntense);
+  box-shadow: var(--shadow);
 
   color: var(--element);
 
   /* border: 2px solid var(--accentDim); */
   /* overflow: hidden; */
   background: var(--surface);
-  /* box-shadow: var(--primaryButtonShadow); */
   transition: all 0.25s ease-in-out;
   filter: brightness(1.1);
 

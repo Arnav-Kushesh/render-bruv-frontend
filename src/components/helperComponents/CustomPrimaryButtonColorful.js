@@ -18,7 +18,7 @@ const CustomPrimaryButtonColorful = styled.button`
   box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.05);
 
   border: none;
-  color: var(--elementAlt);
+  color: #000;
 
   /* border: 2px solid var(--accentDim); */
   /* overflow: hidden; */

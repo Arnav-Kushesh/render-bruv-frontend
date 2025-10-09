@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const BubbleTextForPageHeader = styled.div`
   padding: 5px 20px;
-  background-color: var(--surface);
+  background: var(--surface);
   font-size: 14px;
   border-radius: 10px;
   color: var(--elementDim);

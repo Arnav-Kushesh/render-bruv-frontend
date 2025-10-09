@@ -31,7 +31,7 @@ let placeholderData = { title: "Lotus Scene" };
 const Column1 = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
 `;
 
 const Column2 = styled.div`

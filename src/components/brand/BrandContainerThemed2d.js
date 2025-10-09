@@ -69,9 +69,8 @@ export default function BrandContainerThemed2d({ style }) {
 
   return (
     <LogoImage
-      // style={{ filter: colorMode == "DARK" && "invert(1)" }}
       src={
-        colorMode == "DARK"
+        colorMode.indexOf("DARK") !== -1
           ? "/logo/2d-full-logo-dark-mode.svg"
           : "/logo/2d-full-logo.svg"
       }

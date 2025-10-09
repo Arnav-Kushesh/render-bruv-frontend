@@ -33,7 +33,7 @@ export default function MaterialInput({
   variant = "filled",
   placeholder,
   style = {},
-  surfaceColor = "var(--surface2)",
+  surfaceColor = "var(--activeSurface)",
   elementColor = "var(--element)",
   borderColor = "var(--border)",
 }) {

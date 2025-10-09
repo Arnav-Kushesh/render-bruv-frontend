@@ -12,13 +12,13 @@ const TabContainer = styled.div`
   flex-direction: row;
   /* height: 388px; */
 
-  width: 485px;
+  width: 555px;
   height: 51px;
 
   border: 1px solid var(--borderIntense);
   background: var(--headerSurface);
   overflow: hidden;
-  border-radius: 15px;
+  border-radius: 150px;
 
   @media (max-width: 900px) {
     width: 350px;
@@ -56,6 +56,7 @@ const Tab = styled.div`
 
   animation: all 0.6s ease-in;
   color: var(--headerElementDim);
+  /* border: 1px solid var(--headerElementDim); */
   padding: 15px 27px;
   transform: scale(1);
   transition: 0.15s ease-in-out;
@@ -63,23 +64,13 @@ const Tab = styled.div`
   ${({ $active }) => {
     if ($active) {
       return `
-       color: var(--elementAlt);
+       color: var(--headerActiveElement);
       `;
     }
   }}
 
   &:hover {
-    /* background: var(--surface); */
-    color: var(--element);
     transform: scale(0.94);
-
-    ${({ $active }) => {
-      if ($active) {
-        return `
-         color: var(--accentAlt);
-      `;
-      }
-    }}
   }
 `;
 
@@ -108,14 +99,16 @@ const Pill = styled.div`
   height: 100%;
   /* width: 10%; */
   /* background-color: var(--accent); */
-  background-color: var(--element);
+  background-color: var(--headerActiveSurface);
   /* border-radius: 15px; */
 
   transition: all 0.3s ease;
   z-index: 2;
+  transform: scale(0.9) scaleY(0.92);
+  border-radius: 100px;
   /* filter: blur(20px); */
   /* transform: scale(0.7); */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); */
 `;
 
 const Badge = styled.div`

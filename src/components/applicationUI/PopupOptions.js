@@ -22,19 +22,6 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Option = styled.button`
-  padding: 10px 20px;
-  border: none;
-  background: transparent;
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 999px;
-  cursor: pointer;
-  z-index: 1;
-  color: ${({ active }) => (active ? "var(--elementAlt)" : "var(--element)")};
-  transition: color 0.2s ease;
-`;
-
 const PopupOptions = ({ options = [] }) => {
   return (
     <Container>

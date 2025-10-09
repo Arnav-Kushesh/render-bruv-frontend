@@ -47,8 +47,8 @@ const Box = styled.div`
     if ($isActive)
       return `
   
-    background: var(--element);
-    color: var(--elementAlt);
+    background: var(--activeSurface);
+    color: var(--activeELement);
   
   
   `;

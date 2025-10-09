@@ -23,7 +23,6 @@ const InfoBox = styled.section`
   /* justify-content: center; */
   align-items: center;
   gap: 15px;
-  /* box-shadow: 0px 4px 0px 0 var(--shadowIntense); */
 
   &:hover {
     transform: scale(1.02);

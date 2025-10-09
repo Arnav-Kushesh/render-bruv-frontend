@@ -41,19 +41,6 @@ const TabList = styled.div`
   justify-content: space-between;
 `;
 
-const TabOld = styled.button`
-  padding: 10px 20px;
-  border: none;
-  background: transparent;
-  font-size: 16px;
-  font-weight: 700;
-  border-radius: 999px;
-  cursor: pointer;
-  z-index: 1;
-  color: ${({ active }) => (active ? "var(--elementAlt)" : "var(--element)")};
-  transition: color 0.2s ease;
-`;
-
 const Tab = styled.div`
   position: relative;
   cursor: pointer;

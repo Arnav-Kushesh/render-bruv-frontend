@@ -52,7 +52,7 @@ function Boilerplate({ children }) {
   const alert = (message) => {
     toast(message);
   };
-  const [colorMode, setColorMode] = useState("DARK");
+  const [colorMode, setColorMode] = useState("LIGHT_GLASS");
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   const [adminSettings, setAdminSettings] = useState({});
@@ -301,11 +301,11 @@ function Boilerplate({ children }) {
   }
 
   function getColors(newStatus) {
-    let darkTheme = {
+    let darkSimple = {
       //New Colors
       mainBackground: "#000000",
       gradientSurface: "linear-gradient(115deg, #ffffff12, #ffffff00)",
-      surface: "rgba(255, 255, 255, 0.045)",
+      surface: "rgba(255, 255, 255, 0.08)",
       surface2: "rgba(255, 255, 255, 0.06)",
       surface3: "rgba(255, 255, 255, 0.05)",
       surfaceSolid: "rgba(28, 28, 28, 1)",
@@ -315,6 +315,8 @@ function Boilerplate({ children }) {
       //header start
       headerSurface: "#1111119b",
       headerElement: "#fff",
+      headerActiveSurface: "#ffffffff",
+      headerActiveElement: "#000000ff",
       headerElementDim: "rgba(255,255,255,0.7)",
       headerAccent: "#3f6ef1",
       headerAccentAlt: "#111",
@@ -340,9 +342,17 @@ function Boilerplate({ children }) {
       elementDim2: "rgba(234, 233, 231, 0.39)",
       elementAlt: "#000000",
       blurryBackground: "#444",
+
+      //Active
+      activeElement: "#ffffffff",
+      activeSurface: "#1c1c1cff",
+      activeElement2: "#000000ff",
+      activeSurface2: "#ffffffff",
+      shadow: "unset",
+      shadow2: "unset",
     };
 
-    let lightTheme = {
+    let lightSimple = {
       // mainBackground: "rgba(246, 246, 246, 1)",
       mainBackground: "#F4F4F4",
       gradientSurface: "rgba(0, 0, 0, 0.05)",
@@ -355,6 +365,8 @@ function Boilerplate({ children }) {
 
       headerSurface: "#ffffffff",
       headerElement: "#000000ff",
+      headerActiveSurface: "#000000ff",
+      headerActiveElement: "#ffffffff",
       headerElementDim: "rgba(0,0,0,0.7)",
       headerAccent: "#3f6ef1",
       headerAccentAlt: "#ffffffff",
@@ -380,8 +392,117 @@ function Boilerplate({ children }) {
       elementDim: "rgba(35, 45, 60, 0.72)",
       elementDim2: "rgba(35, 45, 60, 0.52)",
       elementAlt: "rgba(255, 255, 255, 0.89)",
+
+      shadow: "0 3px 0 0 #000",
+      shadow2: "unset",
+      //Selected
+      activeElement: "#000000ff",
+      activeSurface: "#ffffffff",
+      activeElement2: "#ffffffff",
+      activeSurface2: "#000000ff",
     };
 
+    let lightGlass = {
+      // mainBackground: "rgba(246, 246, 246, 1)",
+      mainBackground: "#F4F4F4",
+      gradientSurface: "rgba(0, 0, 0, 0.05)",
+      surface:
+        "linear-gradient(45deg,rgba(255, 255, 255, 0.18),rgba(255, 255, 255, 0.57))",
+      surface2: "rgba(247, 247, 247, 0.81)",
+      surface3: "rgba(255, 255, 255, 0.39)",
+      surfaceSolid: "rgba(237, 237, 237, 1)",
+      accentSurface: "#3f6ef122", // lighter tint of #3f6ef1
+      accentSurfaceSubtle: "#c0d0fc7c",
+
+      headerSurface: "#ffffff84",
+      headerElement: "#000000ff",
+      headerActiveSurface: "#fff",
+      headerActiveElement: "#000000ff",
+      headerElementDim: "rgba(0,0,0,0.7)",
+      headerAccent: "#3f6ef1",
+      headerAccentAlt: "#ffffffff",
+      headerBorder: "#06267e5b",
+
+      primaryButtonShadow: "2px 6px 15px 3px #4b9fffbd",
+
+      border: "rgba(255, 255, 255, 0.67)",
+      borderIntense: "rgba(255, 255, 255, 0.85)",
+      shadowIntense: "rgba(0, 0, 0, 0.84)",
+      solidShadow: "rgba(52, 52, 52, 0.18)",
+
+      borderDim: "rgba(255, 255, 255, 0.5)",
+      borderAccent: "rgba(234, 234, 232, 0.1)",
+      blurryBackground: "#f0f8ff",
+      mapAccent: "#3f6ef1",
+      accent: "#3f6ef1",
+      accentGradient: "linear-gradient(45deg, #3f6ef1, #3457c7)",
+      accentDim: "rgba(63, 110, 241, 0.31)",
+      accentAlt: "#f0f8ff",
+
+      element: "rgba(1, 10, 22, 1)",
+      elementDim: "rgba(35, 45, 60, 0.72)",
+      elementDim2: "rgba(35, 45, 60, 0.52)",
+      elementAlt: "rgba(255, 255, 255, 0.89)",
+
+      shadow: "0 3px 10px 0 #0000002c",
+      shadow2: "0 1px 15px 0 rgba(0, 0, 0, 0.14)",
+      //Active
+      activeElement: "#000000ff",
+      activeSurface: "#ffffffff",
+      activeElement2: "#000000ff",
+      activeSurface2: "#ffffffff",
+    };
+
+    let darkGlass = {
+      //New Colors
+      mainBackground: "#000000",
+      gradientSurface: "linear-gradient(115deg, #ffffff12, #ffffff00)",
+      surface: "rgba(255, 255, 255, 0.07)",
+      surface2: "rgba(255, 255, 255, 0.06)",
+      surface3: "rgba(255, 255, 255, 0.05)",
+      surfaceSolid: "rgba(28, 28, 28, 1)",
+      accentSurface: "#3f6ef1cf", // updated blue shade
+      accentSurfaceSubtle: "#3f6ef117", // subtle #3f6ef1 tint
+
+      //header start
+      headerSurface: "#dddddd1c",
+      headerElement: "#fff",
+      headerActiveSurface: "#ffffffff",
+      headerActiveElement: "#000000ff",
+      headerElementDim: "rgba(255,255,255,0.7)",
+      headerAccent: "#3f6ef1",
+      headerAccentAlt: "#111",
+      headerBorder: "#0f2b7987",
+      //header end
+
+      primaryButtonShadow: "0px 3px 20px 0px #1c84fb2b",
+      borderIntense: "rgba(255, 254, 252, 0.14)",
+      shadowIntense: "rgba(255, 254, 252, 0.14)",
+
+      border: "rgba(255, 254, 252, 0.15)",
+      solidShadow: "#a3a3a330",
+      borderDim: "rgba(234, 234, 232, 0.1)",
+      borderAccent: "#3f6ef110", // updated bluish border
+      mapAccent: "#3f6ef1",
+      accent: "#3f6ef1",
+      accentGradient: "linear-gradient(45deg, #3f6ef1, #3457c7)", // variation of #3f6ef1
+      accentDim: "rgba(63, 110, 241, 0.27)", // muted version of #3f6ef1
+      accentAlt: "#111111",
+
+      element: "rgb(255, 252, 246)",
+      elementDim: "rgba(234, 233, 231, 0.79)",
+      elementDim2: "rgba(234, 233, 231, 0.39)",
+      elementAlt: "#000000",
+      blurryBackground: "#444",
+
+      shadow: "0 1px 10px 0 rgba(0, 0, 0, 0.4)",
+      shadow2: "0 3px 10px 0 rgba(0, 0, 0, 0.4)",
+      //Selected
+      activeElement: "#ffffffff",
+      activeSurface: "#ffffff2e",
+      activeElement2: "#000000ff",
+      activeSurface2: "#ffffffff",
+    };
     //Yellow tint light theme
     //   let lightTheme = {
     //   mainBackground: "rgb(255, 255, 255)", // Pure white (unchanged)
@@ -440,12 +561,14 @@ function Boilerplate({ children }) {
     //   blurryBackground: "#38c17266",
     // };
 
-    if (newStatus == "DARK") return darkTheme;
-    if (newStatus == "LIGHT") return lightTheme;
+    if (newStatus == "DARK_SIMPLE") return darkSimple;
+    if (newStatus == "LIGHT_SIMPLE") return lightSimple;
+    if (newStatus == "LIGHT_GLASS") return lightGlass;
+    if (newStatus == "DARK_GLASS") return darkGlass;
     // if (newStatus == "DARK_BLUE") return darkBlueTheme;
     // if (newStatus == "GREEN") return green;
 
-    return darkTheme;
+    return lightSimple;
   }
 
   function updateLoggedInUser() {
@@ -476,6 +599,40 @@ function Boilerplate({ children }) {
     // }
 
     //New Colors
+
+    document.documentElement.style.setProperty(
+      "--headerActiveSurface",
+      colors.headerActiveSurface
+    );
+
+    document.documentElement.style.setProperty(
+      "--headerActiveElement",
+      colors.headerActiveElement
+    );
+
+    document.documentElement.style.setProperty(
+      "--activeSurface2",
+      colors.activeSurface2
+    );
+
+    document.documentElement.style.setProperty(
+      "--activeElement2",
+      colors.activeElement2
+    );
+
+    document.documentElement.style.setProperty(
+      "--activeSurface",
+      colors.activeSurface
+    );
+
+    document.documentElement.style.setProperty(
+      "--activeElement",
+      colors.activeElement
+    );
+
+    document.documentElement.style.setProperty("--shadow", colors.shadow);
+
+    document.documentElement.style.setProperty("--shadow2", colors.shadow2);
 
     document.documentElement.style.setProperty(
       "--primaryButtonShadow",

@@ -16,8 +16,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow2);
   width: 100%;
   border-radius: 10px;
   padding: 40px;
@@ -79,13 +80,15 @@ const CustomInput = styled.input`
 `;
 
 const BalanceMiniCard = styled.div`
-  background-color: var(--surface);
+  background: var(--surface);
   padding: 15px 20px;
   border-radius: 15px;
   display: flex;
   flex-direction: row;
   font-weight: 500;
   gap: 5px;
+  font-size: 15px;
+  height: 50px;
 `;
 
 const BalanceLabel = styled.div``;
@@ -116,7 +119,11 @@ export default function CreateProjectSection() {
           <BalanceValue>${currentBalance}</BalanceValue>
         </BalanceMiniCard>
 
-        <CustomButton onClick={goTo("/manage-billing")} icon={<MdMoney />}>
+        <CustomButton
+          style={{ borderRadius: "15px", height: "50px" }}
+          onClick={goTo("/manage-billing")}
+          icon={<MdMoney />}
+        >
           Recharge
         </CustomButton>
       </TopRow>

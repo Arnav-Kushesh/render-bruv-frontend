@@ -12,7 +12,7 @@ const Container = styled.div`
   width: 430px;
   height: auto;
   border-radius: 10px;
-  background-color: var(--surface);
+  background: var(--surface);
 
   padding-bottom: 50px;
 

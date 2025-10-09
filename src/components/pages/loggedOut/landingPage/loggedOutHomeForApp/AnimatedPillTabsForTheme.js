@@ -4,11 +4,11 @@ import styled from "styled-components";
 const TabContainer = styled.div`
   display: flex;
   position: relative;
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 30px;
   padding: 0;
-  width: 100px;
+  /* width: 100px; */
   height: 40px;
   flex-direction: row;
   gap: 0;
@@ -18,18 +18,18 @@ const TabContainer = styled.div`
 `;
 
 const Tab = styled.div`
-  padding: 0 0;
+  padding: 0 20px;
   border: none;
   background: transparent;
   font-size: 15px;
   font-weight: 700;
   border-radius: 999px;
   height: 38px;
-  width: 50px;
+  /* width: 150px; */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
+  /* padding: 0; */
 
   cursor: pointer;
   z-index: 1;
@@ -46,7 +46,8 @@ const Pill = styled.div`
   position: absolute;
   top: 0px;
   left: ${({ left }) => `${left}px`};
-  width: 50px;
+  width: ${({ width }) => `${width}px`};
+  /* width: 50px; */
   height: calc(100%);
   /* background: var(--accent); */
   background: var(--element);

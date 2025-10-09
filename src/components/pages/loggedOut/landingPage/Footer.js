@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useContext, useEffect, useState } from "react";
 import Context from "../../../../Context";
+import ColorThemeSelector from "../../loggedIn/ColorThemeSelector";
+import CustomButton from "../../../helperComponents/CustomButton";
 
 const Container = styled.div`
   padding: 50px;
@@ -8,9 +10,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background-color: var(--surface2);
+  background: var(--surface);
   /* border: 1px solid var(--border); */
-  border-radius: 20px;
+  border-radius: 15px 15px 0 0;
+  /* margin-bottom: 20px; */
   /* opacity: 0.5; */
   align-items: center;
   margin-top: 200px;
@@ -72,50 +75,54 @@ export default function Footer() {
 
   let date = new Date();
 
-  let btnStyle = { fontSize: "8px" };
+  let btnStyle = {
+    background: "var(--activeSurface)",
+    border: "1px solid var(--border)",
+    boxShadow: "none",
+  };
 
-  if (!isMobile) btnStyle = { fontSize: "9px" };
+  let btnTxtStyle = { fontSize: "8px" };
+
+  if (!isMobile) btnTxtStyle = { fontSize: "9px" };
 
   return (
     <Container>
-      <Row>
-        {/* <RowTitle>Useful Links</RowTitle> */}
-        <Links>
-          {/* <CustomButton
-            textStyle={btnStyle}
-            variant={variant}
-            onClick={changeLanguage}
-          >
-            {theLang == "fr" ? "Switch to English" : "Passer au français"}{" "}
-          </CustomButton> */}
-
-          {/* <CustomButton
-            textStyle={btnStyle}
-            variant={variant}
-            href="/privacy-policy"
-          >
-            {t("footerSectionPrivacyPolicy")}
-          </CustomButton>
-          <CustomButton
-            textStyle={btnStyle}
-            variant={variant}
-            href="/terms-and-conditions"
-          >
-            {t("footerSectionTermsAndConditions")}
-          </CustomButton>
-          <CustomButton
-            textStyle={btnStyle}
-            variant={variant}
-            href="/refund-policy"
-          >
-            {t("footerSectionRefundPolicy")}
-          </CustomButton> */}
-        </Links>
-      </Row>
-      <br />
       <Row>Copyright © {date.getFullYear()} Render Bruv</Row>
 
       <Row>v1</Row>
+      <br />
+
+      <Row>
+        <Links>
+          <CustomButton
+            style={btnStyle}
+            textStyle={btnTxtStyle}
+            customVariant={variant}
+            href="/privacy-policy"
+          >
+            Privacy Policy
+          </CustomButton>
+
+          <CustomButton
+            style={btnStyle}
+            textStyle={btnTxtStyle}
+            customVariant={variant}
+            href="/terms-and-conditions"
+          >
+            Terms & Conditions
+          </CustomButton>
+          <CustomButton
+            style={btnStyle}
+            textStyle={btnTxtStyle}
+            customVariant={variant}
+            href="/refund-policy"
+          >
+            Refund Policy
+          </CustomButton>
+        </Links>
+      </Row>
+
+      <ColorThemeSelector />
     </Container>
   );
 

@@ -11,7 +11,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
   flex: 1;
   border-radius: 10px;

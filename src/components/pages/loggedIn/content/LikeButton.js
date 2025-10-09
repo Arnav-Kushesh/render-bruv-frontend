@@ -19,8 +19,8 @@ export default function LikeButton({ status, contentId, count }) {
   if (likeStatus) {
     theStyle.background = "var(--accent)";
     theStyle.border = "1px solid var(--accent)";
-    iconStyle.color = "var(--elementAlt)";
-    textStyle.color = "var(--elementAlt)";
+    iconStyle.color = "var(--activeElement)";
+    textStyle.color = "var(--activeElement)";
   }
 
   return (

@@ -20,7 +20,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
   width: 410px;
   border-radius: 10px;
@@ -32,7 +32,7 @@ const Section1 = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
   width: 410px;
   border-radius: 10px;

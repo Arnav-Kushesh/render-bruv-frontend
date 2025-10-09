@@ -96,6 +96,7 @@ export default function CustomButton({
         background: "transparent",
         border: `none`,
         padding: "5px 10px",
+        boxShadow: "unset !important",
       };
     }
   }
@@ -109,13 +110,21 @@ export default function CustomButton({
     if (icon) {
       children = icon;
       icon = null;
-      additionalStyle = { height: "45px", width: "45px", padding: 0 };
+      additionalStyle = {
+        ...additionalStyle,
+        height: "45px",
+        width: "45px",
+        padding: 0,
+      };
     }
   } else {
     children = (
       <Text style={{ color: elementColor, ...textStyle }}>{children}</Text>
     );
   }
+
+  if (customVariant == "SMALL_AND_MINIMAL")
+    console.log("SMALL_AND_MINIMAL", "additionalStyle", additionalStyle);
 
   return (
     <ScaleOnHover>
@@ -126,8 +135,8 @@ export default function CustomButton({
           padding: "10px 20px",
           gap: "10px",
           borderRadius: "50px",
-          border: "1px solid var(--border)",
-          boxShadow: "rgb(120 166 0 / 72%) 1px 5ppx 50px 1px",
+          border: "1px solid var(--borderDim)",
+          boxShadow: "var(--shadow2)",
           ...additionalStyle,
           ...style,
         }}

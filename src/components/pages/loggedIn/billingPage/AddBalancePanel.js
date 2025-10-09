@@ -12,12 +12,13 @@ import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import { MdPayment } from "react-icons/md";
 import LoadingSection from "../../../helperComponents/LoadingSection";
 import { serverLine } from "../../../../controllers/network/serverLine";
+import ElevatedSection from "../../../helperComponents/general/ElevatedSection";
 
 const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
   /* width: 410px; */
   border-radius: 10px;
@@ -70,8 +71,8 @@ const RangeInput = styled.div`
 
 let tabContainerStyle = {
   border: "1px solid var(--borderIntense)",
-  borderRadius: "10px",
-  background: "transparent",
+  // borderRadius: "10px",
+  // background: "var(",
 };
 
 let pillStyle = null;
@@ -99,7 +100,7 @@ export default function AddBalancePanel() {
     );
 
   return (
-    <Container>
+    <ElevatedSection>
       <CustomLabel>Add Balance</CustomLabel>
       <Inputs>
         <Section>
@@ -128,7 +129,7 @@ export default function AddBalancePanel() {
         Pay
         <MdPayment />
       </CustomPrimaryButton>
-    </Container>
+    </ElevatedSection>
   );
 
   async function makePayment() {

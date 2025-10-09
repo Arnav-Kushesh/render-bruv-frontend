@@ -5,8 +5,9 @@ const TabContainer = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: var(--surface2);
+  background: var(--surface);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow2);
   border-radius: 15px;
   padding: 4px;
   height: fit-content;
@@ -27,7 +28,8 @@ const Tab = styled.button`
   cursor: pointer;
   z-index: 1;
   text-align: left;
-  color: ${({ $active }) => ($active ? "var(--elementAlt)" : "var(--element)")};
+  color: ${({ $active }) =>
+    $active ? "var(--activeElement)" : "var(--element)"};
   transition: color 0.2s ease;
 
   @media (max-width: 900px) {
@@ -43,7 +45,7 @@ const Pill = styled.div`
   top: ${({ top }) => `${top}px`};
   height: ${({ height }) => `${height}px`};
   width: calc(100% - 8px);
-  background-color: var(--element);
+  background-color: var(--activeSurface);
   border-radius: 15px;
   transition: all 0.3s ease;
   z-index: 0;

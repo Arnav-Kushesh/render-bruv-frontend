@@ -31,7 +31,7 @@ const Name = styled.div`
 `;
 
 const BubbleText = styled.div`
-  background-color: var(--surface);
+  background: var(--surface);
   padding: 5px 12px;
   color: var(--element);
   border-radius: 15px;

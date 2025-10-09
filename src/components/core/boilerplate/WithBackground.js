@@ -33,13 +33,28 @@ const Main = styled.div`
   /* backdrop-filter: blur(50px); */
 `;
 
+const Background = styled.img`
+  height: 100dvh;
+  height: 100dvh;
+  width: 100vw;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+`;
+
 export default function WithBackground({ children }) {
-  const { loggedInUserId, colorMode } = useContext(Context);
+  const { colorMode } = useContext(Context);
+
+  let backgroundImage = "/background/blur-background.png";
+
+  if (colorMode.indexOf("GLASS") === -1) backgroundImage = null;
 
   return (
     <Container>
       <Main>{children}</Main>
-      {/* {backgroundImage ? <Background src={backgroundImage} /> : null} */}
+      {backgroundImage ? <Background src={backgroundImage} /> : null}
       {/* <CustomBlurBackground /> */}
     </Container>
   );

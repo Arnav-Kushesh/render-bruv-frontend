@@ -60,7 +60,7 @@ const PriceTag = styled.div`
 
 const Icon = styled.div`
   background-color: var(--accent);
-  color: var(--elementAlt);
+  color: var(--accentAlt);
   height: 100px;
   width: 100px;
 

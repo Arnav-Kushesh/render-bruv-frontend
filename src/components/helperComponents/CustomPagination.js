@@ -11,7 +11,7 @@ const Container = styled.div`
   height: 40px;
   color: var(--element);
   justify-content: center;
-  /* background-color: var(--surface); */
+  /* background: var(--surface); */
   /* border: 1px solid var(--border); */
   align-items: center;
   width: auto;
@@ -24,15 +24,15 @@ const Button = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background-color: var(--surface);
+  background: var(--surface);
   user-select: none;
 
   &:hover {
-    background-color: var(--surface);
+    background: var(--surface);
   }
 
   &.active {
-    background-color: var(--surface);
+    background: var(--surface);
     font-weight: bold;
   }
 `;

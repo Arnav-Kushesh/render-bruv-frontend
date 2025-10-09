@@ -84,7 +84,7 @@ const FloatingButtons = styled.div`
 
 const FloatingButton = styled(Button)`
   width: 50px;
-  background: var(--elementAlt);
+  background: var(--activeSurface);
   backdrop-filter: blur(20px);
   box-shadow: var(--hardShadow);
   padding: 0;
@@ -93,7 +93,7 @@ const FloatingButton = styled(Button)`
   align-items: center;
   border-radius: 100px;
   height: 50px;
-  color: var(--element);
+  color: var(--activeElement);
 
   transition: all 0.2s ease-in-out;
   border: 1px solid var(--borderDim);

@@ -15,7 +15,7 @@ import PopupOptions from "./PopupOptions";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 10px;
   padding: 15px;

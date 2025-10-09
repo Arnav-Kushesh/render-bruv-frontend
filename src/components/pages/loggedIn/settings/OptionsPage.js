@@ -116,6 +116,7 @@ export default function OptionsPage() {
           >
             Change Password
           </CustomButton>
+          <br />
 
           <ColorThemeSelector />
         </Inputs>

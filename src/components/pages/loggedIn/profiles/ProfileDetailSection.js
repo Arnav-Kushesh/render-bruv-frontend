@@ -115,7 +115,7 @@ const PrimaryLine = styled.div`
 
 const BubbleText = styled.div`
   padding: 5px 25px;
-  background-color: var(--surface);
+  background: var(--surface);
   font-size: 14px;
   border-radius: 10px;
   color: var(--elementDim);

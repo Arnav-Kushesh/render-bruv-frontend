@@ -16,7 +16,7 @@ const Button = styled.div`
   cursor: pointer;
 
   &:hover {
-    background-color: var(--surface);
+    background: var(--surface);
   }
 `;
 

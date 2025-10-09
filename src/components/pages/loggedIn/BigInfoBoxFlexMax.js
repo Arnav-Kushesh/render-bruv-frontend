@@ -24,7 +24,7 @@ const Container = styled.div`
   color: var(--accent);
 
   border: 1px solid var(--borderDim);
-  background-color: var(--surface);
+  background: var(--surface);
   cursor: pointer;
 
   transition: all 0.25s ease-in-out;

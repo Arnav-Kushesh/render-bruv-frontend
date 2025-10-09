@@ -37,10 +37,10 @@ const FieldShell = styled.div`
     transform 240ms ease;
   overflow: visible;
   border-radius: 20px;
-  background: var(--surface2);
+  background: var(--activeSurface);
 
   &:focus-within {
-    box-shadow: 0 3px 0px var(--shadowIntense);
+    box-shadow: var(--shadow);
     background: var(--surface);
     /* transform: translateY(-1px); */
   }

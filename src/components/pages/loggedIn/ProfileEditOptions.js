@@ -68,7 +68,7 @@ export default function ProfileEditOptions() {
               style={{
                 width: "170px",
                 border: "1px solid var(--borderIntense)",
-                boxShadow: "0 4px 0 0 var(--shadowIntense)",
+                boxShadow: "var(--shadow)",
               }}
               onClick={goTo(item.link)}
             >

@@ -169,7 +169,7 @@ export default function InstanceCharts({ podId, baseUrl }) {
     <GpuTerminalContainer
       style={{
         filter:
-          colorMode == "DARK"
+          colorMode.indexOf("DARK") !== -1
             ? "invert(0) contrast(1)"
             : "invert(1) contrast(1.2)",
       }}

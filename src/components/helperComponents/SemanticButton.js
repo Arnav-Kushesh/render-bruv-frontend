@@ -19,7 +19,7 @@ const User = styled.a`
   text-transform: capitalize;
 
   &:hover {
-    background-color: var(--surface);
+    background: var(--surface);
   }
 
   @media (max-width: 900px) {

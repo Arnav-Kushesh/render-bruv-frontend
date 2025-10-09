@@ -42,6 +42,13 @@ function getNavBarOptions2({ loggedInUser, notificationCount }) {
       link: `/manage-post/?defaultPurpose=RAISE_ISSUE`,
     },
     {
+      value: "Settings",
+      label: !isMobile && "Settings",
+      icon: isMobile && <HiMenu />,
+      style: isMobile ? iconButtonStyle : null,
+      link: "/options",
+    },
+    {
       value: "NOTIFICATIONS",
       // label: "Notifications",
       icon: <MdNotificationsNone />,
@@ -49,13 +56,13 @@ function getNavBarOptions2({ loggedInUser, notificationCount }) {
       badge: notificationCount,
       style: iconButtonStyle,
     },
-    {
-      value: "MORE",
-      // label: "More",
-      icon: <HiMenu />,
-      link: "/options",
-      style: iconButtonStyle,
-    },
+    // {
+    //   value: "MORE",
+    //   // label: "More",
+    //   icon: <HiMenu />,
+    //   link: "/options",
+    //   style: iconButtonStyle,
+    // },
   ];
 }
 

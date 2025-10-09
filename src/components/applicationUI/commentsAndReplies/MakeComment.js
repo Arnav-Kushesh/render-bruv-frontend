@@ -14,7 +14,7 @@ const Container = styled.div`
   align-items: center;
   width: 100%;
 
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--borderDim);
   border-radius: 10px;
   overflow: hidden;

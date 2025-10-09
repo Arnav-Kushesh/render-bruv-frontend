@@ -12,7 +12,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 40px;
-  background-color: var(--surface);
+  background: var(--surface);
   border: 1px solid var(--border);
   width: 100%;
   border-radius: 10px;

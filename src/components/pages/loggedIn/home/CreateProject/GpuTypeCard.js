@@ -7,7 +7,7 @@ const InfoBox = styled.section`
   cursor: pointer;
   transition: 0.15s ease-in-out;
   border: 1px solid var(--borderIntense);
-  background: var(--surface);
+  background: var(--activeSurface);
   /* color: var(--element); */
   padding: 20px;
   /* max-width: 80vw; */
@@ -20,7 +20,7 @@ const InfoBox = styled.section`
   /* justify-content: center; */
   align-items: center;
   gap: 15px;
-  box-shadow: 0px 4px 0px 0 var(--shadowIntense);
+  /* box-shadow: var(--shadow); */
 
   &:hover {
     transform: scale(1.02);
@@ -104,14 +104,20 @@ export default function GpuTypeCard({ item, value, onChange }) {
 
   return (
     <InfoBox
-      style={{ opacity: isSelected ? 1 : 0.4 }}
+      style={{
+        background: isSelected ? "var(--activeSurface)" : "var(--surface)",
+        boxShadow: isSelected ? "var(--shadow)" : "unset",
+        opacity: isSelected ? 1 : 0.7,
+      }}
       onClick={() => {
         onChange(item.value);
       }}
     >
       <Img
         src="/vector-graphics/server.png"
-        style={{ filter: colorMode == "DARK" ? "invert(1)" : "unset" }}
+        style={{
+          filter: colorMode.indexOf("DARK") !== -1 ? "invert(1)" : "unset",
+        }}
       />
       <Column1>
         <Title>{item.label}</Title>

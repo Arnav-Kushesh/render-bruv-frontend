@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const BubbleTextForDetailData = styled.div`
   padding: 10px 15px;
-  background-color: var(--surface);
+  background: var(--surface);
   font-size: 14px;
   font-weight: 700;
   border-radius: 5px;

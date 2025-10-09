@@ -28,8 +28,8 @@ const OverlayContainer = styled.div`
   z-index: 1000;
   width: 100%;
   height: 100%;
-  background-color: var(--element);
-  color: var(--elementAlt);
+  background-color: var(--activeSurface);
+  color: var(--activeElement);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,11 +46,11 @@ const DeleteCurrentBlendFile = styled.div`
 
   &::after {
     content: "Delete Blend File";
-    background: var(--element);
+    background: var(--activeSurface);
     position: absolute;
     top: 0;
     font-weight: 700;
-    color: var(--elementAlt);
+    color: var(--activeElement);
     right: 0;
     font-size: 13px;
     display: flex;

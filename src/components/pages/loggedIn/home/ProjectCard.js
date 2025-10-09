@@ -8,13 +8,13 @@ const InfoBox = styled.section`
   cursor: pointer;
   transition: 0.15s ease-in-out;
 
-  background: var(--surface);
+  background: var(--activeSurface);
 
   border: 1px solid var(--border);
   box-shadow: 0px 1px 0 0 var(--solidShadow);
 
   border: 1px solid var(--borderIntense);
-  box-shadow: 0px 5px 0 0 var(--shadowIntense);
+  box-shadow: var(--shadow);
 
   /* color: var(--element); */
   padding: 25px;
@@ -76,16 +76,7 @@ const Secondary = styled.div`
 
 const Column2 = styled.div``;
 
-let placeholderItem = {
-  _id: 223322,
-  title: "Lotus Scene",
-  minuteRan: 10,
-  charges: 1000, ///cents
-  status: "RUNNING",
-};
-
 const Status = styled.div`
-  color: var(--elementAlt);
   color: var(--element);
   padding: 5px 10px;
   font-weight: 700;

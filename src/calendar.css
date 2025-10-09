@@ -112,7 +112,7 @@
 
 .react-calendar__tile:enabled:hover,
 .react-calendar__tile:enabled:focus {
-  background-color: var(--surface);
+  background: var(--surface);
   border-radius: 10px;
 }
 

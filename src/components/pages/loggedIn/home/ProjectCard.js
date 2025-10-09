@@ -88,7 +88,7 @@ const Status = styled.div`
   ${({ $status }) => {
     if ($status == "RUNNING") {
       // return `background: linear-gradient(350deg, #1644eaff, #5cb9ff)`;
-      return `background: #5fb8ff;
+      return `background: var(--accentGradient);
       color: #000;
       `;
     } else {

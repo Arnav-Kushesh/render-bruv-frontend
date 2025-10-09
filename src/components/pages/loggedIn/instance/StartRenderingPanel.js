@@ -31,7 +31,7 @@ const Container = styled.div`
 const Section1 = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   background: var(--surface);
   border: 1px solid var(--border);
   width: 410px;

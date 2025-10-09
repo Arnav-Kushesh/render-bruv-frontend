@@ -10,7 +10,7 @@ import LoadingSection from "../../../../helperComponents/LoadingSection";
 import { serverLine } from "../../../../../controllers/network/serverLine";
 import goTo from "../../../../../controllers/goTo";
 import CustomButton from "../../../../helperComponents/CustomButton";
-import { MdMoney } from "react-icons/md";
+import { MdMoney, MdPayment } from "react-icons/md";
 
 const Container = styled.div`
   display: flex;
@@ -122,7 +122,7 @@ export default function CreateProjectSection() {
         <CustomButton
           style={{ borderRadius: "15px", height: "50px" }}
           onClick={goTo("/manage-billing")}
-          icon={<MdMoney />}
+          icon={<MdPayment />}
         >
           Recharge
         </CustomButton>

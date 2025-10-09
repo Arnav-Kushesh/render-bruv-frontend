@@ -12,6 +12,7 @@ import UserTransactionAggregator from "../../../applicationUI/aggregator/UserTra
 import ElevatedSection from "../../../helperComponents/general/ElevatedSection";
 import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import StatAggregator from "../../../applicationUI/aggregator/StatAggregator";
+import Footer from "../../loggedOut/landingPage/Footer";
 
 const Container = styled.div`
   display: flex;

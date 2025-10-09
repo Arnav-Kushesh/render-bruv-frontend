@@ -333,7 +333,7 @@ function Boilerplate({ children }) {
       borderAccent: "#3f6ef110", // updated bluish border
       mapAccent: "#3f6ef1",
       accent: "#3f6ef1",
-      accentGradient: "linear-gradient(45deg, #3f6ef1, #3457c7)", // variation of #3f6ef1
+      accentGradient: "linear-gradient(45deg, #ada8fa, #879efb)", // variation of #3f6ef1
       accentDim: "rgba(63, 110, 241, 0.27)", // muted version of #3f6ef1
       accentAlt: "#111111",
 
@@ -384,7 +384,7 @@ function Boilerplate({ children }) {
       blurryBackground: "#f0f8ff",
       mapAccent: "#3f6ef1",
       accent: "#3f6ef1",
-      accentGradient: "linear-gradient(45deg, #3f6ef1, #3457c7)",
+
       accentDim: "rgba(63, 110, 241, 0.31)",
       accentAlt: "#f0f8ff",
 
@@ -400,6 +400,7 @@ function Boilerplate({ children }) {
       activeSurface: "#ffffffff",
       activeElement2: "#ffffffff",
       activeSurface2: "#000000ff",
+      accentGradient: "linear-gradient(45deg, #ada8fa, #879efb)",
     };
 
     let lightGlass = {
@@ -435,7 +436,7 @@ function Boilerplate({ children }) {
       blurryBackground: "#f0f8ff",
       mapAccent: "#3f6ef1",
       accent: "#3f6ef1",
-      accentGradient: "linear-gradient(45deg, #3f6ef1, #3457c7)",
+      accentGradient: "linear-gradient(45deg, #ada8fa, #879efb)",
       accentDim: "rgba(63, 110, 241, 0.31)",
       accentAlt: "#f0f8ff",
 
@@ -485,7 +486,7 @@ function Boilerplate({ children }) {
       borderAccent: "#3f6ef110", // updated bluish border
       mapAccent: "#3f6ef1",
       accent: "#3f6ef1",
-      accentGradient: "linear-gradient(45deg, #3f6ef1, #3457c7)", // variation of #3f6ef1
+      accentGradient: "linear-gradient(45deg, #ada8fa, #879efb)", // variation of #3f6ef1
       accentDim: "rgba(63, 110, 241, 0.27)", // muted version of #3f6ef1
       accentAlt: "#111111",
 

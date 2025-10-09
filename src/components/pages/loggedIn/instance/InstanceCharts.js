@@ -10,8 +10,9 @@ import Context from "../../../../Context";
 
 const GpuTerminalContainer = styled.div`
   width: 100%;
-  background-color: var(--element);
-  /* border: 1px solid var(--surface3); */
+  background: var(--surface);
+
+  border: 1px solid var(--border);
   border-radius: 10px;
 
   canvas {
@@ -165,16 +166,16 @@ export default function InstanceCharts({ podId, baseUrl }) {
     networkChart(socket);
   }, [baseUrl, podId]);
 
+  let graphStyle = {
+    filter:
+      colorMode.indexOf("DARK") !== -1
+        ? "invert(0) contrast(1)"
+        : "invert(1) contrast(1.2)",
+  };
+
   return (
-    <GpuTerminalContainer
-      style={{
-        filter:
-          colorMode.indexOf("DARK") !== -1
-            ? "invert(0) contrast(1)"
-            : "invert(1) contrast(1.2)",
-      }}
-    >
-      <TerminalTopSection>
+    <GpuTerminalContainer>
+      <TerminalTopSection style={graphStyle}>
         <CpuSection>
           <CpuChartDiv id="cpu-chart" />
         </CpuSection>
@@ -183,7 +184,7 @@ export default function InstanceCharts({ podId, baseUrl }) {
         </RamSection>
       </TerminalTopSection>
 
-      <TerminalMidSection>
+      <TerminalMidSection style={graphStyle}>
         <GpuUtilSection>
           <GpuUtilChartDiv id="gpu-util-chart" />
         </GpuUtilSection>
@@ -192,7 +193,7 @@ export default function InstanceCharts({ podId, baseUrl }) {
         </GpuMemSection>
       </TerminalMidSection>
 
-      <NetworkSection>
+      <NetworkSection style={graphStyle}>
         <NetworkChartDiv id="network-chart" />
       </NetworkSection>
     </GpuTerminalContainer>

@@ -16,6 +16,8 @@ import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import loadExecutionData from "./controllers/loadExecutionData";
 import getSocketConnection from "./controllers/getSocketConnection";
 import InstanceCharts from "./InstanceCharts";
+import InstanceLoading from "./InstanceLoading";
+import Footer from "../../loggedOut/landingPage/Footer";
 
 const Container = styled.div`
   display: flex;
@@ -164,19 +166,14 @@ export default function ManageInstance() {
         />
 
         <InstanceCharts podId={podId} baseUrl={baseUrl} />
+
+        <Footer />
       </>
     );
   }
 
   function getServerIsInitializingUi() {
-    return (
-      <>
-        <MessageBox style={{ height: "300px" }}>
-          <LoadingSection />
-          <CustomLabel>Please! wait server is being initialized</CustomLabel>
-        </MessageBox>
-      </>
-    );
+    return <InstanceLoading />;
   }
 
   function getInstanceHasBeenTerminatedUi() {

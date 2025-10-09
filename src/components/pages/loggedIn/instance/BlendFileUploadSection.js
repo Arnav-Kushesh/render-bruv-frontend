@@ -1,24 +1,24 @@
 import { SiBlender } from "react-icons/si";
 import CustomButton from "../../../helperComponents/CustomButton";
 import { useCallback, useState } from "react";
-import { MoonLoader, PuffLoader, PulseLoader } from "react-spinners";
+import { PuffLoader } from "react-spinners";
 import styled from "styled-components";
 import { useDropzone } from "react-dropzone";
 import uploadBlendFile from "./controllers/uploadBlendFile";
 import UploadFileButton from "./UploadFileButton";
 import MessageBox from "../../../helperComponents/MessageBox";
 import { createPortal } from "react-dom";
-import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import CustomLabelDim from "../../../applicationUI/customLabel/CustomLabelDim";
 import OverlayStateUpdater from "./OverlayStateUpdater";
 import deleteBlendFile from "./controllers/deleteBlendFile";
 
 let btnStyle = {
-  border: "1px solid var(--elementDim2)",
+  border: "1px solid var(--borderDim)",
   borderRadius: "15px",
-  background: "transparent",
+  background: "var(--surface)",
   padding: "15px 55px",
   width: "100%",
+  boxShadow: "none",
 };
 
 const OverlayContainer = styled.div`
@@ -40,17 +40,17 @@ const DeleteCurrentBlendFile = styled.div`
   position: relative;
   cursor: pointer;
   /* width: 100%; */
-  overflow: hidden;
+  /* overflow: hidden; */
   border-radius: 15px;
   /* width: 100%; */
 
   &::after {
     content: "Delete Blend File";
-    background: var(--activeSurface);
+    background: var(--element);
     position: absolute;
     top: 0;
     font-weight: 700;
-    color: var(--activeElement);
+    color: var(--elementAlt);
     right: 0;
     font-size: 13px;
     display: flex;
@@ -59,16 +59,17 @@ const DeleteCurrentBlendFile = styled.div`
     width: 100%;
     height: 100%;
     border-radius: 15px;
-    border: 1px solid var(--elementDim2);
+    /* border: 1px solid var(--border); */
     opacity: 0;
     transition: 0.15s ease-in-out;
-    transform: translateX(-100%);
+    transform: scaleX(0);
   }
 
   &:hover {
     &::after {
       opacity: 1;
-      transform: translateX(0);
+      border: 1px solid var(--border);
+      transform: scaleX(1);
     }
   }
 `;

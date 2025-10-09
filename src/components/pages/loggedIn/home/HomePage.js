@@ -7,6 +7,7 @@ import ContentAggregator from "../../../applicationUI/aggregator/ContentAggregat
 import NgoPageList from "./RecentProjectList";
 import CreateProjectSection from "./CreateProject/CreateProjectSection";
 import RecentProjectList from "./RecentProjectList";
+import InstanceLoading from "../instance/InstanceLoading";
 
 const Container = styled.div`
   display: flex;
@@ -143,6 +144,7 @@ export default function HomePage() {
           <RecentProjectList />
           <CreateProjectSection />
         </Container>
+        {/* <InstanceLoading /> */}
       </Center>
     </LoggedInBoilerplate>
   );

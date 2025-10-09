@@ -21,7 +21,7 @@ const UploadFileButton = styled.p`
 
   /* border: 2px solid var(--accentDim); */
   /* overflow: hidden; */
-  background: var(--surface);
+  background: var(--activeSurface);
   transition: all 0.25s ease-in-out;
   filter: brightness(1.1);
 

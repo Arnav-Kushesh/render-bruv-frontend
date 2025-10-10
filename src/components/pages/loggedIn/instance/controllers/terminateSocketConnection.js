@@ -12,6 +12,8 @@ export default function terminateSocketConnection(podId) {
 
   if (!theSocket) return null;
 
+  console.log("terminating socket connection", podId);
+
   theSocket.emit("client_disconnect");
   theSocket.disconnect();
 }

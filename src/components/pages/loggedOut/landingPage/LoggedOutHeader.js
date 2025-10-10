@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import BrandContainer from "../../../brand/BrandContainer.js";
 import BrandContainerThemed2d from "../../../brand/BrandContainerThemed2d.js";
+import goTo from "../../../../controllers/goTo.js";
 
 let linkVariant = "text";
 
@@ -9,6 +10,7 @@ const TopPart = styled.div`
   flex-direction: row;
   width: 100%;
   justify-content: center;
+  cursor: pointer;
   margin-top: 60px;
   margin-bottom: 15px;
   width: 90vw;
@@ -66,7 +68,7 @@ const btnStyle2 = {
 
 export default function LoggedOutHeader() {
   return (
-    <TopPart>
+    <TopPart onClick={goTo("/")}>
       <BrandContainerThemed2d />
     </TopPart>
   );

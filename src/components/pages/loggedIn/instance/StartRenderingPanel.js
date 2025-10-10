@@ -91,8 +91,8 @@ let engineTabs = [
 ];
 
 let methodTabs = [
-  { value: "CUDA", label: "Cuda" },
   { value: "OPTIX", label: "Optix" },
+  { value: "CUDA", label: "Cuda" },
 ];
 
 const RangeInput = styled.div`

@@ -8,6 +8,7 @@ import { GoArrowRight } from "react-icons/go";
 import BlendFileUploadSection from "./BlendFileUploadSection";
 import CustomLabel from "../../../applicationUI/customLabel/CustomLabel";
 import CustomLabelDim from "../../../applicationUI/customLabel/CustomLabelDim";
+import CustomLabelExtraSmall from "../../../applicationUI/customLabel/CustomLabelExtraSmall";
 
 const Container = styled.div`
   display: flex;
@@ -71,8 +72,8 @@ let engineTabs = [
 ];
 
 let methodTabs = [
-  { value: "CUDA", label: "Cuda" },
   { value: "OPTIX", label: "Optix" },
+  { value: "CUDA", label: "Cuda" },
 ];
 
 const RangeInput = styled.div`
@@ -157,6 +158,9 @@ export default function StartRenderingPanel({
             tabs={engineTabs}
           />
         </Section>
+
+        {/* I am removing the option to select between OPTIX and CUDA because
+for RTX based cards, OPTIX is always faster */}
 
         <Section>
           <CustomLabelDim>Method</CustomLabelDim>

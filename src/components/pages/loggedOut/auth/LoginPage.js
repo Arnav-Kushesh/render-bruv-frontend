@@ -12,6 +12,7 @@ import Context from "../../../../Context";
 import AnimatedPage from "../../loggedIn/AnimatedPage";
 import AnimatedPillTabs from "../landingPage/loggedOutHomeForApp/AnimatedPillTabs";
 import HozLogo from "../../../applicationUI/logo/HozLogo";
+import LoggedOutHeader from "../landingPage/LoggedOutHeader";
 
 const HorizontalContainer = styled.div`
   display: flex;
@@ -149,7 +150,7 @@ const Hero = styled.section`
   /* text-align: center; */
   margin: 0 1rem;
   position: relative;
-  margin-top: 100px;
+  margin-top: 30px;
 `;
 
 /* Illustration */
@@ -211,7 +212,7 @@ export default function LoginPage({ initialType }) {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [currentTab, setCurrentTab] = useState(0);
+  const [currentTab, setCurrentTab] = useState("SIGNUP");
 
   let options = [
     { label: "Login", value: "LOGIN" },
@@ -249,44 +250,10 @@ export default function LoginPage({ initialType }) {
       <WithBackground>
         <HorizontalContainer>
           <LeftSide>
-            <HozLogo />
-
-            {/* <ThemeSection>
-              <ColorThemeSelector />
-            </ThemeSection> */}
+            <LoggedOutHeader />
           </LeftSide>
 
-          <Hero>
-            {/* <Illustration>
-              <img
-                className="guy"
-                src="/vector-graphics/guy-with-a-bird.jpg"
-                alt="Guy with bird"
-              />
-              <img
-                className="butterfly"
-                src="/vector-graphics/butterfly.jpg"
-                alt="Butterfly"
-              />
-            </Illustration> */}
-
-            <RightSide>{core}</RightSide>
-
-            {/* <Illustration className="flipped">
-              <img
-                className="guy"
-                src="/vector-graphics/guy-with-a-bird.jpg"
-                alt="Guy with bird"
-              />
-              <img
-                className="butterfly"
-                src="/vector-graphics/butterfly.jpg"
-                alt="Butterfly"
-              />
-            </Illustration> */}
-
-            {/* <Dragonfly src="/vector-graphics/dragonfly.jpg" alt="Dragonfly" /> */}
-          </Hero>
+          <Hero>{core}</Hero>
         </HorizontalContainer>
       </WithBackground>
     </AnimatedPage>

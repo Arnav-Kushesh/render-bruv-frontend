@@ -9,12 +9,16 @@ export default async function loadExecutionData({
   //   let newExecutionData = await serverLine.get(baseUrl + "/get_db");
 
   setExecutionDataIsLoading(true);
-  const res = await axios.post(
-    `${baseUrl}/get_db`,
-    {},
-    { withCredentials: true }
-  );
+  try {
+    const res = await axios.post(
+      `${baseUrl}/get_db`,
+      {},
+      { withCredentials: true }
+    );
 
-  setExecutionData(res.data);
-  setExecutionDataIsLoading(false);
+    setExecutionData(res.data);
+    setExecutionDataIsLoading(false);
+  } catch (e) {
+    console.log("server not ready");
+  }
 }

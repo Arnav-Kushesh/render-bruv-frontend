@@ -12,8 +12,9 @@ const Container = styled.div`
   width: 430px;
   height: auto;
   border-radius: 10px;
-  background: var(--surface);
+  background: var(--activeSurface);
 
+  border: 1px solid var(--border);
   padding-bottom: 50px;
 
   /* background: #111 !important; */

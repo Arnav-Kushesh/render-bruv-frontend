@@ -70,9 +70,9 @@ export default function FooterPageBoilerplate({ title, children }) {
         {loggedInUserId ? null : <LoggedOutHeader />}
 
         <Content>
-          <Title>{title}</Title>
+          {title && <Title>{title}</Title>}
 
-          <Text dangerouslySetInnerHTML={{ __html: children }}></Text>
+          <Text>{children}</Text>
 
           <br />
           <br />

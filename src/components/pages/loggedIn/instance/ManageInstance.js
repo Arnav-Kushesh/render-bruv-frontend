@@ -59,7 +59,7 @@ export default function ManageInstance() {
   const [renderSettings, setRenderSettings] = useState({
     renderType: "ANIMATION",
     engineType: "CYCLES",
-    methodType: "CUDA",
+    methodType: "OPTIX",
     imageFrame: 1,
     rangeStart: 1,
     rangeEnd: 100,
@@ -70,9 +70,13 @@ export default function ManageInstance() {
     : null;
 
   useEffect(() => {
-    loadData();
+    return () => {
+      terminateSocketConnection(data?.serverInstance?.podId);
+    };
+  }, [data]);
 
-    return terminateSocketConnection;
+  useEffect(() => {
+    loadData();
   }, []);
 
   useEffect(() => {
@@ -168,6 +172,7 @@ export default function ManageInstance() {
 
         <InstanceLastSection
           loadData={loadData}
+          podId={podId}
           itemId={data.serverInstance._id}
         />
 

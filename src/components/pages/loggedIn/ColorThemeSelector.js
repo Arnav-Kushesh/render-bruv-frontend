@@ -71,7 +71,9 @@ export default function ColorThemeSelector({
   accentAltColor,
   accentColor,
 }) {
-  const { colorMode, updateColorMode } = useContext(Context);
+  const { colorMode, updateColorMode, loggedInUser } = useContext(Context);
+
+  if (!loggedInUser) return null;
 
   let options = [
     { label: "Glass", value: "LIGHT_GLASS" },

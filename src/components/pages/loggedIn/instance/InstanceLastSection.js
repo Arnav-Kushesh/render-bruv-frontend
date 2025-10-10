@@ -56,7 +56,7 @@ const CustomInput = styled.input`
   font-size: 15px;
 `;
 
-export default function InstanceLastSection({ itemId, loadData }) {
+export default function InstanceLastSection({ itemId, loadData, podId }) {
   const { updateLoggedInUser, loggedInUser, isMobile } = useContext(Context);
 
   const [loading, setLoading] = useState("");
@@ -86,7 +86,7 @@ export default function InstanceLastSection({ itemId, loadData }) {
   async function terminateInstance() {
     setLoading(true);
 
-    terminateSocketConnection();
+    terminateSocketConnection(podId);
 
     await serverLine.post("/stop-server-instance", { itemId });
 

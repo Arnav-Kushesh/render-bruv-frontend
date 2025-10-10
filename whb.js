@@ -33,7 +33,6 @@
 //   height: calc(100dvh - var(--headerHeight));
 //   padding: 0;
 //   overflow: hidden;
-//   overflow-y: scroll;
 //   padding-top: 70px;
 
 //   /* min-height: 120vh; //so that footer does not jumps on loading stuff */

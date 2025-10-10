@@ -28,9 +28,6 @@ const Main = styled.div`
   flex-direction: column;
   align-items: center;
   height: calc(100dvh - var(--safe-area-inset-top));
-  /* background-color: var(--background); */
-  /* overflow-y: scroll; */
-  /* backdrop-filter: blur(50px); */
 `;
 
 const Background = styled.img`

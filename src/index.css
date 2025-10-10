@@ -24,7 +24,6 @@ body {
   width: 100vw;
   overflow: hidden;
   height: 100dvh;
-  /* overflow-y: scroll !important; */
   overflow: hidden !important;
   position: relative;
   transform: unset !important;

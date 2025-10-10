@@ -46,7 +46,6 @@ const Container = styled.div`
   /* min-height: 100%; */ //don't enable this, it prevents the scroll from the working that is assigned in the boilerplate
   //especially for the logged out page
 
-  /* overflow-y: scroll; */
   /* height: calc(100dvh - var(--safe-area-inset-top)); */
   display: flex;
   flex-direction: column;

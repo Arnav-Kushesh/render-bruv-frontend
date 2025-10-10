@@ -140,7 +140,8 @@ const InfoImage = styled.img`
   height: 100px;
   width: 100px;
   object-fit: contain;
-  filter: saturate(1.3) contrast(1.3) hue-rotate(25deg) brightness(1.05);
+  filter: saturate(1.5) contrast(1.3) hue-rotate(25deg) brightness(0.99)
+    drop-shadow(0 2px 20px #1c79dd64);
   animation: ${floatRandom} 13s infinite ease-in-out;
   animation-delay: ${({ $delay }) => $delay}s;
 `;
@@ -155,7 +156,6 @@ const InfoHeading = styled.h3`
   margin: 0;
   font-size: 20px;
   color: #0f3d6a;
-  font-weight: 500;
   font-weight: 800;
   font-family: "Quicksand", sans-serif;
 `;

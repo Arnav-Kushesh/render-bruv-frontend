@@ -6,7 +6,7 @@ import WhyChooseUs from "./WhyChooseUs";
 
 const PageWrapper = styled.div`
   font-family: "Inter", sans-serif;
-  background: #ffffff;
+  background: #fff;
   color: #000000;
   min-height: 100vh;
   width: 100vw;
@@ -78,7 +78,7 @@ const NavLink = styled.div`
 
 export default function LandingPage() {
   return (
-    <AnimatedPageVertical additionalStyle={{ background: "#fff" }}>
+    <AnimatedPageVertical>
       <PageWrapper>
         <WideContainer>
           <Navbar>

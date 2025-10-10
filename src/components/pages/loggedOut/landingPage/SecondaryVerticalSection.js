@@ -158,10 +158,6 @@ const InsetShadow = styled.div`
 `;
 
 export default function SecondaryVerticalSection() {
-  const [googleLoginLoading, setGoogleLoginLoading] = useState(false);
-
-  if (googleLoginLoading) return <LoadingSection />;
-
   return (
     <Hero>
       <CenterContent>

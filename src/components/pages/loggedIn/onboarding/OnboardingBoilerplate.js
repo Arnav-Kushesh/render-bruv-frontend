@@ -11,9 +11,8 @@ const Container = styled.div`
   flex-direction: column;
   gap: 50px;
   align-items: center;
-  height: 100dvh;
+  min-height: 100dvh;
   overflow: hidden;
-  overflow-y: scroll;
   padding: 100px;
   width: 100vw;
 

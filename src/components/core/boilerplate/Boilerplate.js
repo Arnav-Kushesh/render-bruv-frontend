@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import Context from "../../../Context.js";
 import DynamicForm from "../../helperComponents/dynamicForm/DynamicForm.js";
@@ -24,6 +24,7 @@ import CustomLabel from "../../applicationUI/customLabel/CustomLabel.js";
 
 window.nonReactLikeStatus = {};
 
+//Main scrollable div
 const CustomSafeArea = styled.div`
   position: relative;
   height: 100dvh;
@@ -38,6 +39,7 @@ const CustomSafeArea = styled.div`
 let checkNotificationInMins = 10;
 
 function Boilerplate({ children }) {
+  const mainScrollRef = useRef(null);
   const [isFirefox, setIsFirefox] = useState(false);
   const [loggedInUserId, setLoggedInUserId] = useState(null);
   const [formData, setFormData] = useState(false);
@@ -266,13 +268,13 @@ function Boilerplate({ children }) {
           updateColorMode,
           colorMode,
           setForm: setForm,
-
+          mainScrollRef,
           //
         }}
       >
         <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_MAPS_KEY}>
           <WithBackground>
-            <CustomSafeArea>
+            <CustomSafeArea ref={mainScrollRef}>
               {children}
               <DynamicForm setForm={setForm} data={formData} />
             </CustomSafeArea>

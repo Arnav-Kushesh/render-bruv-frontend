@@ -3,8 +3,11 @@ import { FaGoogle } from "react-icons/fa";
 import { SiMaildotru } from "react-icons/si";
 import goTo from "../../../../controllers/goTo";
 import loginWithGoogle from "../../../../controllers/auth/loginWithGoogle";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LoadingSection from "../../../helperComponents/LoadingSection";
+
+import { useScroll, useTransform, motion } from "framer-motion";
+import Context from "../../../../Context";
 
 /* Hero Section */
 const Hero = styled.section`
@@ -157,7 +160,17 @@ const InsetShadow = styled.div`
   height: 100%;
 `;
 
+const Layer = styled(motion.div)``;
+
 export default function HeroSection() {
+  const { mainScrollRef } = useContext(Context);
+  const { scrollY } = useScroll({ container: mainScrollRef });
+
+  // Define transforms for different layers
+  const y1 = useTransform(scrollY, [0, 1000], [0, 100]); // Far layer
+  const y2 = useTransform(scrollY, [0, 1000], [0, 200]); // Mid layer
+  const y3 = useTransform(scrollY, [0, 1000], [0, 300]); // Front layer
+
   const [googleLoginLoading, setGoogleLoginLoading] = useState(false);
 
   if (googleLoginLoading) return <LoadingSection />;
@@ -165,26 +178,33 @@ export default function HeroSection() {
   return (
     <Hero>
       <CenterContent>
-        <Heading>Lightning Fast Render Farm For Blender</Heading>
+        <Layer style={{ y: y1 }}>
+          <Heading>Lightning Fast Render Farm For Blender</Heading>
+        </Layer>
 
-        <ButtonGroup>
-          <PrimaryButton
-            className="primary"
-            onClick={() => {
-              loginWithGoogle(setGoogleLoginLoading);
-            }}
-          >
-            <FaGoogle /> Continue With Google
-          </PrimaryButton>
-          <SecondaryButton className="secondary" onClick={goTo("/auth")}>
-            <SiMaildotru />
-            Continue With Email
-          </SecondaryButton>
-        </ButtonGroup>
-        <Desc>Intuitive, Fast & Affordable </Desc>
+        <Layer style={{ y: y2 }}>
+          <ButtonGroup>
+            <PrimaryButton
+              className="primary"
+              onClick={() => {
+                loginWithGoogle(setGoogleLoginLoading);
+              }}
+            >
+              <FaGoogle /> Continue With Google
+            </PrimaryButton>
+            <SecondaryButton className="secondary" onClick={goTo("/auth")}>
+              <SiMaildotru />
+              Continue With Email
+            </SecondaryButton>
+          </ButtonGroup>
+        </Layer>
+        <Layer style={{ y: y3 }}>
+          <Desc>Intuitive, Fast & Affordable </Desc>
+        </Layer>
       </CenterContent>
 
       <InsetShadow />
+
       <HeroBackground src="/background/hero-background.jpg" />
     </Hero>
   );

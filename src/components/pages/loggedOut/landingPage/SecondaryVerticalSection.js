@@ -1,22 +1,24 @@
 import styled, { keyframes } from "styled-components";
-import { FaGoogle } from "react-icons/fa";
-import { SiMaildotru } from "react-icons/si";
+import { FaGoogle, FaRegHeart } from "react-icons/fa";
+import { SiBlender, SiMaildotru } from "react-icons/si";
 import goTo from "../../../../controllers/goTo";
 import loginWithGoogle from "../../../../controllers/auth/loginWithGoogle";
 import { useState } from "react";
 import LoadingSection from "../../../helperComponents/LoadingSection";
+import { RiEmotionHappyLine } from "react-icons/ri";
+import { PiButterfly } from "react-icons/pi";
 
 /* Hero Section */
 const Hero = styled.section`
   display: flex;
-  width: 100%;
+  width: 22vw;
   flex-direction: row;
   align-items: center;
   margin-top: 20px;
-  height: calc(100vh - 130px);
+  height: 1000px;
   justify-content: space-between;
   position: relative;
-  border-radius: 35px;
+  border-radius: 30px;
   overflow: hidden;
   @media (max-width: 1024px) {
     flex-direction: column;
@@ -85,8 +87,8 @@ export const SecondaryButton = styled(PrimaryButton)`
 `;
 
 const Heading = styled.h1`
-  width: 60vw;
-  font-size: 4.5vw;
+  width: 90%;
+  font-size: 50px;
   font-weight: 800;
   font-family: "Quicksand", sans-serif;
   color: #ffffffff;
@@ -117,32 +119,30 @@ const CenterContent = styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  gap: 15px;
+  gap: 40px;
   align-items: center;
+  justify-content: center;
   left: 0;
-  top: 120px;
+  top: 0;
+  height: 100%;
+  padding: 50px;
+
   z-index: 5;
   width: 100%;
 `;
 
 const loadingAnimation = keyframes`
-    0% { transform: scale(3); }
-    2% { transform: scale(1); }
-    30% { transform: scale(1.7); }
-    40% { transform: scale(1); }
-    50% { transform: scale(1.9); }
-    60% { transform: scale(1); }
-    70% { transform: scale(2.5); }
-    80% { transform: scale(1); }
-    90% { transform: scale(2); }
-    100% { transform: scale(1);}
+    0% { transform: scale(3.5); }
+    50% { transform: scale(1); }
+    100% { transform: scale(3.5);}
 `;
 
 const HeroBackground = styled.img`
   width: 100%;
   height: 100%;
+  filter: blur(5px);
   object-fit: cover;
-  animation: ${loadingAnimation} 200s;
+  animation: ${loadingAnimation} 20s ease-in-out infinite;
 `;
 
 const InsetShadow = styled.div`
@@ -157,7 +157,7 @@ const InsetShadow = styled.div`
   height: 100%;
 `;
 
-export default function HeroSection() {
+export default function SecondaryVerticalSection() {
   const [googleLoginLoading, setGoogleLoginLoading] = useState(false);
 
   if (googleLoginLoading) return <LoadingSection />;
@@ -165,27 +165,25 @@ export default function HeroSection() {
   return (
     <Hero>
       <CenterContent>
-        <Heading>Lightning Fast Render Farm For Blender</Heading>
-
-        <ButtonGroup>
-          <PrimaryButton
-            className="primary"
-            onClick={() => {
-              loginWithGoogle(setGoogleLoginLoading);
-            }}
-          >
-            <FaGoogle /> Continue With Google
-          </PrimaryButton>
-          <SecondaryButton className="secondary" onClick={goTo("/auth")}>
-            <SiMaildotru />
-            Continue With Email
-          </SecondaryButton>
-        </ButtonGroup>
-        <Desc>Intuitive, Fast & Affordable </Desc>
+        <Heading>
+          <SiBlender />
+        </Heading>
+        <Heading>
+          <PiButterfly />
+        </Heading>
+        <Heading>
+          <SiBlender />
+        </Heading>
+        <Heading>
+          <FaRegHeart />
+        </Heading>
+        <Heading>
+          <SiBlender />
+        </Heading>
       </CenterContent>
 
       <InsetShadow />
-      <HeroBackground src="/background/hero-background.jpg" />
+      <HeroBackground src="/background/hero-background2.jpg" />
     </Hero>
   );
 }

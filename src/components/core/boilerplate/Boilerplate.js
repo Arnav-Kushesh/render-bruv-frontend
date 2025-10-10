@@ -178,7 +178,7 @@ function Boilerplate({ children }) {
     backFeatures();
 
     let newStatus = localStorage.getItem("render-bruv-color-mode");
-    if (!newStatus) newStatus = "LIGHT";
+    if (!newStatus) newStatus = "LIGHT_GLASS";
     updateColorMode(newStatus);
   }
 

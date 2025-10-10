@@ -382,6 +382,7 @@ export default function LoginPage({ initialType }) {
           variant="minimal-underlined"
           customVariant="slightlyContained"
           href="/generate-otp"
+          style={{ boxShadow: "unset", background: "var(--surface)" }}
         >
           Forgot Password
         </CustomButton>

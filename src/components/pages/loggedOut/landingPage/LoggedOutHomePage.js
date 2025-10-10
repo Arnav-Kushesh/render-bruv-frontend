@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import Footer from "./Footer";
-import WhyChooseUs from "./WhyChooseUs";
 import HeroSection from "./HeroSection";
-import AnimatedPage from "../../loggedIn/AnimatedPage";
 import AnimatedPageVertical from "../../loggedIn/AnimatedPageVertical";
+import WhyChooseUs from "./WhyChooseUs";
 
 const PageWrapper = styled.div`
   font-family: "Inter", sans-serif;

@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import WhyChooseUsCards from "./WhyChooseUsCards";
-import SecondaryVerticalSection from "./SecondaryVerticalSection";
 
 const InfoSection = styled.section`
   display: flex;
@@ -64,9 +63,8 @@ const Row = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 20px;
-  padding-left: 30px;
-  /* gap: 7vw; */
+  padding: 6vw;
+  gap: 7vw;
   margin-top: 100px;
   width: 100%;
 `;
@@ -80,24 +78,7 @@ const Section1 = styled.div`
 
 const Section2 = styled.div``;
 
-const Center = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px;
-  /* gap: 7vw; */
-  margin-top: 100px;
-
-  width: 100%;
-`;
 const WhyChooseUs = () => {
-  return (
-    <Center>
-      <SecondaryVerticalSection />
-      <WhyChooseUsCards />
-      {/* <SecondaryVerticalSection /> */}
-    </Center>
-  );
   return (
     <Row>
       <Section1>

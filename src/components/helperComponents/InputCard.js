@@ -12,7 +12,8 @@ const Container = styled.div`
   width: 430px;
   height: auto;
   border-radius: 10px;
-  background: var(--activeSurface);
+  background: var(--surface);
+  /* display: none; */
 
   border: 1px solid var(--border);
   padding-bottom: 50px;
@@ -56,7 +57,7 @@ const Medium = styled.div`
   font-weight: 700;
   font-size: 14px;
   text-align: center;
-  color: var(--accent);
+  color: var(--element);
 `;
 
 const Top = styled.div`

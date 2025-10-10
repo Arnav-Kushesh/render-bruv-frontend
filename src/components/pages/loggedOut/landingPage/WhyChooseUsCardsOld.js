@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled, { keyframes } from "styled-components";
-import Context from "../../../../Context";
-import { useScroll, useTransform, motion } from "framer-motion";
 
 const InfoSection = styled.section`
   display: grid;
@@ -180,63 +178,121 @@ const Column = styled.div`
   gap: 10px;
 `;
 
-const Layer = styled(motion.div)``;
+const WhyChooseUsCardsOld = () => {
+  // return (
+  //   <Column>
+  //     <Row>
+  //       <InfoBox>
+  //         <InfoImage $delay={1} src="/ui-icons/heart.png" alt="Fast" />
+  //         <InfoText>
+  //           <InfoHeading>We love blender</InfoHeading>
+  //           <InfoParagraph>
+  //             We wanted to create a tool that makes working with blender more
+  //             awesome. Our team has been using blender since 2015.
+  //           </InfoParagraph>
+  //         </InfoText>
+  //       </InfoBox>
 
-const WhyChooseUsCards = () => {
-  const { mainScrollRef } = useContext(Context);
-  const { scrollY } = useScroll({ container: mainScrollRef });
+  //       <InfoBox>
+  //         <InfoImage $delay={3} src="/ui-icons/speed.png" alt="Fast" />
+  //         <InfoText>
+  //           <InfoHeading>Fast & Affordable</InfoHeading>
+  //           <InfoParagraph>
+  //             We offer ultra-fast rendering at highly affordable prices, with
+  //             access to a wide range of GPUs
+  //           </InfoParagraph>
+  //         </InfoText>
+  //       </InfoBox>
 
-  // Define transforms for different layers
-  const y1 = useTransform(scrollY, [400, 1000], [0, 1]); // Far layer
-  const y2 = useTransform(scrollY, [400, 1100], [0, 1]); // Mid layer
-  const y3 = useTransform(scrollY, [400, 1200], [0, 1]); // Front layer
+  //       <InfoBox>
+  //         <InfoImage $delay={3} src="/ui-icons/speed.png" alt="Fast" />
+  //         <InfoText>
+  //           <InfoHeading>Fast & Affordable</InfoHeading>
+  //           <InfoParagraph>
+  //             We offer ultra-fast rendering at highly affordable prices, with
+  //             access to a wide range of GPUs
+  //           </InfoParagraph>
+  //         </InfoText>
+  //       </InfoBox>
+  //     </Row>
 
+  //     <Row>
+  //       <InfoBox>
+  //         <InfoImage $delay={0.5} src="/ui-icons/money.png" alt="money" />
+  //         <InfoText>
+  //           <InfoHeading>Billed by the minute</InfoHeading>
+  //           <InfoParagraph>
+  //             Our pricing is transparent and predictable with clear per-minute
+  //             rates and we offer very affordable services
+  //           </InfoParagraph>
+  //         </InfoText>
+  //       </InfoBox>
+
+  //       <InfoBox>
+  //         <InfoImage $delay={2} src="/ui-icons/ui.png" alt="Ui" />
+  //         <InfoText>
+  //           <InfoHeading>Intuitive User Interface</InfoHeading>
+  //           <InfoParagraph>
+  //             Our user interface is simple, intuitive, and easy to navigate
+  //           </InfoParagraph>
+  //         </InfoText>
+  //       </InfoBox>
+  //     </Row>
+  //   </Column>
+  // );
   return (
     <InfoSection>
-      <Layer style={{ scale: y1 }}>
-        <InfoBox>
-          <InfoImage $delay={2} src="/ui-icons/ui.png" alt="Ui" />
-          <InfoText>
-            <InfoHeading>Intuitive User Interface</InfoHeading>
-            <InfoParagraph>
-              Our user interface is simple, intuitive, and easy to navigate
-            </InfoParagraph>
-          </InfoText>
-        </InfoBox>
-      </Layer>
+      {/* <InfoBox>
+        <InfoImage $delay={1} src="/ui-icons/heart.png" alt="Fast" />
+        <InfoText>
+          <InfoHeading>We love blender</InfoHeading>
+          <InfoParagraph>
+            We wanted to create a tool that makes working with blender more
+            awesome. Our team has been using blender since 2015.
+          </InfoParagraph>
+        </InfoText>
+      </InfoBox>
+
+      <EmptyBox></EmptyBox> */}
+
+      <InfoBox>
+        <InfoImage $delay={2} src="/ui-icons/ui.png" alt="Ui" />
+        <InfoText>
+          <InfoHeading>Intuitive User Interface</InfoHeading>
+          <InfoParagraph>
+            Our user interface is simple, intuitive, and easy to navigate
+          </InfoParagraph>
+        </InfoText>
+      </InfoBox>
 
       <EmptyBox></EmptyBox>
 
       <EmptyBox></EmptyBox>
 
-      <Layer style={{ scale: y2 }}>
-        <InfoBox>
-          <InfoImage $delay={3} src="/ui-icons/speed.png" alt="Fast" />
-          <InfoText>
-            <InfoHeading>Fast & Affordable</InfoHeading>
-            <InfoParagraph>
-              We offer ultra-fast rendering at highly affordable prices, with
-              access to a wide range of GPUs
-            </InfoParagraph>
-          </InfoText>
-        </InfoBox>
-      </Layer>
+      <InfoBox>
+        <InfoImage $delay={3} src="/ui-icons/speed.png" alt="Fast" />
+        <InfoText>
+          <InfoHeading>Fast & Affordable</InfoHeading>
+          <InfoParagraph>
+            We offer ultra-fast rendering at highly affordable prices, with
+            access to a wide range of GPUs
+          </InfoParagraph>
+        </InfoText>
+      </InfoBox>
 
-      <Layer style={{ scale: y3 }}>
-        <InfoBox>
-          <InfoImage $delay={0.5} src="/ui-icons/money.png" alt="money" />
-          <InfoText>
-            <InfoHeading>Billed by the minute</InfoHeading>
-            <InfoParagraph>
-              Our pricing is transparent and predictable with clear per-minute
-              rates and we offer very affordable services
-            </InfoParagraph>
-          </InfoText>
-        </InfoBox>
-      </Layer>
+      <InfoBox>
+        <InfoImage $delay={0.5} src="/ui-icons/money.png" alt="money" />
+        <InfoText>
+          <InfoHeading>Billed by the minute</InfoHeading>
+          <InfoParagraph>
+            Our pricing is transparent and predictable with clear per-minute
+            rates and we offer very affordable services
+          </InfoParagraph>
+        </InfoText>
+      </InfoBox>
       <EmptyBox></EmptyBox>
     </InfoSection>
   );
 };
 
-export default WhyChooseUsCards;
+export default WhyChooseUsCardsOld;

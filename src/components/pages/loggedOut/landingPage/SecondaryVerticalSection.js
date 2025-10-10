@@ -3,10 +3,12 @@ import { FaGoogle, FaRegHeart } from "react-icons/fa";
 import { SiBlender, SiMaildotru } from "react-icons/si";
 import goTo from "../../../../controllers/goTo";
 import loginWithGoogle from "../../../../controllers/auth/loginWithGoogle";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import LoadingSection from "../../../helperComponents/LoadingSection";
 import { RiEmotionHappyLine } from "react-icons/ri";
 import { PiButterfly } from "react-icons/pi";
+import { useScroll, useTransform, motion } from "framer-motion";
+import Context from "../../../../Context";
 
 /* Hero Section */
 const Hero = styled.section`
@@ -157,29 +159,39 @@ const InsetShadow = styled.div`
   height: 100%;
 `;
 
-export default function SecondaryVerticalSection() {
-  return (
-    <Hero>
-      <CenterContent>
-        <Heading>
-          <SiBlender />
-        </Heading>
-        <Heading>
-          <PiButterfly />
-        </Heading>
-        <Heading>
-          <SiBlender />
-        </Heading>
-        <Heading>
-          <FaRegHeart />
-        </Heading>
-        <Heading>
-          <SiBlender />
-        </Heading>
-      </CenterContent>
+const Layer = styled(motion.div)``;
 
-      <InsetShadow />
-      <HeroBackground src="/background/hero-background2.jpg" />
-    </Hero>
+export default function SecondaryVerticalSection() {
+  const { mainScrollRef } = useContext(Context);
+  const { scrollY } = useScroll({ container: mainScrollRef });
+
+  // Define transforms for different layers
+  const y1 = useTransform(scrollY, [400, 1000], [-500, 0]); // Far layer
+
+  return (
+    <Layer style={{ x: y1 }}>
+      <Hero>
+        <CenterContent>
+          <Heading>
+            <SiBlender />
+          </Heading>
+          <Heading>
+            <PiButterfly />
+          </Heading>
+          <Heading>
+            <SiBlender />
+          </Heading>
+          <Heading>
+            <FaRegHeart />
+          </Heading>
+          <Heading>
+            <SiBlender />
+          </Heading>
+        </CenterContent>
+
+        <InsetShadow />
+        <HeroBackground src="/background/hero-background2.jpg" />
+      </Hero>
+    </Layer>
   );
 }

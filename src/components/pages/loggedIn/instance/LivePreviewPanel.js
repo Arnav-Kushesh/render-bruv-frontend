@@ -9,6 +9,7 @@ import CustomPrimaryButton from "../../../helperComponents/CustomPrimaryButton";
 import { MdMovie, MdOutlineMovie } from "react-icons/md";
 import CustomLabelDim from "../../../applicationUI/customLabel/CustomLabelDim";
 import getSocketConnection from "./controllers/getSocketConnection";
+import RenderProgressBarSection from "./RenderProgressBarSection";
 
 const Container = styled.div`
   display: flex;
@@ -96,6 +97,7 @@ export default function LivePreviewPanel({
   podId,
   baseUrl,
   refreshExecutionData,
+  executionData,
 }) {
   const [liveImage, setLiveImage] = useState();
   const [renderStat, setRenderStat] = useState();
@@ -107,6 +109,8 @@ export default function LivePreviewPanel({
     socket.on("render_stats", receivedRenderStat);
   }, []);
 
+  let isRendering = executionData?.render_status?.is_rendering;
+
   let core = (
     <EmptyState>
       <EmptyStateIcon>
@@ -117,10 +121,12 @@ export default function LivePreviewPanel({
     </EmptyState>
   );
 
+  let mainContent = liveImage && <LiveImage src={liveImage} />;
+
   if (liveImage || renderStat) {
     core = (
       <Section>
-        {liveImage && <LiveImage src={liveImage} />}
+        {mainContent}
 
         {renderStat && (
           <CustomLabelDim style={{ fontSize: "13px" }}>
@@ -129,6 +135,10 @@ export default function LivePreviewPanel({
         )}
       </Section>
     );
+  }
+
+  if (!liveImage && isRendering) {
+    core = <RenderProgressBarSection desc={renderStat} />;
   }
 
   return (

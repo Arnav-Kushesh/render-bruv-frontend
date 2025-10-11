@@ -25,6 +25,7 @@ export default function checkServerIsReady({
         setExecutionData(res.data);
         setServerIsReady(true);
       } catch (e) {
+        setExecutionDataIsLoading(false);
         console.log("server is not yet ready");
       }
     }, 3000);

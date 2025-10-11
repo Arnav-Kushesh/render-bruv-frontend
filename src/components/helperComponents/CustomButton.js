@@ -127,7 +127,7 @@ export default function CustomButton({
     console.log("SMALL_AND_MINIMAL", "additionalStyle", additionalStyle);
 
   return (
-    <ScaleOnHover>
+    <ScaleOnHover style={{ width: style?.width }}>
       <Button
         onClick={theClick}
         style={{

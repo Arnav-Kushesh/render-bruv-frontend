@@ -19,6 +19,7 @@ export default async function loadExecutionData({
     setExecutionData(res.data);
     setExecutionDataIsLoading(false);
   } catch (e) {
+    setExecutionDataIsLoading(false);
     console.log("server not ready");
   }
 }

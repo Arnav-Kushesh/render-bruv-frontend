@@ -1,13 +1,17 @@
 import styled from "styled-components";
 import MaterialInput from "../../../helperComponents/MaterialInput";
 import PrimaryButton from "../../../helperComponents/PrimaryButton";
-import { MdEmail } from "react-icons/md";
+import { MdAlternateEmail, MdEmail } from "react-icons/md";
+import CustomButton from "../../../helperComponents/CustomButton";
+import { BiSend } from "react-icons/bi";
 
 let baseColor = "rgba(144, 132, 249, 0.2)";
 let solidColor = "rgb(104, 91, 220)";
+let solidColorMain = "rgb(104, 91, 220)";
 
-baseColor = "rgba(132, 161, 249, 0.2)";
-solidColor = "rgba(91, 98, 220, 1)";
+baseColor = "rgba(132, 161, 249, 0.1)";
+solidColor = "rgba(91, 98, 220, 0.21)";
+solidColorMain = "rgba(76, 86, 227, 1)";
 
 const Container = styled.div`
   padding: 50px;
@@ -27,6 +31,9 @@ const Container = styled.div`
   transition: 0.25s ease-in-out;
   background: ${baseColor};
   border: 1px solid ${solidColor};
+  /* border: none; */
+  /* box-shadow: none; */
+  /* background: none; */
 
   @media (max-width: 900px) {
     width: 90%;
@@ -48,7 +55,7 @@ const ContainerText = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
 `;
 
 const Button = styled.button`
@@ -88,7 +95,7 @@ const Icon = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  color: ${solidColor};
+  color: ${solidColorMain};
 `;
 
 export default function ContactForm() {
@@ -96,7 +103,7 @@ export default function ContactForm() {
     <Container>
       <ContainerText>
         <Icon>
-          <MdEmail />
+          <MdAlternateEmail />
         </Icon>
         <Description>Send us an email</Description>
       </ContainerText>
@@ -118,12 +125,21 @@ export default function ContactForm() {
           surfaceColor={baseColor}
           borderColor={solidColor}
         />
-        <PrimaryButton
-          style={{ background: solidColor, boxShadow: "unset" }}
+        <CustomButton
+          icon={<BiSend />}
+          textStyle={{ color: solidColorMain }}
+          iconStyle={{ color: solidColorMain }}
+          style={{
+            background: "transparent",
+            border: `1px solid ${solidColor}`,
+            boxShadow: "unset",
+            width: "170px",
+            height: "50px",
+          }}
           type="submit"
         >
           Send
-        </PrimaryButton>
+        </CustomButton>
       </Form>
     </Container>
   );

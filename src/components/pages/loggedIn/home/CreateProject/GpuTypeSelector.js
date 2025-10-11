@@ -14,6 +14,7 @@ export default function GpuTypeSelector({ value, onChange }) {
 
   for (let gpuId in supportedGpuTypes) {
     let item = supportedGpuTypes[gpuId];
+    if (item.disabled) continue;
     items.push(
       <GpuTypeCard
         key={gpuId}

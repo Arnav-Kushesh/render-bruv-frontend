@@ -162,6 +162,7 @@ export default function ManageInstance() {
             setRenderSettings={setRenderSettings}
           />
           <LivePreviewPanel
+            executionData={executionData}
             podId={podId}
             baseUrl={baseUrl}
             refreshExecutionData={refreshExecutionData}

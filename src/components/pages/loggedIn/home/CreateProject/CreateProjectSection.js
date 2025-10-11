@@ -102,7 +102,7 @@ export default function CreateProjectSection() {
 
   const [loading, setLoading] = useState(false);
   const [projectName, setProjectName] = useState("");
-  const [gpuId, setGpuId] = useState("RTX_4090");
+  const [gpuId, setGpuId] = useState(null);
 
   let currentBalance = 0;
 
@@ -158,17 +158,27 @@ export default function CreateProjectSection() {
   );
 
   async function createProject() {
-    setLoading(true);
+    if (!gpuId) return window.popupAlert("Please! select the gpu");
+    if (!projectName) return window.popupAlert("Please! input project name");
+    if (!projectName.length)
+      return window.popupAlert("Please! input project name");
 
-    let data = await serverLine.post("/create-server-instance", {
-      gpuId,
-      projectName,
-    });
+    try {
+      setLoading(true);
 
-    let { serverInstance } = data;
+      let data = await serverLine.post("/create-server-instance", {
+        gpuId,
+        projectName,
+      });
 
-    goTo(`/manage-instance/${serverInstance._id}`)();
+      let { serverInstance } = data;
 
-    setLoading(false);
+      goTo(`/manage-instance/${serverInstance._id}`)();
+
+      setLoading(false);
+    } catch (e) {
+      window.popupAlert(e.message);
+      setLoading(false);
+    }
   }
 }

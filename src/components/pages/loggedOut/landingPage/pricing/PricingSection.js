@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Context from "../../../../../Context";
 // import { useScroll } from "@react-three/drei";
 import { useTransform, useScroll, motion } from "framer-motion";
+import supportedGpuTypes from "../../../../../data/supportedGpuTypes";
 
 const PageWrapper = styled.div`
   /* background: linear-gradient(180deg, #f6f6ff 0%, #eae8ff 100%); */
@@ -141,13 +142,13 @@ const GPUSection = ({ title, gpus }) => (
     </SectionTitle>
     {gpus.map((gpu, idx) => (
       <GPUCard key={idx}>
-        <GPUName>{gpu.name}</GPUName>
+        <GPUName>{gpu.secondaryLabel}</GPUName>
         <GPUInfo>
-          <Tag>{gpu.vram}</Tag>
-          <Tag>{gpu.ram}</Tag>
-          <Tag>{gpu.cpu}</Tag>
+          {gpu.features.map((item) => (
+            <Tag>{item}</Tag>
+          ))}
         </GPUInfo>
-        <Price>{gpu.price}</Price>
+        <Price>${gpu.price / 100} / Hr</Price>
         {/* <ArrowButton>→</ArrowButton> */}
       </GPUCard>
     ))}
@@ -167,34 +168,15 @@ export default function PricingSection() {
     {
       title: "Ampere Architecture - Fast",
       gpus: [
-        {
-          name: "L40S",
-          vram: "48 GB VRAM",
-          ram: "94 GB RAM",
-          cpu: "16 vCPUs",
-          price: "$1.8/hr",
-        },
-        {
-          name: "A40",
-          vram: "180 GB VRAM",
-          ram: "283 GB RAM",
-          cpu: "28 vCPUs",
-          price: "$1.2/hr",
-        },
+        supportedGpuTypes.A40,
+        supportedGpuTypes.L40S,
+        supportedGpuTypes.A100_80GB_PCIE,
       ],
     },
-    {
-      title: "Hopper Architecture - Blazing Fast",
-      gpus: [
-        {
-          name: "H100 PCIe",
-          vram: "80 GB VRAM",
-          ram: "188 GB RAM",
-          cpu: "16 vCPUs",
-          price: "$3.6/hr",
-        },
-      ],
-    },
+    // {
+    //   title: "Hopper Architecture - Blazing Fast",
+    //   gpus: [supportedGpuTypes.H100_PCIE],
+    // },
   ];
 
   return (

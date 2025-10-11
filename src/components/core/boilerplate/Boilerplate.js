@@ -274,7 +274,7 @@ function Boilerplate({ children }) {
       >
         <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_MAPS_KEY}>
           <WithBackground>
-            <CustomSafeArea ref={mainScrollRef}>
+            <CustomSafeArea id="main-scrollable-container" ref={mainScrollRef}>
               {children}
               <DynamicForm setForm={setForm} data={formData} />
             </CustomSafeArea>

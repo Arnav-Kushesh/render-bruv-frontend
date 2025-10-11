@@ -15,7 +15,7 @@ import { MdMoney, MdPayment } from "react-icons/md";
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 30px;
   background: var(--surface);
   border: 1px solid var(--border);
   box-shadow: var(--shadow2);

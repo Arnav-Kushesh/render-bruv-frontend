@@ -5,7 +5,8 @@ export default function scrollToSection(sectionID) {
     goTo("/")();
 
     setTimeout(() => {
-      const papaDiv = document.body;
+      //main-scrollable-container
+      const papaDiv = document.getElementById(`main-scrollable-container`);
       const targetSection = document.getElementById(`${sectionID}`);
 
       if (targetSection) {

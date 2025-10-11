@@ -20,7 +20,7 @@ const PageWrapper = styled.div`
   align-items: flex-start;
   padding: 60px 40px;
   gap: 100px;
-  margin-top: 100px;
+  margin-top: 0px;
 `;
 
 /* Hero Section */
@@ -234,10 +234,10 @@ export default function AboutUs() {
   const { mainScrollRef } = useContext(Context);
   const { scrollY } = useScroll({ container: mainScrollRef });
 
-  const y1 = useTransform(scrollY, [1500, 3000], [0, 1]);
+  const y1 = useTransform(scrollY, [1500, 2700], [0, 1]);
 
   return (
-    <Layer style={{ scale: y1 }}>
+    <Layer id="about-us-section" style={{ scale: y1 }}>
       <PageWrapper>
         <HeaderSection>
           <Header>About Us</Header>

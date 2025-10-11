@@ -1,4 +1,4 @@
-import { useScroll, motion } from "framer-motion";
+import { useScroll, motion, useTransform } from "framer-motion";
 import { useContext, useRef } from "react";
 import styled from "styled-components";
 import ContactForm from "./ContactForm.js";
@@ -63,18 +63,27 @@ const Label = styled.h1`
   text-align: center;
 `;
 
-export default function ContactUs() {
-  const { isMobile } = useContext(Context);
+const Layer = styled(motion.div)``;
 
-  const targetRef = useRef(null);
+export default function ContactUs() {
+  const { mainScrollRef } = useContext(Context);
+  const { scrollY } = useScroll({ container: mainScrollRef });
+
+  const x1 = useTransform(scrollY, [3000, 3600], [-1000, 0]);
+  const x2 = useTransform(scrollY, [3000, 3600], [1000, 0]);
 
   return (
-    <Container>
+    <Container id="contact-section">
       <Label>Contact Us</Label>
 
       <Row>
-        <SquareDecoration />
-        <ContactForm />
+        <Layer style={{ x: x1 }}>
+          <SquareDecoration />{" "}
+        </Layer>
+
+        <Layer style={{ x: x2 }}>
+          <ContactForm />
+        </Layer>
       </Row>
     </Container>
   );

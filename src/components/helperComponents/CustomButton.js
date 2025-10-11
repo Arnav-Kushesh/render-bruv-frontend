@@ -126,8 +126,14 @@ export default function CustomButton({
   if (customVariant == "SMALL_AND_MINIMAL")
     console.log("SMALL_AND_MINIMAL", "additionalStyle", additionalStyle);
 
+  let hoverStyle = null;
+
+  if (style?.width) {
+    hoverStyle = { width: style?.width };
+  }
+
   return (
-    <ScaleOnHover style={{ width: style?.width }}>
+    <ScaleOnHover style={hoverStyle}>
       <Button
         onClick={theClick}
         style={{

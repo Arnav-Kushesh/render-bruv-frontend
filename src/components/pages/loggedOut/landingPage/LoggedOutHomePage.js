@@ -6,6 +6,7 @@ import WhyChooseUs from "./WhyChooseUs";
 import PricingSection from "./pricing/PricingSection";
 import AboutUs from "./AboutUs";
 import ContactUs from "./ContactUs";
+import scrollToSection from "../../../../controllers/scrollToSection";
 
 const PageWrapper = styled.div`
   font-family: "Inter", sans-serif;
@@ -92,11 +93,16 @@ export default function LandingPage() {
             />
 
             <NavLinks>
-              <NavLink>Home</NavLink>
-              <NavLink>About Us</NavLink>
-              <NavLink>Contact Us</NavLink>
-              <NavLink>Pricing</NavLink>
-              <NavLink>FAQ</NavLink>
+              <NavLink> Home</NavLink>
+              <NavLink onClick={scrollToSection("about-us-section")}>
+                About Us
+              </NavLink>
+              <NavLink onClick={scrollToSection("contact-section")}>
+                Contact Us
+              </NavLink>
+              <NavLink onClick={scrollToSection("pricing-section")}>
+                Pricing
+              </NavLink>
             </NavLinks>
           </Navbar>
 

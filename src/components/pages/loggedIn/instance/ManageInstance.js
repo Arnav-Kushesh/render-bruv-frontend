@@ -64,6 +64,25 @@ export default function ManageInstance() {
     rangeStart: 1,
     rangeEnd: 100,
   });
+  const [timePassed, setTimePassed] = useState(0);
+
+  console.log(timePassed);
+
+  useEffect(() => {
+    if (window.timePassedInterval)
+      window.clearInterval(window.timePassedInterval);
+
+    window.timePassedInterval = window.setInterval(() => {
+      setTimePassed((data) => {
+        return data + 10;
+      });
+    }, 10000);
+
+    return () => {
+      if (window.timePassedInterval)
+        window.clearInterval(window.timePassedInterval);
+    };
+  }, []);
 
   let baseUrl = data
     ? generateBaseUrlForInstance(data?.serverInstance?.podId)
@@ -127,6 +146,25 @@ export default function ManageInstance() {
         core = getPodNotAssignedUi();
       }
     }
+  }
+
+  let maxWaitTimeInMinutes = 6;
+
+  if (
+    timePassed > maxWaitTimeInMinutes * 60 &&
+    !serverIsReady &&
+    data?.serverInstance?.status == "RUNNING"
+  ) {
+    return (
+      <InstanceLastSection
+        message={
+          "This server has driver issues. Please! delete this server and make a new one."
+        }
+        loadData={loadData}
+        podId={data?.serverInstance?.podId}
+        itemId={data.serverInstance._id}
+      />
+    );
   }
 
   return (

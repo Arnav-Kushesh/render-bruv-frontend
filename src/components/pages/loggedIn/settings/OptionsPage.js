@@ -64,7 +64,7 @@ export default function OptionsPage() {
     }
   }
 
-  let btnStyle = { width: "100%" };
+  let btnStyle = { width: "218px" };
 
   return (
     <LoggedInBoilerplate

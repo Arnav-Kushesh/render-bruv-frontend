@@ -162,7 +162,7 @@ export default function PricingSection() {
   const { scrollY } = useScroll({ container: mainScrollRef });
 
   const y1 = useTransform(scrollY, [1000, 2000], [0, 1]);
-  const y2 = useTransform(scrollY, [1000, 2000], [-100, 0]);
+  const y2 = useTransform(scrollY, [1000, 2000], [-800, 0]);
 
   const gpuGroups = [
     {
@@ -180,7 +180,7 @@ export default function PricingSection() {
   ];
 
   return (
-    <PageWrapper>
+    <PageWrapper id="pricing-section">
       <Layer style={{ x: y2 }}>
         <HeaderSection>
           <Header>GPU Cloud Pricing</Header>

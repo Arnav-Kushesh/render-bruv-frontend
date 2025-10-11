@@ -92,7 +92,7 @@ const Center = styled.div`
 `;
 const WhyChooseUs = () => {
   return (
-    <Center>
+    <Center id="why-choose-us-section">
       <SecondaryVerticalSection />
       <WhyChooseUsCards />
       {/* <SecondaryVerticalSection /> */}

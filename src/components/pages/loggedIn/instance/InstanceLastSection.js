@@ -10,6 +10,7 @@ import LoadingSection from "../../../helperComponents/LoadingSection";
 import { serverLine } from "../../../../controllers/network/serverLine";
 import { RiIndeterminateCircleLine } from "react-icons/ri";
 import terminateSocketConnection from "./controllers/terminateSocketConnection";
+import CustomLabelSmall from "../../../applicationUI/customLabel/CustomLabelSmall";
 
 const Container = styled.div`
   display: flex;
@@ -56,7 +57,12 @@ const CustomInput = styled.input`
   font-size: 15px;
 `;
 
-export default function InstanceLastSection({ itemId, loadData, podId }) {
+export default function InstanceLastSection({
+  itemId,
+  loadData,
+  podId,
+  message,
+}) {
   const { updateLoggedInUser, loggedInUser, isMobile } = useContext(Context);
 
   const [loading, setLoading] = useState("");
@@ -72,6 +78,8 @@ export default function InstanceLastSection({ itemId, loadData, podId }) {
   return (
     <Container>
       <CustomLabel>Terminate Instance</CustomLabel>
+
+      {message && <CustomLabelSmall>{message}</CustomLabelSmall>}
 
       <CustomPrimaryButton
         onClick={terminateInstance}

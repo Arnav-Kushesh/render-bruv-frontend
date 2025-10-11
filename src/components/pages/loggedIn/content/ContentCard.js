@@ -73,8 +73,10 @@ const OpenProfileButton = styled.img`
   cursor: pointer;
 `;
 
-export default function ContentCard({ data, forReportPurposes }) {
+export default function ContentCard({ item, forReportPurposes }) {
   const { setForm } = useContext(Context);
+
+  let data = item;
 
   let bubbleLine = [
     {

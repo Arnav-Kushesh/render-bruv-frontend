@@ -24,7 +24,7 @@ const Button = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  background: var(--surface);
+  background: var(--surface2);
   user-select: none;
 
   &:hover {

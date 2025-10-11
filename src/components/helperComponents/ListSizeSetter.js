@@ -40,8 +40,9 @@ const SizeButton = styled.button`
   font-size: 13px;
   border-radius: 25px;
   background-color: ${({ active }) =>
-    active ? "var(--element)" : "var(--surface)"};
-  color: ${({ active }) => (active ? "var(--surfaceSolid)" : "var(--element)")};
+    active ? "var(--activeSurface2)" : "var(--surface)"};
+  color: ${({ active }) =>
+    active ? "var(--activeElement2)" : "var(--element)"};
 
   cursor: pointer;
   transition: background-color 0.2s ease;

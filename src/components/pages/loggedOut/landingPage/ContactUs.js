@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ContactForm from "./ContactForm.js";
 import InputCard from "../../../helperComponents/InputCard.js";
 import Context from "../../../../Context.js";
+import SquareDecoration from "./SquareDecoration.js";
 
 let canvasDimension = 1000;
 
@@ -16,7 +17,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70vw;
+  width: 100%;
+  margin-top: 150px;
+  gap: 50px;
 
   @media (max-width: 900px) {
     width: 90vw;
@@ -32,7 +35,9 @@ const Row = styled.div`
   flex-direction: row;
   justify-content: center;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 40px;
+  align-items: center;
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -50,42 +55,27 @@ const Img = styled.img`
   }
 `;
 
-export default function ContactUs({ containerRef }) {
+const Label = styled.h1`
+  font-size: 35px;
+  font-weight: 600;
+  font-family: "Montserrat", serif;
+  color: #030b23ff;
+  text-align: center;
+`;
+
+export default function ContactUs() {
   const { isMobile } = useContext(Context);
 
   const targetRef = useRef(null);
 
-  const textAnimation = useScroll({
-    container: containerRef,
-    target: targetRef,
-    offset: ["0.1 1", "0.4 1"],
-  });
-
   return (
-    <Container
-      id="contact-us"
-      ref={targetRef}
-      style={{
-        display: "flex",
-      }}
-    >
-      <motion.div
-        style={{
-          scale: textAnimation.scrollYProgress,
-          width: "100%",
-        }}
-      >
-        <Row>
-          <Img src="/hero/2.jpg" />
+    <Container>
+      <Label>Contact Us</Label>
 
-          <InputCard
-            style={{ width: isMobile ? "100%" : "600px", padding: "20px 5px" }}
-            title={"Contact Us"}
-          >
-            <ContactForm />
-          </InputCard>
-        </Row>
-      </motion.div>
+      <Row>
+        <SquareDecoration />
+        <ContactForm />
+      </Row>
     </Container>
   );
 }

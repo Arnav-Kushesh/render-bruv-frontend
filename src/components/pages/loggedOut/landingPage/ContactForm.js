@@ -1,12 +1,32 @@
 import styled from "styled-components";
 import MaterialInput from "../../../helperComponents/MaterialInput";
+import PrimaryButton from "../../../helperComponents/PrimaryButton";
+import { MdEmail } from "react-icons/md";
+
+let baseColor = "rgba(144, 132, 249, 0.2)";
+let solidColor = "rgb(104, 91, 220)";
+
+baseColor = "rgba(132, 161, 249, 0.2)";
+solidColor = "rgba(91, 98, 220, 1)";
 
 const Container = styled.div`
+  padding: 50px;
+  width: 700px;
+  height: 700px;
+
   display: flex;
+  border-radius: 26px;
   flex-direction: column;
-  gap: 50px;
-  width: 30vw;
-  z-index: 555;
+  gap: 20px;
+
+  box-shadow: 0 2px 0 0 #1c79dd2a;
+  background: linear-gradient(154deg, #3a22ac29, #1f6dea29, #2b06ba8c);
+  background: #214b782a;
+  border: 1px solid #1c79dd2a;
+  box-shadow: none;
+  transition: 0.25s ease-in-out;
+  background: ${baseColor};
+  border: 1px solid ${solidColor};
 
   @media (max-width: 900px) {
     width: 90%;
@@ -16,9 +36,9 @@ const Container = styled.div`
 
 const ContainerText = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  width: 30vw;
+  flex-direction: row;
+  gap: 7px;
+  /* width: 30vw; */
 
   @media (max-width: 900px) {
     width: 100%;
@@ -57,31 +77,53 @@ const Button = styled.button`
 const Description = styled.div`
   opacity: 0.7;
   font-size: 18px;
+  font-size: 19px;
+  font-weight: 600;
+  font-family: "Montserrat", serif;
+  color: #01010fff;
+`;
+
+const Icon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: ${solidColor};
 `;
 
 export default function ContactForm() {
   return (
     <Container>
       <ContainerText>
-        <Description>Contact Us</Description>
+        <Icon>
+          <MdEmail />
+        </Icon>
+        <Description>Send us an email</Description>
       </ContainerText>
 
       <Form action="https://formspree.io/f/xpwarjwk" method="POST">
         <MaterialInput
           label={"Your Email"}
           variant="filled"
-          // placeholder={"Type your email here"}
           type="email"
           name="email"
+          surfaceColor={baseColor}
+          borderColor={solidColor}
         />
         <MaterialInput
           label={"Message"}
           multiline={true}
-          rows={4}
-          // label="Type your message here."
+          rows={12}
           name="message"
+          surfaceColor={baseColor}
+          borderColor={solidColor}
         />
-        <Button type="submit">Send</Button>
+        <PrimaryButton
+          style={{ background: solidColor, boxShadow: "unset" }}
+          type="submit"
+        >
+          Send
+        </PrimaryButton>
       </Form>
     </Container>
   );

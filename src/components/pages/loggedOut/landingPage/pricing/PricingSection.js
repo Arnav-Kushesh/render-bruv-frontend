@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
+import Context from "../../../../../Context";
+// import { useScroll } from "@react-three/drei";
+import { useTransform, useScroll, motion } from "framer-motion";
 
 const PageWrapper = styled.div`
   /* background: linear-gradient(180deg, #f6f6ff 0%, #eae8ff 100%); */
@@ -151,7 +154,15 @@ const GPUSection = ({ title, gpus }) => (
   </GpuSectionContainer>
 );
 
+const Layer = styled(motion.div)``;
+
 export default function PricingSection() {
+  const { mainScrollRef } = useContext(Context);
+  const { scrollY } = useScroll({ container: mainScrollRef });
+
+  const y1 = useTransform(scrollY, [1000, 2000], [0, 1]);
+  const y2 = useTransform(scrollY, [1000, 2000], [-100, 0]);
+
   const gpuGroups = [
     {
       title: "Ampere Architecture - Fast",
@@ -188,17 +199,21 @@ export default function PricingSection() {
 
   return (
     <PageWrapper>
-      <HeaderSection>
-        <Header>GPU Cloud Pricing</Header>
-        <SubText>
-          Simple, transparent pricing plans for teams of all sizes.
-        </SubText>
-      </HeaderSection>
+      <Layer style={{ x: y2 }}>
+        <HeaderSection>
+          <Header>GPU Cloud Pricing</Header>
+          <SubText>
+            Simple, transparent pricing plans for teams of all sizes.
+          </SubText>
+        </HeaderSection>
+      </Layer>
 
       <TableWrapper>
-        {gpuGroups.map((section, i) => (
-          <GPUSection key={i} title={section.title} gpus={section.gpus} />
-        ))}
+        <Layer style={{ scale: y1, width: "100%" }}>
+          {gpuGroups.map((section, i) => (
+            <GPUSection key={i} title={section.title} gpus={section.gpus} />
+          ))}
+        </Layer>
       </TableWrapper>
     </PageWrapper>
   );

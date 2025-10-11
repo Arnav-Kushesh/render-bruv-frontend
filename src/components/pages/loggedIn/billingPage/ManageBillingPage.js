@@ -90,9 +90,9 @@ export default function ManageBillingPage() {
               <StatAggregator
                 processAmount={(data) => data / 100}
                 userId={loggedInUser._id}
-                viewMode={"USER_INSTANCE_USAGE_IN_CENTS"}
+                viewMode={"BAR_GRAPH"}
                 hideTitleSection={true}
-                typeOverride={"REVENUE"}
+                typeOverride={"USER_INSTANCE_USAGE_IN_CENTS"}
                 durationTypeOverride={"DATE"}
               />
             </ElevatedSection>
@@ -102,9 +102,9 @@ export default function ManageBillingPage() {
               <StatAggregator
                 processAmount={(data) => data / 100}
                 userId={loggedInUser._id}
-                viewMode={"USER_INSTANCE_USAGE_IN_CENTS"}
+                viewMode={"BAR_GRAPH"}
                 hideTitleSection={true}
-                typeOverride={"REVENUE"}
+                typeOverride={"USER_INSTANCE_USAGE_IN_CENTS"}
                 durationTypeOverride={"MONTH"}
               />
             </ElevatedSection>

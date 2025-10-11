@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import HeroSection from "./HeroSection";
 import AnimatedPageVertical from "../../loggedIn/AnimatedPageVertical";
 import WhyChooseUs from "./WhyChooseUs";
+import PricingSection from "./pricing/PricingSection";
 
 const PageWrapper = styled.div`
   font-family: "Inter", sans-serif;
@@ -102,6 +103,8 @@ export default function LandingPage() {
           <HeroSection />
 
           <WhyChooseUs />
+
+          <PricingSection />
         </WideContainer>
 
         <Footer />

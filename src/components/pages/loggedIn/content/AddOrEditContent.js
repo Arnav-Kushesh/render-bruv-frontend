@@ -185,7 +185,7 @@ export default function AddOrEditContent({}) {
               />
             </Row>
           </InputItems>
-
+          {/* 
           <InputItems>
             <Row>
               <DropDownInput
@@ -195,7 +195,7 @@ export default function AddOrEditContent({}) {
                 onChange={updateField("purpose", true)}
               />
             </Row>
-          </InputItems>
+          </InputItems> */}
 
           <br />
           <Buttons>

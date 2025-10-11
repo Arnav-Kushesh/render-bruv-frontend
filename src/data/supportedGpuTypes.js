@@ -11,12 +11,14 @@ let supportedGpuTypes = {
     price: 180,
     label: "Super Fast",
     secondaryLabel: "RTX 5090",
+    features: ["32 GB VRAM", "35 GB RAM", "9vCPUs"],
   },
   RTX_4090: {
     runpodId: "NVIDIA GeForce RTX 4090",
     price: 120,
     label: "Fast",
     secondaryLabel: "RTX 4090",
+    features: ["24 GB VRAM", "41 GB RAM", "6vCPUs"],
   },
   //   RTX_3090: { runpodId: "NVIDIA GeForce RTX 3090", pricing: 120 },
 };

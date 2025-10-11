@@ -187,9 +187,9 @@ const WhyChooseUsCards = () => {
   const { scrollY } = useScroll({ container: mainScrollRef });
 
   // Define transforms for different layers
-  const y1 = useTransform(scrollY, [400, 1000], [0, 1]); // Far layer
-  const y2 = useTransform(scrollY, [400, 1100], [0, 1]); // Mid layer
-  const y3 = useTransform(scrollY, [400, 1200], [0, 1]); // Front layer
+  const y1 = useTransform(scrollY, [400, 800], [0, 1]); // Far layer
+  const y2 = useTransform(scrollY, [400, 1000], [0, 1]); // Mid layer
+  const y3 = useTransform(scrollY, [400, 1300], [0, 1]); // Front layer
 
   return (
     <InfoSection>

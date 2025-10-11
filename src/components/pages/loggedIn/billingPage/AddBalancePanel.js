@@ -92,13 +92,6 @@ export default function AddBalancePanel() {
   const [customAmount, setCustomAmount] = useState(0);
   const [loading, setLoading] = useState(false);
 
-  if (loading)
-    return (
-      <Container>
-        <LoadingSection />
-      </Container>
-    );
-
   return (
     <ElevatedSection>
       <CustomLabel>Add Balance</CustomLabel>
@@ -116,19 +109,23 @@ export default function AddBalancePanel() {
         </Section>
       </Inputs>
 
-      <CustomPrimaryButton
-        onClick={makePayment}
-        style={{
-          width: "180px",
-          height: "50px",
-          padding: "0",
-          borderRadius: "25px",
-          gap: "25px",
-        }}
-      >
-        Pay
-        <MdPayment />
-      </CustomPrimaryButton>
+      {loading ? (
+        <LoadingSection />
+      ) : (
+        <CustomPrimaryButton
+          onClick={makePayment}
+          style={{
+            width: "180px",
+            height: "50px",
+            padding: "0",
+            borderRadius: "25px",
+            gap: "25px",
+          }}
+        >
+          Pay
+          <MdPayment />
+        </CustomPrimaryButton>
+      )}
     </ElevatedSection>
   );
 
